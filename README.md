@@ -5,7 +5,8 @@
 <h1 align="center">
 Vitalize
 <br>
-<a href="https://travis-ci.org/haleks/vitalize" target="_blank"><img src="https://img.shields.io/travis/haleks/vitalize/master.svg?style=flat-square" alt="travic ci"></a><a href="https://github.com/haleks/vitalize/releases" target="_blank"><img src="https://img.shields.io/github/release/haleks/vitalize.svg?style=flat-square" alt="latest release"></a>
+<a href="https://travis-ci.org/haleks/vitalize" target="_blank"><img src="https://img.shields.io/travis/haleks/vitalize/master.svg?style=flat-square" alt="travic ci"></a>
+<a href="https://github.com/haleks/vitalize/releases" target="_blank"><img src="https://img.shields.io/github/release/haleks/vitalize.svg?style=flat-square" alt="latest release"></a>
 <a href="LISCENCE" target="_blank"><img src="https://img.shields.io/badge/license-MIT-ff4c00.svg?style=flat-square" alt="liscense"></a>
 </h1>
 
