@@ -16,7 +16,7 @@ $vitalize-components: () !default;
 
     // Check if a module is already on the list
     $module_index: index($vitalize-components, $name);
-    @if (($module_index == null) or ($module_index == false)) {
+    @if $module_index == null or $module_index == false {
         $vitalize-components: append($vitalize-components, $name) !global;
         @content;
     }
