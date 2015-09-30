@@ -26,11 +26,8 @@ elixir(function(mix) {
 
 // Test only when not production
 if(config.production == false) {
-    // Change configuration for testing purposes.
-    config.sourcemaps = false;
-
     elixir(function(mix) {
-        mix.sass('./tests/tests.scss', './tests/tests-results.css', { includePaths: ['scss', 'tests', 'bower_components/true/sass'] })
+        mix.sass('./tests/tests.scss', './tests/results.css', { includePaths: ['scss', 'tests', 'bower_components/true/sass'] })
            .mocha('./tests/tests.js')
     });
 }
