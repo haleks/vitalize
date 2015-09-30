@@ -228,13 +228,9 @@ Demo of animations components can be found on Dan Eden's website at  [http://dan
 |-----------------------|--------------------------|
 | Fade In               | `.fade-in`               |
 | Fade In Down          | `.fade-in-down`          |
-| Fade In Down Big      | `.fade-in-down-big`      |
 | Fade In Left          | `.fade-in-left`          |
-| Fade In Left Big      | `.fade-in-left-big`      |
 | Fade In Right         | `.fade-in-right`         |
-| Fade In Right Big     | `.fade-in-right-big`     |
 | Fade In Up            | `.fade-in-up`            |
-| Fade In Up Big        | `.fade-in-up-big`        |
 
 #### Fading Exits
 
@@ -242,13 +238,9 @@ Demo of animations components can be found on Dan Eden's website at  [http://dan
 |-----------------------|--------------------------|
 | Fade Out              | `.fade-out`              |
 | Fade Out Down         | `.fade-out-down`         |
-| Fade Out Down Big     | `.fade-out-down-big`     |
 | Fade Out Left         | `.fade-out-left`         |
-| Fade Out Left Big     | `.fade-out-left-big`     |
 | Fade Out Right        | `.fade-out-right`        |
-| Fade Out Right Big    | `.fade-out-right-big`    |
 | Fade Out Up           | `.fade-out-up`           |
-| Fade Out Up Big       | `.fade-out-up-big`       |
 
 #### Flippers
 
