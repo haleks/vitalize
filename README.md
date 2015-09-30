@@ -3,14 +3,14 @@
 </p>
 
 <h1 align="center">
-Vitalize
+vitalize
 <br>
 <a href="https://travis-ci.org/haleks/vitalize" target="_blank"><img src="https://img.shields.io/travis/haleks/vitalize/master.svg?style=flat-square" alt="travic ci"></a>
 <a href="https://github.com/haleks/vitalize/releases" target="_blank"><img src="https://img.shields.io/github/release/haleks/vitalize.svg?style=flat-square" alt="latest release"></a>
 <a href="LISCENCE" target="_blank"><img src="https://img.shields.io/badge/license-MIT-ff4c00.svg?style=flat-square" alt="liscense"></a>
 </h1>
 
-A flexible cross-browser library of CSS keyframe animations built with Sass. Components based on Dan Eden's [Animate.css](https://github.com/daneden/animate.css).
+A flexible cross-browser library of CSS keyframe animations built with Sass. Components based on Dan Eden's [Animate.css](https://github.com/vitalize/animate.css).
 
 
 ## Documentation
@@ -186,7 +186,7 @@ $options: (
 
 #### Components
 
-Demo of animations components can be found on Dan Eden's website at  [http://daneden.github.io/vitalize.css](http://daneden.github.io/vitalize.css).
+Demo of animations components can be found on Dan Eden's website at  [http://vitalize.github.io/vitalize.css](http://daneden.github.io/animate.css).
 
 #### Attentions Seekers
 
