@@ -3,7 +3,7 @@
 </p>
 
 <h1 align="center">
-vitalize
+Vitalize
 <br>
 <a href="https://travis-ci.org/haleks/vitalize" target="_blank"><img src="https://img.shields.io/travis/haleks/vitalize/master.svg?style=flat-square" alt="travic ci"></a>
 <a href="https://github.com/haleks/vitalize/releases" target="_blank"><img src="https://img.shields.io/github/release/haleks/vitalize.svg?style=flat-square" alt="latest release"></a>
