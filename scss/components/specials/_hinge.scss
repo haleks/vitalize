@@ -1,0 +1,81 @@
+// Haleks — Vitalize
+// https://haleks.ca
+// Licensed under MIT Open Source
+
+
+// Hinge
+// =====
+@import '../../core/global';
+@import 'specials';
+
+// Class
+// -----
+$vitalize-include-hinge-class: $vitalize-include-specials-class !default;
+
+// Properties
+// ----------
+$vitalize-hinge-properties: $vitalize-default-properties !default;
+$vitalize-hinge-properties: map-extend($vitalize-default-properties, $vitalize-hinge-properties, true);
+
+// Extensions
+// ----------
+$vitalize-hinge-extensions: $vitalize-default-extensions !default;
+$vitalize-hinge-extensions: map-extend($vitalize-default-extensions, $vitalize-hinge-extensions, true);
+
+// Options
+// -------
+$vitalize-hinge-end: 700px !default;
+$vitalize-hinge-degree: 80deg !default;
+$vitalize-hinge-reverse: false !default;
+
+// Hinge
+// ------
+// - The hinge animation mixins
+// - @param map $options
+@mixin hinge($options: ()) {
+	$options: map-extend(('end': $vitalize-hinge-end, 'degree': $vitalize-hinge-degree, 'reverse': $vitalize-hinge-reverse, 'properties': $vitalize-hinge-properties, 'extensions': $vitalize-hinge-extensions), $options, true);
+	$reverse: map-get($options, 'reverse');
+	$end: map-get($options, 'end');
+	$degree: if($reverse, -(map-get($options, 'degree')), map-get($options, 'degree'));
+	$transform: if($reverse, top right, top left);
+	$name: 'hinge-#{$end}-#{$degree}';
+
+	@include animation-set($name, $options) {
+		0% {
+			transform-origin: $transform;
+			animation-timing-function: ease-in-out;
+		}
+
+		20%, 60% {
+			transform: rotate3d(0, 0, 1, $degree);
+			transform-origin: $transform;
+			animation-timing-function: ease-in-out;
+		}
+
+		40%, 80% {
+			transform: rotate3d(0, 0, 1, $degree * .75);
+			transform-origin: $transform;
+			animation-timing-function: ease-in-out;
+			opacity: 1;
+		}
+
+		to {
+			transform: translate3d(0, $end, 0);
+			opacity: 0;
+		}
+	}
+}
+
+// Export
+// ------
+@include exports('hinge') {
+	@if $vitalize-include-hinge-class {
+		.hinge {
+			@include hinge();
+		}
+
+		.hinge-reverse {
+			@include hinge(('reverse': true));
+		}
+	}
+}

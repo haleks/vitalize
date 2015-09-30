@@ -1,0 +1,67 @@
+// Haleks — Vitalize
+// https://haleks.ca
+// Licensed under MIT Open Source
+
+
+// Roll Out Left
+// =============
+@import '../../core/global';
+@import 'rolling-exits';
+
+// Class
+// -----
+$vitalize-include-roll-out-right-class: $vitalize-include-rolling-exits-class !default;
+
+// Properties
+// ----------
+$vitalize-roll-out-right-properties: $vitalize-default-properties !default;
+$vitalize-roll-out-right-properties: map-extend($vitalize-default-properties, $vitalize-roll-out-right-properties, true);
+
+// Extensions
+// ----------
+$vitalize-roll-out-right-extensions: $vitalize-default-extensions !default;
+$vitalize-roll-out-right-extensions: map-extend($vitalize-default-extensions, $vitalize-roll-out-right-extensions, true);
+
+// Options
+// -------
+$vitalize-roll-out-right-end: 100% !default;
+$vitalize-roll-out-right-degree: 120deg !default;
+$vitalize-roll-out-right-reverse: false !default;
+
+// Roll Out Left
+// -------------
+// - The roll out right animation mixins
+// - @param map $options
+@mixin roll-out-right($options: ()) {
+	$options: map-extend(('end': $vitalize-roll-out-right-end, 'degree': $vitalize-roll-out-right-degree, 'reverse': $vitalize-roll-out-right-reverse, 'properties': $vitalize-roll-out-right-properties, 'extensions': $vitalize-roll-out-right-extensions), $options, true);
+	$reverse: map-get($options, 'reverse');
+	$end: map-get($options, 'end');
+	$degree: if($reverse, map-get($options, 'degree'), -(map-get($options, 'degree')));
+	$name: 'roll-out-right-#{$end}-#{$degree}';
+
+	@include animation-set($name, $options) {
+		from {
+			opacity: 1;
+			transform: none;
+		}
+
+		to {
+			opacity: 0;
+			transform: translate3d($end, 0, 0) rotate3d(0, 0, 1, $degree);
+		}
+	}
+}
+
+// Export
+// ------
+@include exports('roll-out-right') {
+	@if $vitalize-include-roll-out-right-class {
+		.roll-out-right {
+			@include roll-out-right();
+		}
+
+		.roll-out-right-reverse {
+			@include roll-out-right(('reverse': true));
+		}
+	}
+}

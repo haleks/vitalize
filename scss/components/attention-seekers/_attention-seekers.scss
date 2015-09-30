@@ -1,0 +1,21 @@
+// Haleks — Vitalize
+// https://haleks.ca
+// Licensed under MIT Open Source
+
+
+// Attention Seekers
+// =================
+
+// Class
+// -----
+$vitalize-include-attention-seekers-class: $vitalize-include-class !default;
+
+// Properties
+// ----------
+$vitalize-attention-seekers-properties: $vitalize-default-properties !default;
+$vitalize-attention-seekers-properties: map-extend($vitalize-default-properties, $vitalize-attention-seekers-properties, true);
+
+// Extensions
+// ----------
+$vitalize-attention-seekers-extensions: $vitalize-default-extensions !default;
+$vitalize-attention-seekers-extensions: map-extend($vitalize-default-extensions, $vitalize-attention-seekers-extensions, true);

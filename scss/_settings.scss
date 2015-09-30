@@ -1,0 +1,1101 @@
+// Haleks — Vitalize
+// https://haleks.ca
+// Licensed under MIT Open Source
+
+
+// Global
+// ======
+
+// Default value used as include for every animations unless otherwise specified.
+// Set to false if you wish to only use the mixins
+// or include specific animations classes using the .
+// $vitalize-include-class: true;
+
+// Default properties used for all animations.
+// If you need to change the properties for only a certain
+// animation use the respective $vitalize-{animation name}-properties.
+// Example: (
+// 		'count': 1,
+//		'delay': 0s
+// );
+// $vitalize-default-properties: ();
+
+// Default extensions used for all animations.
+// If you need to change the extensions for only a certain
+// animation use the respective $vitalize-{animation name}-extensions.
+// Example: (
+// 		'delay': (
+// 			'500ms': 500ms,
+// 			'one-second': 1s
+// 		)
+// );
+// Returns .{animation name}.delay-500ms and .{animation name}.delay-one-second
+// with their respective values given.
+// $vitalize-default-extensions: ();
+
+
+// Attention Seekers
+// =================
+
+// Include the group animations class.
+// $vitalize-include-attention-seekers-class: $vitalize-include-class;
+
+// Set the the group animations properties and extensions.
+// $vitalize-attention-seekers-properties: $vitalize-default-properties;
+// $vitalize-attention-seekers-extensions: $vitalize-default-extensions;
+
+// Bounce
+// ------
+
+// Include the animation class.
+// $vitalize-include-bounce-class: $vitalize-include-attention-seekers-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-bounce-properties: $vitalize-attention-seekers-properties
+// $vitalize-bounce-extensions: $vitalize-attention-seekers-extensions;
+
+// Set the bounce height.
+// $vitalize-bounce-height: 30px;
+
+// Flash
+// -----
+
+// Include the animation class.
+// $vitalize-include-flash-class: $vitalize-include-attention-seekers-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-flash-properties: $vitalize-attention-seekers-properties
+// $vitalize-flash-extensions: $vitalize-attention-seekers-extensions;
+
+// Set the flash opacity max and min.
+// $vitalize-flash-opacity-max: 1;
+// $vitalize-flash-opacity-min: 0;
+
+// Jello
+// -----
+
+// Include the animation class.
+// $vitalize-include-jello-class: $vitalize-include-attention-seekers-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-jello-properties: $vitalize-attention-seekers-properties
+// $vitalize-jello-extensions: $vitalize-attention-seekers-extensions;
+
+// Pulse
+// -----
+
+// Include the animation class.
+// $vitalize-include-pulse-class: $vitalize-include-attention-seekers-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-pulse-properties: $vitalize-attention-seekers-properties
+// $vitalize-pulse-extensions: $vitalize-attention-seekers-extensions;
+
+// Set the pulse scale.
+// $vitalize-pulse-scale: 1.1;
+
+// Rubber Band
+// -----------
+
+// Include the animation class.
+// $vitalize-include-rubber-band-class: $vitalize-include-attention-seekers-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-rubber-band-properties: $vitalize-attention-seekers-properties
+// $vitalize-rubber-band-extensions: $vitalize-attention-seekers-extensions;
+
+// Set the rubber band initial strecth.
+// $vitalize-rubber-band-stretch: 1.25;
+
+// Shake
+// -----
+
+// Include the animation class.
+// $vitalize-include-shake-class: $vitalize-include-attention-seekers-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-shake-properties: $vitalize-attention-seekers-properties
+// $vitalize-shake-extensions: $vitalize-attention-seekers-extensions;
+
+// Set the shake size.
+// $vitalize-shake-size: 10px;
+
+// Swing
+// -----
+
+// Include the animation class.
+// $vitalize-include-swing-class: $vitalize-include-attention-seekers-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-swing-properties: $vitalize-attention-seekers-properties
+// $vitalize-swing-extensions: $vitalize-attention-seekers-extensions;
+
+// Set the swing degree.
+// $vitalize-swing-degree: 15deg;
+
+// Tada
+// ----
+
+// Include the animation class.
+// $vitalize-include-tada-class: $vitalize-include-attention-seekers-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-tada-properties: $vitalize-attention-seekers-properties
+// $vitalize-tada-extensions: $vitalize-attention-seekers-extensions;
+
+// Set the tada scale and rotation.
+// $vitalize-tada-scale: 1.1;
+// $vitalize-tada-rotation: 3deg;
+
+// Wobble
+// ------
+
+// Include the animation class.
+// $vitalize-include-wobble-class: $vitalize-include-attention-seekers-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-wobble-properties: $vitalize-attention-seekers-properties
+// $vitalize-wobble-extensions: $vitalize-attention-seekers-extensions;
+
+// Set the wobble translation and degree.
+// $vitalize-wobble-translate: 25%;
+// $vitalize-wobble-degree: 5deg;
+
+
+// Bouncing Entrances
+// ==================
+
+// Include the group animations class.
+// $vitalize-include-bouncing-entrances-class: $vitalize-include-class;
+
+// Set the group animation default properties and extensions.
+// $vitalize-bouncing-entrances-properties: $vitalize-default-properties;
+// $vitalize-bouncing-entrances-extensions: $vitalize-default-extensions;
+
+// Bounce In Down
+// --------------
+
+// Include the animation class.
+// $vitalize-include-bounce-in-down-class: $vitalize-include-bouncing-entrances-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-bounce-in-down-properties: $vitalize-bouncing-entrances-properties;
+// $vitalize-bounce-in-down-extensions: $vitalize-bouncing-entrances-extensions;
+
+// Set the bounce in down start height.
+// $vitalize-bounce-in-down-start: 3000px;
+
+// Bounce In Left
+// --------------
+
+// Include the animation class.
+// $vitalize-include-bounce-in-left-class: $vitalize-include-bouncing-entrances-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-bounce-in-left-properties: $vitalize-bouncing-entrances-properties;
+// $vitalize-bounce-in-left-extensions: $vitalize-bouncing-entrances-extensions;
+
+// Set the bounce in left start width.
+// $vitalize-bounce-in-left-start: 3000px;
+
+// Bounce In Right
+// ---------------
+
+// Include the animation class.
+// $vitalize-include-bounce-in-right-class: $vitalize-include-bouncing-entrances-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-bounce-in-right-properties: $vitalize-bouncing-entrances-properties;
+// $vitalize-bounce-in-right-extensions: $vitalize-bouncing-entrances-extensions;
+
+// Set the bounce in right start width.
+// $vitalize-bounce-in-right-start: 3000px;
+
+// Bounce In Up
+// ------------
+
+// Include the animation class.
+// $vitalize-include-bounce-in-up-class: $vitalize-include-bouncing-entrances-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-bounce-in-up-properties: $vitalize-bouncing-entrances-properties;
+// $vitalize-bounce-in-up-extensions: $vitalize-bouncing-entrances-extensions;
+
+// Set the bounce in up start height.
+// $vitalize-bounce-in-up-start: 3000px;
+
+// Bounce In
+// ---------
+
+// Include the animation class.
+// $vitalize-include-bounce-in-class: $vitalize-include-bouncing-entrances-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-bounce-in-properties: $vitalize-bouncing-entrances-properties;
+// $vitalize-bounce-in-extensions: $vitalize-bouncing-entrances-extensions;
+
+// Set the bounce in scale.
+// $vitalize-bounce-in-scale: 1.125;
+
+
+// Bouncing Exits
+// ==============
+
+// Include the group animations class.
+// $vitalize-include-bouncing-exits-class: $vitalize-include-class;
+
+// Set the group animation default properties and extensions.
+// $vitalize-bouncing-exits-properties: $vitalize-default-properties;
+// $vitalize-bouncing-exits-extensions: $vitalize-default-extensions;
+
+// Bounce Out Down
+// ---------------
+
+// Include the animation class.
+// $vitalize-include-bounce-out-down-class: $vitalize-include-bouncing-exits-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-bounce-out-down-properties: $vitalize-bouncing-exits-extensions;
+// $vitalize-bounce-out-down-extensions: $vitalize-bouncing-exits-extensions;
+
+// Set the bounce out down end height.
+// $vitalize-bounce-out-down-end: 3000px;
+
+// Bounce Out Left
+// ---------------
+
+// Include the animation class.
+// $vitalize-include-bounce-out-left-class: $vitalize-include-bouncing-exits-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-bounce-out-left-properties: $vitalize-bouncing-exits-extensions;
+// $vitalize-bounce-out-left-extensions: $vitalize-bouncing-exits-extensions;
+
+// Set the bounce out left end width.
+// $vitalize-bounce-out-left-end: 3000px;
+
+// Bounce Out Right
+// ----------------
+
+// Include the animation class.
+// $vitalize-include-bounce-out-right-class: $vitalize-include-bouncing-exits-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-bounce-out-right-properties: $vitalize-bouncing-exits-extensions;
+// $vitalize-bounce-out-right-extensions: $vitalize-bouncing-exits-extensions;
+
+// Set the bounce out right end width.
+// $vitalize-bounce-out-right-end: 3000px;
+
+// Bounce Out Up
+// -------------
+
+// Include the animation class.
+// $vitalize-include-bounce-out-up-class: $vitalize-include-bouncing-exits-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-bounce-out-up-properties: $vitalize-bouncing-exits-extensions;
+// $vitalize-bounce-out-up-extensions: $vitalize-bouncing-exits-extensions;
+
+// Set the bounce out up end height.
+// $vitalize-bounce-out-up-end: 3000px;
+
+// Bounce Out
+// ----------
+
+// Include the animation class.
+// $vitalize-include-bounce-out-class: $vitalize-include-bouncing-exits-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-bounce-out-properties: $vitalize-bouncing-exits-extensions;
+// $vitalize-bounce-out-extensions: $vitalize-bouncing-exits-extensions;
+
+// Set the bounce out up scale.
+// $vitalize-bounce-out-scale: 1.125;
+
+
+// Fading Entrances
+// ================
+
+// Include the group animations class.
+// $vitalize-include-fading-entrances-class: $vitalize-include-class;
+
+// Set the group animation default properties and extensions.
+// $vitalize-fading-entrances-properties: $vitalize-default-properties;
+// $vitalize-fading-entrances-extensions: $vitalize-default-extensions;
+
+// Fade In Down
+// ------------
+
+// Include the animation class.
+// $vitalize-include-fade-in-down-class: $vitalize-include-fading-entrances-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-fade-in-down-properties: $vitalize-fading-entrances-properties;
+// $vitalize-fade-in-down-extensions: $vitalize-fading-entrances-extensions;
+
+// Set the fade in down start height.
+// $vitalize-fade-in-down-start: 100%;
+
+// Fade In Left
+// ------------
+
+// Include the animation class.
+// $vitalize-include-fade-in-left-class: $vitalize-include-fading-entrances-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-fade-in-left-properties: $vitalize-fading-entrances-properties;
+// $vitalize-fade-in-left-extensions: $vitalize-fading-entrances-extensions;
+
+// Set the fade in left start width.
+// $vitalize-fade-in-left-start: 100%;
+
+// Fade In Right
+// -------------
+
+// Include the animation class.
+// $vitalize-include-fade-in-right-class: $vitalize-include-fading-entrances-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-fade-in-right-properties: $vitalize-fading-entrances-properties;
+// $vitalize-fade-in-right-extensions: $vitalize-fading-entrances-extensions;
+
+// Set the fade in right start width.
+// $vitalize-fade-in-right-start: 100%;
+
+// Fade In Up
+// ----------
+
+// Include the animation class.
+// $vitalize-include-fade-in-up-class: $vitalize-include-fading-entrances-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-fade-in-up-properties: $vitalize-fading-entrances-properties;
+// $vitalize-fade-in-up-extensions: $vitalize-fading-entrances-extensions;
+
+// Set the fade in up start height.
+// $vitalize-fade-in-up-start: 100%;
+
+// Fade In
+// -------
+
+// Include the animation class.
+// $vitalize-include-fade-in-class: $vitalize-include-fading-entrances-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-fade-in-properties: $vitalize-fading-entrances-properties;
+// $vitalize-fade-in-extensions: $vitalize-fading-entrances-extensions;
+
+// Set the fade in opacity start and end.
+// $vitalize-fade-in-opacity-start: 0;
+// $vitalize-fade-in-opacity-end: 1;
+
+// Fading Exits
+// ============
+
+// Include the group animations class.
+// $vitalize-include-fading-exits-class: $vitalize-include-class;
+
+// Set the group animation default properties and extensions.
+// $vitalize-fading-exits-properties: $vitalize-default-properties;
+// $vitalize-fading-exits-extensions: $vitalize-default-extensions;
+
+// Fade Out Down
+// -------------
+
+// Include the animation class.
+// $vitalize-include-fade-out-down-class: $vitalize-include-fading-exits-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-fade-out-down-properties: $vitalize-fading-exits-properties;
+// $vitalize-fade-out-down-extensions: $vitalize-fading-exits-extensions;
+
+// Set the fade out down end height.
+// $vitalize-fade-out-down-end: 100%;
+
+// Fade Out Left
+// -------------
+
+// Include the animation class.
+// $vitalize-include-fade-out-left-class: $vitalize-include-fading-exits-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-fade-out-left-properties: $vitalize-fading-exits-properties;
+// $vitalize-fade-out-left-extensions: $vitalize-fading-exits-extensions;
+
+// Set the fade out left end width.
+// $vitalize-fade-out-left-end: 100%;
+
+// Fade Out Right
+// --------------
+
+// Include the animation class.
+// $vitalize-include-fade-out-right-class: $vitalize-include-fading-exits-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-fade-out-right-properties: $vitalize-fading-exits-properties;
+// $vitalize-fade-out-right-extensions: $vitalize-fading-exits-extensions;
+
+// Set the fade out right end width.
+// $vitalize-fade-out-right-end: 100%;
+
+// Fade Out Up
+// -----------
+
+// Include the animation class.
+// $vitalize-include-fade-out-up-class: $vitalize-include-fading-exits-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-fade-out-up-properties: $vitalize-fading-exits-properties;
+// $vitalize-fade-out-up-extensions: $vitalize-fading-exits-extensions;
+
+// Set the fade out up end height.
+// $vitalize-fade-out-up-end: 100%;
+
+// Fade Out
+// --------
+
+// Include the animation class.
+// $vitalize-include-fade-out-class: $vitalize-include-fading-exits-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-fade-out-properties: $vitalize-fading-exits-properties;
+// $vitalize-fade-out-extensions: $vitalize-fading-exits-extensions;
+
+// Set the fade out opacity start and end.
+// $vitalize-fade-out-opacity-start: 1;
+// $vitalize-fade-out-opacity-end: 0;
+
+
+// Flippers
+// ========
+
+// Include the group animations class.
+// $vitalize-include-flippers-class: $vitalize-include-class;
+
+// Set the group animation default properties and extensions.
+// $vitalize-flippers-properties: $vitalize-default-properties;
+// $vitalize-flippers-extensions: $vitalize-default-extensions;
+
+// Flip
+// ----
+
+// Include the animation class.
+// $vitalize-include-flip-class: $vitalize-include-flippers-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-flip-properties: vitalize-flippers-properties;
+// $vitalize-flip-extensions: $vitalize-flippers-extensions;
+
+// Set the flip perspective size.
+// $vitalize-flip-perspective: 400px;
+// $vitalize-flip-reverse: false;
+
+
+// Flipping Entrances
+// ================
+
+// Include the group animations class.
+// $vitalize-include-flipping-entrances-class: $vitalize-include-class;
+
+// Set the group animation default properties and extensions.
+// $vitalize-flipping-entrances-properties: $vitalize-default-properties;
+// $vitalize-flipping-entrances-extensions: $vitalize-default-extensions;
+
+// Flip In X
+// ---------
+
+// Include the animation class.
+// $vitalize-include-flip-in-x-class: $vitalize-include-flipping-entrances-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-flip-in-x-properties: $vitalize-flipping-entrances-properties;
+// $vitalize-flip-in-x-extensions: $vitalize-flipping-entrances-extensions;
+
+// Set the flip in x perspective size.
+// $vitalize-flip-in-x-perspective: 400px;
+// $vitalize-flip-in-x-reverse: false;
+
+// Flip In Y
+// ---------
+
+// Include the animation class.
+// $vitalize-include-flip-in-y-class: $vitalize-include-flipping-entrances-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-flip-in-y-properties: $vitalize-flipping-entrances-properties;
+// $vitalize-flip-in-y-extensions: $vitalize-flipping-entrances-extensions;
+
+// Set the flip in y perspective size.
+// $vitalize-flip-in-y-perspective: 400px;
+// $vitalize-flip-in-y-reverse: false;
+
+
+// Flipping Exits
+// ==============
+
+// Include the group animations class.
+// $vitalize-include-flipping-exits-class: $vitalize-include-class;
+
+// Set the group animation default properties and extensions.
+// $vitalize-flipping-exits-properties: $vitalize-default-properties;
+// $vitalize-flipping-exits-extensions: $vitalize-default-extensions;
+
+// Flip Out X
+// ----------
+
+// Include the animation class.
+// $vitalize-include-flip-out-x-class: $vitalize-include-flipping-exits-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-flip-out-x-properties: $vitalize-flipping-exits-properties;
+// $vitalize-flip-out-x-extensions: $vitalize-flipping-exits-extensions;
+
+// Set the flip out x perspective size.
+// $vitalize-flip-out-x-perspective: 400px;
+// $vitalize-flip-out-x-reverse: false;
+
+// Flip Out Y
+// ----------
+
+// Include the animation class.
+// $vitalize-include-flip-out-y-class: $vitalize-include-flipping-exits-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-flip-out-y-properties: $vitalize-flipping-exits-properties;
+// $vitalize-flip-out-y-extensions: $vitalize-flipping-exits-extensions;
+
+// Set the flip out y perspective size.
+// $vitalize-flip-out-y-perspective: 400px;
+// $vitalize-flip-out-y-reverse: false;
+
+
+// Lightspeed
+// ===========
+
+// Include the group animations class.
+// $vitalize-include-lightspeed-class: $vitalize-include-class;
+
+// Set the group animation default properties and extensions.
+// $vitalize-lightspeed-properties: $vitalize-default-properties;
+// $vitalize-lightspeed-extensions: $vitalize-default-extensions;
+
+// Lightspeed In
+// -------------
+
+// Include the animation class.
+// $vitalize-include-lightspeed-in-class: $vitalize-include-lightspeed-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-lightspeed-in-properties: $vitalize-lightspeed-properties;
+// $vitalize-lightspeed-in-extensions: $vitalize-lightspeed-extensions;
+
+// Set the lightspeed in start and reverse.
+// $vitalize-lightspeed-in-start: 100%;
+// $vitalize-lightspeed-in-reverse: false;
+
+// Lightspeed Out
+// --------------
+
+// Include the animation class.
+// $vitalize-include-lightspeed-out-class: $vitalize-include-lightspeed-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-lightspeed-out-properties: $vitalize-lightspeed-properties;
+// $vitalize-lightspeed-out-extensions: $vitalize-lightspeed-extensions;
+
+// Set the lightspeed out end and reverse.
+// $vitalize-lightspeed-out-end: 100%;
+// $vitalize-lightspeed-out-reverse: false;
+
+
+// Rolling Entrances
+// =================
+
+// Include the group animations class.
+// $vitalize-include-rolling-entrances-class: $vitalize-include-class;
+
+// Set the group animation default properties and extensions.
+// $vitalize-rolling-entrances-properties: $vitalize-default-properties;
+// $vitalize-rolling-entrances-extensions: $vitalize-default-extensions;
+
+// Roll In Left
+// ------------
+
+// Include the animation class.
+// $vitalize-include-roll-in-left-class: $vitalize-include-rolling-entrances-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-roll-in-left-properties: $vitalize-rolling-entrances-properties;
+// $vitalize-roll-in-left-extensions: $vitalize-rolling-entrances-extensions;
+
+// Set the roll in left start, degree and reverse.
+// $vitalize-roll-in-left-start: 100%;
+// $vitalize-roll-in-left-degree: 120deg;
+// $vitalize-roll-in-left-reverse: false;
+
+// Roll In Right
+// -------------
+
+// Include the animation class.
+// $vitalize-include-roll-in-right-class: $vitalize-include-rolling-entrances-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-roll-in-right-properties: $vitalize-rolling-entrances-properties;
+// $vitalize-roll-in-right-extensions: $vitalize-rolling-entrances-extensions;
+
+// Set the roll in right start, degree and reverse.
+// $vitalize-roll-in-right-start: 100%;
+// $vitalize-roll-in-right-degree: 120deg;
+// $vitalize-roll-in-right-reverse: false;
+
+
+// Rolling Exits
+// =============
+
+// Include the group animations class.
+// $vitalize-include-rolling-exits-class: $vitalize-include-class;
+
+// Set the group animation default properties and extensions.
+// $vitalize-rolling-exits-properties: $vitalize-default-properties;
+// $vitalize-rolling-exits-extensions: $vitalize-default-extensions;
+
+// Roll Out Left
+// -------------
+
+// Include the animation class.
+// $vitalize-include-roll-out-left-class: $vitalize-include-rolling-exits-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-roll-out-left-properties: $vitalize-rolling-exits-properties;
+// $vitalize-roll-out-left-extensions: $vitalize-rolling-exits-extensions;
+
+// Set the roll in left end, degree and reverse.
+// $vitalize-roll-out-left-end: 100%;
+// $vitalize-roll-out-left-degree: 120deg;
+// $vitalize-roll-out-left-reverse: false;
+
+// Roll Out Right
+// --------------
+
+// Include the animation class.
+// $vitalize-include-roll-out-right-class: $vitalize-include-rolling-exits-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-roll-out-right-properties: $vitalize-rolling-exits-properties;
+// $vitalize-roll-out-right-extensions: $vitalize-rolling-exits-extensions;
+
+// Set the roll in right end, degree and reverse.
+// $vitalize-roll-out-right-end: 100%;
+// $vitalize-roll-out-right-degree: 120deg;
+// $vitalize-roll-out-right-reverse: false;
+
+
+// Rotating Entrances
+// =================
+
+// Include the group animations class.
+// $vitalize-include-rotating-entrances-class: $vitalize-include-class;
+
+// Set the group animation default properties and extensions.
+// $vitalize-rotating-entrances-properties: $vitalize-default-properties;
+// $vitalize-rotating-entrances-extensions: $vitalize-default-extensions;
+
+// Rotate In Down
+// --------------
+
+// Include the animation class.
+// $vitalize-include-rotate-in-down-class: $vitalize-include-rotating-entrances-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-rotate-in-down-properties: $vitalize-rotating-entrances-properties;
+// $vitalize-rotate-in-down-extensions: $vitalize-rotating-entrances-extensions;
+
+// Set the rotate in down degree and reverse.
+// $vitalize-rotate-in-down-degree: 45deg;
+// $vitalize-rotate-in-down-reverse: false;
+
+// Rotate In Up
+// ------------
+
+// Include the animation class.
+// $vitalize-include-rotate-in-up-class: $vitalize-include-rotating-entrances-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-rotate-in-up-properties: $vitalize-rotating-entrances-properties;
+// $vitalize-rotate-in-up-extensions: $vitalize-rotating-entrances-extensions;
+
+// Set the rotate in up degree and reverse.
+// $vitalize-rotate-in-up-degree: 45deg;
+// $vitalize-rotate-in-up-reverse: false;
+
+// Rotate In
+// ---------
+
+// Include the animation class.
+// $vitalize-include-rotate-in-class: $vitalize-include-rotating-entrances-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-rotate-in-properties: $vitalize-rotating-entrances-properties;
+// $vitalize-rotate-in-extensions: $vitalize-rotating-entrances-extensions;
+
+// Set the rotate in degree and reverse.
+// $vitalize-rotate-in-degree: 200deg;
+// $vitalize-rotate-in-reverse: false;
+
+
+// Rotating Exits
+// ==============
+
+// Include the group animations class.
+// $vitalize-include-rotating-exits-class: $vitalize-include-class;
+
+// Set the group animation default properties and extensions.
+// $vitalize-rotating-exits-properties: $vitalize-default-properties;
+// $vitalize-rotating-exits-extensions: $vitalize-default-extensions;
+
+// Rotate Out Down
+// ---------------
+
+// Include the animation class.
+// $vitalize-include-rotate-out-down-class: $vitalize-include-rotating-exits-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-rotate-out-down-properties: $vitalize-rotating-exits-properties;
+// $vitalize-rotate-out-down-extensions: $vitalize-rotating-exits-extensions;
+
+// Set the rotate out down degree and reverse.
+// $vitalize-rotate-out-down-degree: 45deg;
+// $vitalize-rotate-out-down-reverse: false;
+
+// Rotate Out Up
+// -------------
+
+// Include the animation class.
+// $vitalize-include-rotate-out-up-class: $vitalize-include-rotating-exits-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-rotate-out-up-properties: $vitalize-rotating-exits-properties;
+// $vitalize-rotate-out-up-extensions: $vitalize-rotating-exits-extensions;
+
+// Set the rotate out up degree and reverse.
+// $vitalize-rotate-out-up-degree: 45deg;
+// $vitalize-rotate-out-up-reverse: false;
+
+// Rotate Out
+// ----------
+
+// Include the animation class.
+// $vitalize-include-rotate-out-class: $vitalize-include-rotating-exits-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-rotate-out-properties: $vitalize-rotating-exits-properties;
+// $vitalize-rotate-out-extensions: $vitalize-rotating-exits-extensions;
+
+// Set the rotate out degree and reverse.
+// $vitalize-rotate-out-degree: 200deg;
+// $vitalize-rotate-out-reverse: false;
+
+
+// Sliding Entrances
+// =================
+
+// Include the group animations class.
+// $vitalize-include-sliding-entrances-class: $vitalize-include-class;
+
+// Set the group animation default properties and extensions.
+// $vitalize-sliding-entrances-properties: $vitalize-default-properties;
+// $vitalize-sliding-entrances-extensions: $vitalize-default-extensions;
+
+// Slide In Down
+// -------------
+
+// Include the animation class.
+// $vitalize-include-slide-in-down-class: $vitalize-include-sliding-entrances-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-slide-in-down-properties: $vitalize-sliding-entrances-properties;
+// $vitalize-slide-in-down-extensions: $vitalize-sliding-entrances-extensions;
+
+// Set the slide in down start height.
+// $vitalize-slide-in-down-start: 100%;
+
+// Slide In Left
+// -------------
+
+// Include the animation class.
+// $vitalize-include-slide-in-left-class: $vitalize-include-sliding-entrances-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-slide-in-left-properties: $vitalize-sliding-entrances-properties;
+// $vitalize-slide-in-left-extensions: $vitalize-sliding-entrances-extensions;
+
+// Set the slide in left start width.
+// $vitalize-slide-in-left-start: 100%;
+
+// Slide In Right
+// --------------
+
+// Include the animation class.
+// $vitalize-include-slide-in-right-class: $vitalize-include-sliding-entrances-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-slide-in-right-properties: $vitalize-sliding-entrances-properties;
+// $vitalize-slide-in-right-extensions: $vitalize-sliding-entrances-extensions;
+
+// Set the slide in right start width.
+// $vitalize-slide-in-right-start: 100%;
+
+// Slide In Up
+// -----------
+
+// Include the animation class.
+// $vitalize-include-slide-in-up-class: $vitalize-include-sliding-entrances-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-slide-in-up-properties: $vitalize-sliding-entrances-properties;
+// $vitalize-slide-in-up-extensions: $vitalize-sliding-entrances-extensions;
+
+// Set the slide in up start height.
+// $vitalize-slide-in-up-start: 100%;
+
+
+// Sliding Exits
+// =============
+
+// Include the group animations class.
+// $vitalize-include-sliding-exits-class: $vitalize-include-class;
+
+// Set the group animation default properties and extensions.
+// $vitalize-sliding-exits-properties: $vitalize-default-properties;
+// $vitalize-sliding-exits-extensions: $vitalize-default-extensions;
+
+// Slide Out Down
+// --------------
+
+// Include the animation class.
+// $vitalize-include-slide-out-down-class: $vitalize-include-sliding-exits-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-slide-out-down-properties: $vitalize-sliding-exits-properties;
+// $vitalize-slide-out-down-extensions: $vitalize-sliding-exits-extensions;
+
+// Set the slide out down end height.
+// $vitalize-slide-out-down-end: 100%;
+
+// Slide Out Left
+// --------------
+
+// Include the animation class.
+// $vitalize-include-slide-out-left-class: $vitalize-include-sliding-exits-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-slide-out-left-properties: $vitalize-sliding-exits-properties;
+// $vitalize-slide-out-left-extensions: $vitalize-sliding-exits-extensions;
+
+// Set the slide out left end width.
+// $vitalize-slide-out-left-end: 100%;
+
+// Slide Out Right
+// ---------------
+
+// Include the animation class.
+// $vitalize-include-slide-out-right-class: $vitalize-include-sliding-exits-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-slide-out-right-properties: $vitalize-sliding-exits-properties;
+// $vitalize-slide-out-right-extensions: $vitalize-sliding-exits-extensions;
+
+// Set the slide out right end width.
+// $vitalize-slide-out-right-end: 100%;
+
+// Slide Out Up
+// ------------
+
+// Include the animation class.
+// $vitalize-include-slide-out-up-class: $vitalize-include-sliding-exits-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-slide-out-up-properties: $vitalize-sliding-exits-properties;
+// $vitalize-slide-out-up-extensions: $vitalize-sliding-exits-extensions;
+
+// Set the slide out up end height.
+// $vitalize-slide-out-up-end: 100%;
+
+
+// Specials
+// ========
+
+// Include the group animations class.
+// $vitalize-include-specials-class: $vitalize-include-class;
+
+// Set the group animation default properties and extensions.
+// $vitalize-specials-properties: $vitalize-default-properties;
+// $vitalize-specials-extensions: $vitalize-default-extensions;
+
+// Hinge
+// -----
+
+// Include the animation class.
+// $vitalize-include-hinge-class: $vitalize-include-specials-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-hinge-properties: vitalize-specials-properties;
+// $vitalize-hinge-extensions: $vitalize-specials-extensions;
+
+// Set the hinge end, degree and reverse.
+// $vitalize-hinge-end: 700px;
+// $vitalize-hinge-degree: 80deg;
+// $vitalize-hinge-reverse: false;
+
+
+// Zooming Entrances
+// =================
+
+// Include the group animations class.
+// $vitalize-include-zooming-entrances-class: $vitalize-include-class;
+
+// Set the group animation default properties and extensions.
+// $vitalize-zooming-entrances-properties: $vitalize-default-properties;
+// $vitalize-zooming-entrances-extensions: $vitalize-default-extensions;
+
+// Zoom In Down
+// ------------
+
+// Include the animation class.
+// $vitalize-include-zoom-in-down-class: $vitalize-include-zooming-entrances-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-zoom-in-down-properties: $vitalize-zooming-entrances-properties;
+// $vitalize-zoom-in-down-extensions: $vitalize-zooming-entrances-extensions;
+
+// Set the zoom in down start height.
+// $vitalize-zoom-in-down-start: 1000px;
+
+// Zoom In Left
+// ------------
+
+// Include the animation class.
+// $vitalize-include-zoom-in-left-class: $vitalize-include-zooming-entrances-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-zoom-in-left-properties: $vitalize-zooming-entrances-properties;
+// $vitalize-zoom-in-left-extensions: $vitalize-zooming-entrances-extensions;
+
+// Set the zoom in left start width.
+// $vitalize-zoom-in-left-start: 1000px;
+
+// Zoom In Right
+// -------------
+
+// Include the animation class.
+// $vitalize-include-zoom-in-right-class: $vitalize-include-zooming-entrances-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-zoom-in-right-properties: $vitalize-zooming-entrances-properties;
+// $vitalize-zoom-in-right-extensions: $vitalize-zooming-entrances-extensions;
+
+// Set the zoom in right start width.
+// $vitalize-zoom-in-right-start: 1000px;
+
+// Zoom In Up
+// ----------
+
+// Include the animation class.
+// $vitalize-include-zoom-in-up-class: $vitalize-include-zooming-entrances-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-zoom-in-up-properties: $vitalize-zooming-entrances-properties;
+// $vitalize-zoom-in-up-extensions: $vitalize-zooming-entrances-extensions;
+
+// Set the zoom in up start height.
+// $vitalize-zoom-in-up-start: 1000px;
+
+// Zoom In
+// -------
+
+// Include the animation class.
+// $vitalize-include-zoom-in-class: $vitalize-include-zooming-entrances-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-zoom-in-properties: $vitalize-zooming-entrances-properties;
+// $vitalize-zoom-in-extensions: $vitalize-zooming-entrances-extensions;
+
+// Set the zoom in scale.
+// $vitalize-zoom-in-scale: .3;
+
+
+// Zooming Exits
+// =============
+
+// Include the group animations class.
+// $vitalize-include-zooming-exits-class: $vitalize-include-class;
+
+// Set the group animation default properties and extensions.
+// $vitalize-zooming-exits-properties: $vitalize-default-properties;
+// $vitalize-zooming-exits-extensions: $vitalize-default-extensions;
+
+// Zoom In Down
+// ------------
+
+// Include the animation class.
+// $vitalize-include-zoom-out-down-class: $vitalize-include-zooming-exits-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-zoom-out-down-properties: $vitalize-zooming-exits-properties;
+// $vitalize-zoom-out-down-extensions: $vitalize-zooming-exits-extensions;
+
+// Set the zoom out down start height.
+// $vitalize-zoom-out-down-start: 1000px;
+
+// Zoom Out Left
+// -------------
+
+// Include the animation class.
+// $vitalize-include-zoom-out-left-class: $vitalize-include-zooming-exits-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-zoom-out-left-properties: $vitalize-zooming-exits-properties;
+// $vitalize-zoom-out-left-extensions: $vitalize-zooming-exits-extensions;
+
+// Set the zoom out left start width.
+// $vitalize-zoom-out-left-start: 1000px;
+
+// Zoom Out Right
+// --------------
+
+// Include the animation class.
+// $vitalize-include-zoom-out-right-class: $vitalize-include-zooming-exits-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-zoom-out-right-properties: $vitalize-zooming-exits-properties;
+// $vitalize-zoom-out-right-extensions: $vitalize-zooming-exits-extensions;
+
+// Set the zoom out right start width.
+// $vitalize-zoom-out-right-start: 1000px;
+
+// Zoom Out Up
+// -----------
+
+// Include the animation class.
+// $vitalize-include-zoom-out-up-class: $vitalize-include-zooming-exits-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-zoom-out-up-properties: $vitalize-zooming-exits-properties;
+// $vitalize-zoom-out-up-extensions: $vitalize-zooming-exits-extensions;
+
+// Set the zoom out up start height.
+// $vitalize-zoom-out-up-start: 1000px;
+
+// Zoom Out
+// --------
+
+// Include the animation class.
+// $vitalize-include-zoom-out-class: $vitalize-include-zooming-exits-class;
+
+// Set the animation default properties and extensions.
+// $vitalize-zoom-out-properties: $vitalize-zooming-exits-properties;
+// $vitalize-zoom-out-extensions: $vitalize-zooming-exits-extensions;
+
+// Set the zoom out scale.
+// $vitalize-zoom-out-scale: .3;

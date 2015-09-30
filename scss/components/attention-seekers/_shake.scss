@@ -1,0 +1,61 @@
+// Haleks — Vitalize
+// https://haleks.ca
+// Licensed under MIT Open Source
+
+
+// Shake
+// =====
+@import '../../core/global';
+@import 'attention-seekers';
+
+// Class
+// -----
+$vitalize-include-shake-class: $vitalize-include-attention-seekers-class !default;
+
+// Properties
+// ----------
+$vitalize-shake-properties: $vitalize-default-properties !default;
+$vitalize-shake-properties: map-extend($vitalize-default-properties, $vitalize-shake-properties, true);
+
+// Extensions
+// ----------
+$vitalize-shake-extensions: $vitalize-default-extensions !default;
+$vitalize-shake-extensions: map-extend($vitalize-default-extensions, $vitalize-shake-extensions, true);
+
+// Options
+// -------
+$vitalize-shake-size: 10px !default;
+
+// Shake
+// ------
+// - The shake animation mixins
+// - @param map $options
+@mixin shake($options: ()) {
+	$options: map-extend(('size': $vitalize-shake-size, 'properties': $vitalize-shake-properties, 'extensions': $vitalize-shake-extensions), $options, true);
+	$size: map-get($options, 'size');
+	$name: 'shake-#{$size}';
+
+	@include animation-set($name, $options) {
+		from, to {
+			transform: translate3d(0, 0, 0);
+		}
+
+		10%, 30%, 50%, 70%, 90% {
+			transform: translate3d(-($size), 0, 0);
+		}
+
+		20%, 40%, 60%, 80% {
+			transform: translate3d($size, 0, 0);
+		}
+	}
+}
+
+// Export
+// ------
+@include exports('shake') {
+	@if $vitalize-include-shake-class {
+		.shake {
+			@include shake();
+		}
+	}
+}

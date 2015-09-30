@@ -1,0 +1,84 @@
+// Haleks — Vitalize
+// https://haleks.ca
+// Licensed under MIT Open Source
+
+
+// Flip In Y
+// =========
+@import '../../core/global';
+@import 'flipping-entrances';
+
+
+// Class
+// -----
+$vitalize-include-flip-in-y-class: $vitalize-include-flipping-entrances-class !default;
+
+
+// Properties
+// ----------
+$vitalize-flip-in-y-properties: $vitalize-default-properties !default;
+$vitalize-flip-in-y-properties: map-extend($vitalize-default-properties, $vitalize-flip-in-y-properties);
+
+// Extensions
+// ----------
+$vitalize-flip-in-y-extensions: $vitalize-default-extensions !default;
+$vitalize-flip-in-y-extensions: map-extend($vitalize-default-extensions, $vitalize-flip-in-y-extensions);
+
+// Options
+// -------
+$vitalize-flip-in-y-perspective: 400px !default;
+$vitalize-flip-in-y-reverse: false !default;
+
+
+// Flip In Y
+// ---------
+// - The flip in y animation mixins
+// - @param map $options
+@mixin flip-in-y($options: ()) {
+	$options: map-extend(('perspective': $vitalize-flip-in-y-perspective, 'reverse': $vitalize-flip-in-y-reverse, 'properties': $vitalize-flip-in-y-properties, 'extensions': $vitalize-flip-in-y-extensions), $options);
+	$perspective: map-get($options, 'perspective');
+	$reverse: map-get($options, 'reverse');
+	$degrees: if($reverse, (-90deg, 20deg, -10deg, 5deg), (90deg, -20deg, 10deg, -5deg));
+	$name: 'flip-in-y-#{$perspective}-#{$reverse}';
+
+	@include animation-set($name, $options) {
+		from {
+			transform: perspective($perspective) rotate3d(0, 1, 0, nth($degrees, 1));
+			animation-timing-function: ease-in;
+			opacity: 0;
+		}
+
+		40% {
+			transform: perspective($perspective) rotate3d(0, 1, 0, nth($degrees, 2));
+			animation-timing-function: ease-in;
+		}
+
+		60% {
+			transform: perspective($perspective) rotate3d(0, 1, 0, nth($degrees, 3));
+			opacity: 1;
+		}
+
+		80% {
+			transform: perspective($perspective) rotate3d(0, 1, 0, nth($degrees, 4));
+		}
+
+		to {
+			transform: perspective($perspective);
+		}
+	}
+}
+
+
+// Export
+// ------
+@include exports('flip-in-y') {
+	@if $vitalize-include-flip-in-y-class {
+		.flip-in-y {
+			@include flip-in-y();
+		}
+
+		.flip-in-y-reverse {
+			@include flip-in-y(('reverse': true));
+		}
+	}
+}

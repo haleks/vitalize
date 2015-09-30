@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+// Haleks — Vitalize
+// https://haleks.ca
+// Licensed under MIT Open Source
+
+
+// Import True.
+@import 'true';
+
+// Import settings.
+@import 'settings';
+
+// Import Vitalize.
+@import 'vitalize';
+
+// Import the tests.
+@import 'core/tests';
+
+// Run the tests
+@include report;

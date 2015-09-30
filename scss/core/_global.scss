@@ -1,0 +1,131 @@
+// Haleks — Vitalize
+// https://haleks.ca
+// Licensed under MIT Open Source
+
+
+// Global
+// ======
+@import 'functions';
+
+// Variables
+// ---------
+
+// Generate the animations classes.
+$vitalize-include-class: true !default;
+
+// Vitalize global default map.
+// This map is used to merge missing map keys and values of each the
+// of the properties variables set in the settings.
+$vitalize-global-properties: (
+    'count': 1,
+    'duration': 1s,
+    'delay': 0s,
+    'function': 'ease',
+    'fill-mode': 'both',
+    'visibility': 'hidden'
+) !global;
+
+// Set default for all animations and make sure all properties are merged.
+$vitalize-default-properties: $vitalize-global-properties !default;
+$vitalize-default-properties: map-merge($vitalize-global-properties, $vitalize-default-properties);
+
+// Set default extensions for all animations.
+$vitalize-default-extensions: () !default;
+
+
+// Mixins
+// ======
+
+// Keyframes
+// ---------
+// - Outputs prefixed keyframes.
+// - @param string $name
+@mixin keyframes($name) {
+    $name: str-escape($name);
+
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+
+    @keyframes #{$name} {
+        @content;
+    }
+}
+
+
+// Animation
+// =========
+
+// Set Animation
+// -------------
+// - Outputs animation with keyframes, properties and extensions.
+// - @param string $name
+// - @param map $options
+@mixin animation-set($name, $options: ()) {
+    $options: map-extend(('properties': $vitalize-default-properties, 'extensions': $vitalize-default-extensions), $options, true);
+
+    @include keyframes($name) {
+        @content
+    };
+
+	@include animation-name-set($name);
+	@include animation-properties-set(map-get($options, 'properties'));
+    @include animation-extensions-set(map-get($options, 'extensions'));
+}
+
+// Set animation name
+// ------------------
+// - Outputs prefixed animation name property.
+// - @param string $name
+@mixin animation-name-set($name) {
+    -webkit-animation-name: $name;
+    animation-name: $name;
+}
+
+// Set animation properties
+// ------------------------
+// - Outputs all prefixed animation properties.
+// - @param map $properties
+@mixin animation-properties-set($properties) {
+    @each $name, $value in $properties {
+        @include animation-property-set($name, $value)
+    }
+}
+// Set animation extensions
+// ------------------------
+// - Outputs all extensions.
+// - @param map $extensions
+@mixin animation-extensions-set($extensions) {
+    @each $name, $values in $extensions {
+        @include animation-extension-set($name, $values);
+    }
+}
+
+// Set animation extension
+// -----------------------
+// - Outputs requested extension.
+// - @param string $name
+// - @param string|number $value
+@mixin animation-extension-set($name, $values) {
+    @each $classname, $value in $values {
+        $classname: str-escape($classname);
+
+        &.#{$name}-#{$classname} {
+            @include animation-property-set($name, $value);
+        }
+    }
+}
+
+// Set animation property
+// ----------------------
+// - Outputs requested prefixed animation property.
+// - @param string $name
+// - @param string|number $value
+@mixin animation-property-set($name, $value) {
+    @if ($name == 'count') {
+        $name: 'iteration-count';
+    }
+
+    -webkit-animation-#{$name}: unquote($value);
+    animation-#{$name}: unquote($value);
+}

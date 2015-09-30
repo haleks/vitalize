@@ -1,0 +1,71 @@
+// Haleks — Vitalize
+// https://haleks.ca
+// Licensed under MIT Open Source
+
+
+// Tada
+// ====
+@import '../../core/global';
+@import 'attention-seekers';
+
+// Class
+// -----
+$vitalize-include-tada-class: $vitalize-include-attention-seekers-class !default;
+
+// Properties
+// ----------
+$vitalize-tada-properties: $vitalize-default-properties !default;
+$vitalize-tada-properties: map-extend($vitalize-default-properties, $vitalize-tada-properties, true);
+
+// Extensions
+// ----------
+$vitalize-tada-extensions: $vitalize-default-extensions !default;
+$vitalize-tada-extensions: map-extend($vitalize-default-extensions, $vitalize-tada-extensions, true);
+
+// Options
+// -------
+$vitalize-tada-scale: 1.1 !default;
+$vitalize-tada-rotation: 3deg !default;
+
+// Tada
+// ------
+// - The tada animation mixins
+// - @param map $options
+@mixin tada($options: ()) {
+	$options: map-extend(('scale': $vitalize-tada-scale,'rotation': $vitalize-tada-rotation, 'properties': $vitalize-tada-properties, 'extensions': $vitalize-tada-extensions), $options);
+	$scale: map-get($options, 'scale');
+	$rotation: map-get($options, 'rotation');
+	$name: 'tada-#{$scale}-#{$rotation}';
+
+	@include animation-set($name, $options) {
+		from {
+			transform: scale3d(1, 1, 1);
+		}
+
+		to, 20% {
+			transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -($rotation));
+		}
+
+		30%, 50%, 70%, 90% {
+			transform: scale3d($scale, $scale, $scale) rotate3d(0, 0, 1, $rotation);
+		}
+
+		40%, 60%, 80% {
+			transform: scale3d($scale, $scale, $scale) rotate3d(0, 0, 1, -($rotation));
+		}
+
+		to {
+			transform: scale3d(1, 1, 1);
+		}
+	}
+}
+
+// Export
+// ------
+@include exports('tada') {
+	@if $vitalize-include-tada-class {
+		.tada {
+			@include tada();
+		}
+	}
+}

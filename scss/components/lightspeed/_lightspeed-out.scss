@@ -1,0 +1,65 @@
+// Haleks — Vitalize
+// https://haleks.ca
+// Licensed under MIT Open Source
+
+
+// Lightspeed Out
+// ==============
+@import '../../core/global';
+@import 'lightspeed';
+
+// Class
+// -----
+$vitalize-include-lightspeed-out-class: $vitalize-include-lightspeed-class !default;
+
+// Properties
+// ----------
+$vitalize-lightspeed-out-properties: $vitalize-default-properties !default;
+$vitalize-lightspeed-out-properties: map-extend($vitalize-default-properties, $vitalize-lightspeed-out-properties);
+
+// Extensions
+// ----------
+$vitalize-lightspeed-out-extensions: $vitalize-default-extensions !default;
+$vitalize-lightspeed-out-extensions: map-extend($vitalize-default-extensions, $vitalize-lightspeed-out-extensions);
+
+// Options
+// -------
+$vitalize-lightspeed-out-end: 100% !default;
+$vitalize-lightspeed-out-reverse: false !default;
+
+// Lightspeed Out
+// --------------
+// - The lightspeed out animation mixins
+// - @param map $options
+@mixin lightspeed-out($options: ()) {
+	$options: map-extend(('end': $vitalize-lightspeed-out-end, 'reverse': $vitalize-lightspeed-out-reverse, 'properties': $vitalize-lightspeed-out-properties, 'extensions': $vitalize-lightspeed-out-extensions), $options);
+	$reverse: map-get($options, 'reverse');
+	$end: if($reverse, -(map-get($options, 'end')), map-get($options, 'end'));
+	$degree: if($reverse, -30deg, 30deg);
+	$name: 'lightspeed-out-#{$end}-#{$reverse}';
+
+	@include animation-set($name, $options) {
+		from {
+			opacity: 1;
+		}
+
+		to {
+			transform: translate3d($end, 0, 0) skewX($degree);
+			opacity: 0;
+		}
+	}
+}
+
+// Export
+// ------
+@include exports('lightspeed-out') {
+	@if $vitalize-include-lightspeed-out-class {
+		.lightspeed-out {
+			@include lightspeed-out();
+		}
+
+		.lightspeed-out-reverse {
+			@include lightspeed-out(('reverse': true));
+		}
+	}
+}

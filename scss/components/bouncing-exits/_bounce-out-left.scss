@@ -1,0 +1,75 @@
+// Haleks — Vitalize
+// https://haleks.ca
+// Licensed under MIT Open Source
+
+
+// Bounce Out Left
+// ===============
+@import '../../core/global';
+@import 'bouncing-exits';
+
+// Class
+// -----
+$vitalize-include-bounce-out-left-class: $vitalize-include-bouncing-exits-class !default;
+
+// Properties
+// ----------
+$vitalize-bounce-out-left-properties: $vitalize-default-properties !default;
+$vitalize-bounce-out-left-properties: map-extend($vitalize-default-properties, $vitalize-bounce-out-left-properties, true);
+
+// Extensions
+// ----------
+$vitalize-bounce-out-left-extensions: $vitalize-default-extensions !default;
+$vitalize-bounce-out-left-extensions: map-extend($vitalize-default-extensions, $vitalize-bounce-out-left-extensions, true);
+
+// Options
+// -------
+$vitalize-bounce-out-left-end: 3000px !default;
+
+// Bounce Out Left
+// ---------------
+// - The bounce out left animation mixins
+// - @param map $options
+@mixin bounce-out-left($options: ()) {
+	$options: map-extend(('end': $vitalize-bounce-out-left-end, 'properties': $vitalize-bounce-out-left-properties, 'extensions': $vitalize-bounce-out-left-extensions), $options);
+	$end: map-get($options, 'end');
+	$name: 'bounce-out-left-#{$end}';
+
+	@include animation-set($name, $options) {
+		from, 60%, 75%, 90%, to {
+			animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+		}
+
+		0% {
+			transform: none;
+		}
+
+		10% {
+			transform: translate3d(5px, 0, 0);
+		}
+
+		25% {
+			transform: translate3d(-10px, 0, 0);
+		}
+
+		40% {
+			opacity: 1;
+			transform: translate3d(25px, 0, 0);
+		}
+
+		100% {
+			opacity: 0;
+			transform: translate3d(-($end), 0, 0);
+		}
+	}
+}
+
+// Export
+// ------
+@include exports('bounce-out-left') {
+	@if $vitalize-include-bounce-out-left-class {
+		.bounce-out-left {
+			@include bounce-out-left();
+		}
+	}
+}

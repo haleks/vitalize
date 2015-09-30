@@ -1,0 +1,21 @@
+// Haleks — Vitalize
+// https://haleks.ca
+// Licensed under MIT Open Source
+
+
+// Flipping Exits
+// ==============
+
+// Class
+// -----
+$vitalize-include-flipping-exits-class: $vitalize-include-class;
+
+// Properties
+// ----------
+$vitalize-flipping-exits-properties: $vitalize-default-properties !default;
+$vitalize-flipping-exits-properties: map-extend($vitalize-default-properties, $vitalize-flipping-exits-properties, true);
+
+// Extensions
+// ----------
+$vitalize-flipping-exits-extensions: $vitalize-default-extensions !default;
+$vitalize-flipping-exits-extensions: map-extend($vitalize-default-extensions, $vitalize-flipping-exits-extensions, true);

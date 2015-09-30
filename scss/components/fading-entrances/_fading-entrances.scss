@@ -1,0 +1,22 @@
+// Haleks — Vitalize
+
+// https://haleks.ca
+// Licensed under MIT Open Source
+
+
+// Fading Entrances
+// ================
+
+// Class
+// -----
+$vitalize-include-fading-entrances-class: $vitalize-include-class;
+
+// Properties
+// ----------
+$vitalize-fading-entrances-properties: $vitalize-default-properties !default;
+$vitalize-fading-entrances-properties: map-extend($vitalize-default-properties, $vitalize-fading-entrances-properties, true);
+
+// Extensions
+// ----------
+$vitalize-fading-entrances-extensions: $vitalize-default-extensions !default;
+$vitalize-fading-entrances-extensions: map-extend($vitalize-default-extensions, $vitalize-fading-entrances-extensions, true);

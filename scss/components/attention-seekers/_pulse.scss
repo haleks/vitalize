@@ -1,0 +1,64 @@
+// Haleks — Vitalize
+// https://haleks.ca
+// Licensed under MIT Open Source
+
+
+// Pulse
+// =====
+@import '../../core/global';
+@import 'attention-seekers';
+
+// Class
+// -----
+$vitalize-include-pulse-class: $vitalize-include-attention-seekers-class !default;
+
+// Properties
+// ----------
+$vitalize-pulse-properties: $vitalize-default-properties !default;
+$vitalize-pulse-properties: map-extend($vitalize-default-properties, $vitalize-pulse-properties, true);
+
+// Extensions
+// ----------
+$vitalize-pulse-extensions: $vitalize-default-extensions !default;
+$vitalize-pulse-extensions: map-extend($vitalize-default-extensions, $vitalize-pulse-extensions, true);
+
+// Options
+// -------
+$vitalize-pulse-scale: 1.1 !default;
+
+// Keyframes
+// ---------
+
+// Pulse
+// ------
+// - The pulse animation mixins
+// - @param map $options
+@mixin pulse($options: ()) {
+	$options: map-extend(('scale': $vitalize-pulse-scale, 'properties': $vitalize-pulse-properties, 'extensions': $vitalize-pulse-extensions), $options);
+	$scale: map-get($options, 'scale');
+	$name: 'pulse-#{$scale}';
+
+	@include animation-set($name, $options) {
+		from {
+		  transform: scale3d(1, 1, 1);;
+		}
+
+		50% {
+			transform: scale3d($scale, $scale, $scale);
+		}
+
+		to {
+			transform: scale3d(1, 1, 1);;
+		}
+	}
+}
+
+// Export
+// ------
+@include exports('pulse') {
+	@if $vitalize-include-pulse-class {
+		.pulse {
+			@include pulse();
+		}
+	}
+}

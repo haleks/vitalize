@@ -1,0 +1,59 @@
+// Haleks — Vitalize
+// https://haleks.ca
+// Licensed under MIT Open Source
+
+
+// Fade In Left
+// ============
+@import '../../core/global';
+@import 'fading-entrances';
+
+// Class
+// -----
+$vitalize-include-fade-in-left-class: $vitalize-include-fading-entrances-class !default;
+
+// Properties
+// ----------
+$vitalize-fade-in-left-properties: $vitalize-default-properties !default;
+$vitalize-fade-in-left-properties: map-extend($vitalize-default-properties, $vitalize-fade-in-left-properties, true);
+
+// Extensions
+// ----------
+$vitalize-fade-in-left-extensions: $vitalize-default-extensions !default;
+$vitalize-fade-in-left-extensions: map-extend($vitalize-default-extensions, $vitalize-fade-in-left-extensions, true);
+
+// Options
+// -------
+$vitalize-fade-in-left-start: 100% !default;
+
+// Fade In Left
+// ------------
+// - The fade in left animation mixins
+// - @param map $options
+@mixin fade-in-left($options: ()) {
+	$options: map-extend(('start': $vitalize-fade-in-left-start, 'properties': $vitalize-fade-in-left-properties, 'extensions': $vitalize-fade-in-left-extensions), $options);
+	$start: map-get($options, 'start');
+	$name: 'fade-in-left-#{$start}';
+
+	@include animation-set($name, $options) {
+		from {
+			opacity: 0;
+			transform: translate3d(-($start), 0, 0);
+		}
+
+		to {
+			opacity: 1;
+			transform: none;
+  		}
+	}
+}
+
+// Export
+// ------
+@include exports('fade-in-left') {
+	@if $vitalize-include-fade-in-left-class {
+		.fade-in-left {
+			@include fade-in-left();
+		}
+	}
+}

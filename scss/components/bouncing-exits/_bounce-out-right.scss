@@ -1,0 +1,75 @@
+// Haleks — Vitalize
+// https://haleks.ca
+// Licensed under MIT Open Source
+
+
+// Bounce Out Right
+// ================
+@import '../../core/global';
+@import 'bouncing-exits';
+
+// Class
+// -----
+$vitalize-include-bounce-out-right-class: $vitalize-include-bouncing-exits-class !default;
+
+// Properties
+// ----------
+$vitalize-bounce-out-right-properties: $vitalize-default-properties !default;
+$vitalize-bounce-out-right-properties: map-extend($vitalize-default-properties, $vitalize-bounce-out-right-properties, true);
+
+// Extensions
+// ----------
+$vitalize-bounce-out-right-extensions: $vitalize-default-extensions !default;
+$vitalize-bounce-out-right-extensions: map-extend($vitalize-default-extensions, $vitalize-bounce-out-right-extensions, true);
+
+// Options
+// -------
+$vitalize-bounce-out-right-end: 3000px !default;
+
+// Bounce Out Right
+// ----------------
+// - The bounce out right animation mixins
+// - @param map $options
+@mixin bounce-out-right($options: ()) {
+	$options: map-extend(('end': $vitalize-bounce-out-right-end, 'properties': $vitalize-bounce-out-right-properties, 'extensions': $vitalize-bounce-out-right-extensions), $options);
+	$end: map-get($options, 'end');
+	$name: 'bounce-out-right-#{$end}';
+
+	@include animation-set($name, $options) {
+		from, 60%, 75%, 90%, to {
+			animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+		}
+
+		0% {
+			transform: none;
+		}
+
+		10% {
+			transform: translate3d(-5px, 0, 0);
+		}
+
+		25% {
+			transform: translate3d(10px, 0, 0);
+		}
+
+		40% {
+			opacity: 1;
+			transform: translate3d(-25px, 0, 0);
+		}
+
+		100% {
+			opacity: 0;
+			transform: translate3d($end, 0, 0);
+		}
+	}
+}
+
+// Export
+// ------
+@include exports('bounce-out-right') {
+	@if $vitalize-include-bounce-out-right-class {
+		.bounce-out-right {
+			@include bounce-out-right();
+		}
+	}
+}

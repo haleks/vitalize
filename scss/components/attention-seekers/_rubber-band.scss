@@ -1,0 +1,82 @@
+// Haleks — Vitalize
+// https://haleks.ca
+// Licensed under MIT Open Source
+
+
+// Rubber Band
+// ===========
+@import '../../core/global';
+@import 'attention-seekers';
+
+// Class
+// -----
+$vitalize-include-rubber-band-class: $vitalize-include-attention-seekers-class !default;
+
+// Properties
+// ----------
+$vitalize-rubber-band-properties: $vitalize-default-properties !default;
+$vitalize-rubber-band-properties: map-extend($vitalize-default-properties, $vitalize-rubber-band-properties, true);
+
+// Extensions
+// ----------
+$vitalize-rubber-band-extensions: $vitalize-default-extensions !default;
+$vitalize-rubber-band-extensions: map-extend($vitalize-default-extensions, $vitalize-rubber-band-extensions, true);
+
+// Options
+// -------
+$vitalize-rubber-band-stretch: 1.25 !default;
+
+// Rubber Band
+// -----------
+// - The rubber band animation mixins
+// - @param map $options
+@mixin rubber-band($options: ()) {
+	$options: map-extend(('stretch': 1.25, 'properties': $vitalize-rubber-band-properties, 'extensions': $vitalize-rubber-band-extensions), $options);
+	$stretch: map-get($options, 'stretch');
+
+	@include animation-set('rubber-band', $options) {
+		$rebound: 1 - ($stretch * .25);
+
+		@if ($rebound < .25) {
+			$rebound: .25
+		}
+
+		from {
+			transform: scale3d(1, 1, 1);
+		}
+
+		30% {
+			transform: scale3d($stretch, $rebound, 1);
+		}
+
+		40% {
+			transform: scale3d($rebound, $stretch, 1);
+		}
+
+		50% {
+			transform: scale3d(1.15, 0.85, 1);
+		}
+
+		65% {
+			transform: scale3d(.95, 1.05, 1);
+		}
+
+		75% {
+			transform: scale3d(1.05, .95, 1);
+		}
+
+		to {
+			transform: scale3d(1, 1, 1);
+		}
+	}
+}
+
+// Export
+// ------
+@include exports('rubber-band') {
+	@if $vitalize-include-rubber-band-class {
+		.rubber-band {
+			@include rubber-band();
+		}
+	}
+}

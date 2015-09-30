@@ -1,0 +1,58 @@
+// Haleks — Vitalize
+// https://haleks.ca
+// Licensed under MIT Open Source
+
+
+// Slide In Down
+// =============
+@import '../../core/global';
+@import 'sliding-entrances';
+
+// Class
+// -----
+$vitalize-include-slide-in-down-class: $vitalize-include-sliding-entrances-class !default;
+
+// Properties
+// ----------
+$vitalize-slide-in-down-properties: $vitalize-default-properties !default;
+$vitalize-slide-in-down-properties: map-extend($vitalize-default-properties, $vitalize-slide-in-down-properties, true);
+
+// Extensions
+// ----------
+$vitalize-slide-in-down-extensions: $vitalize-default-extensions !default;
+$vitalize-slide-in-down-extensions: map-extend($vitalize-default-extensions, $vitalize-slide-in-down-extensions, true);
+
+// Options
+// -------
+$vitalize-slide-in-down-start: 100% !default;
+
+// Slide In Down
+// -------------
+// - The slide in down animation mixins
+// - @param map $options
+@mixin slide-in-down($options: ()) {
+	$options: map-extend(('start': $vitalize-slide-in-down-start, 'properties': $vitalize-slide-in-down-properties, 'extensions': $vitalize-slide-in-down-extensions), $options);
+	$start: map-get($options, 'start');
+	$name: 'slide-in-down-#{$start}';
+
+	@include animation-set($name, $options) {
+		from {
+			transform: translate3d(0, -($start), 0);
+			visibility: visible;
+		}
+
+		to {
+			transform: translate3d(0, 0, 0);
+  		}
+	}
+}
+
+// Export
+// ------
+@include exports('slide-in-down') {
+	@if $vitalize-include-slide-in-down-class {
+		.slide-in-down {
+			@include slide-in-down();
+		}
+	}
+}

@@ -1,0 +1,73 @@
+// Haleks — Vitalize
+// https://haleks.ca
+// Licensed under MIT Open Source
+
+
+// Swing
+// =====
+@import '../../core/global';
+@import 'attention-seekers';
+
+// Class
+// -----
+$vitalize-include-swing-class: $vitalize-include-attention-seekers-class !default;
+
+// Properties
+// ----------
+$vitalize-swing-properties: $vitalize-default-properties !default;
+$vitalize-swing-properties: map-extend($vitalize-default-properties, $vitalize-swing-properties, true);
+
+// Extensions
+// ----------
+$vitalize-swing-extensions: $vitalize-default-extensions !default;
+$vitalize-swing-extensions: map-extend($vitalize-default-extensions, $vitalize-swing-extensions, true);
+
+// Options
+// -------
+$vitalize-swing-degree: 15deg !default;
+
+// Swing
+// ------
+// - The swing animation mixins
+// - @param map $options
+@mixin swing($options: ()) {
+	$options: map-extend(('degree': $vitalize-swing-degree, 'properties': $vitalize-swing-properties, 'extensions': $vitalize-swing-extensions), $options, true);
+	$degree: map-get($options, 'degree');
+	$name: 'swing-#{$degree}';
+
+	@include animation-set($name, $options) {
+		20% {
+			transform: rotate3d(0, 0, 1, $degree);
+		}
+
+		40% {
+			transform: rotate3d(0, 0, 1, -($degree * .666));
+		}
+
+		60% {
+			transform: rotate3d(0, 0, 1, $degree * .333);
+		}
+
+		75% {
+			transform: rotate3d(0, 0, 1, -($degree * .333));
+		}
+
+		90% {
+			transform: rotate3d(0, 0, 1, $degree * .125);
+		}
+
+		to {
+			transform: rotate3d(0, 0, 1, 0deg);
+		}
+	}
+}
+
+// Export
+// ------
+@include exports('swing') {
+	@if $vitalize-include-swing-class {
+		.swing {
+			@include swing();
+		}
+	}
+}

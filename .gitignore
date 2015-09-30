@@ -1,0 +1,17 @@
+# GitIgnore
+
+# NodeJS
+node_modules
+npm-debug.log
+
+# Bower
+bower_components
+
+# MAC
+.DS_Store
+.DS_Store?
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db

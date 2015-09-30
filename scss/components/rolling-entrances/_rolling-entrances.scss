@@ -1,0 +1,21 @@
+// Haleks — Vitalize
+// https://haleks.ca
+// Licensed under MIT Open Source
+
+
+// Rolling Entrances
+// =================
+
+// Class
+// -----
+$vitalize-include-rolling-entrances-class: $vitalize-include-class;
+
+// Properties
+// ----------
+$vitalize-rolling-entrances-properties: $vitalize-default-properties !default;
+$vitalize-rolling-entrances-properties: map-extend($vitalize-default-properties, $vitalize-rolling-entrances-properties, true);
+
+// Extensions
+// ----------
+$vitalize-rolling-entrances-extensions: $vitalize-default-extensions !default;
+$vitalize-rolling-entrances-extensions: map-extend($vitalize-default-extensions, $vitalize-rolling-entrances-extensions, true);

@@ -1,0 +1,79 @@
+// Haleks — Vitalize
+// https://haleks.ca
+// Licensed under MIT Open Source
+
+
+// Wobble
+// ======
+@import '../../core/global';
+@import 'attention-seekers';
+
+// Class
+// -----
+$vitalize-include-wobble-class: $vitalize-include-attention-seekers-class !default;
+
+// Properties
+// ----------
+$vitalize-wobble-properties: $vitalize-default-properties !default;
+$vitalize-wobble-properties: map-extend($vitalize-default-properties, $vitalize-wobble-properties, true);
+
+// Extensions
+// ----------
+$vitalize-wobble-extensions: $vitalize-default-extensions !default;
+$vitalize-wobble-extensions: map-extend($vitalize-default-extensions, $vitalize-wobble-extensions, true);
+
+// Options
+// -------
+$vitalize-wobble-translate: 25% !default;
+$vitalize-wobble-degree: 5deg !default;
+
+// Wobble
+// ------
+// - The wobble animation mixins
+// - @param map $options
+@mixin wobble($options: ()) {
+	$options: map-extend(('translate': $vitalize-wobble-translate, 'degree': $vitalize-wobble-degree, 'properties': $vitalize-wobble-properties, 'extensions': $vitalize-wobble-extensions), $options);
+	$translate: map-get($options, 'translate');
+	$degree: map-get($options, 'degree');
+	$name: 'wobble-#{$translate}-#{$degree}';
+
+	@include animation-set($name) {
+		from {
+			transform: none;
+		}
+
+		15% {
+		   transform: translate3d(-($translate), 0, 0) rotate3d(0, 0, 1, -($degree));
+		}
+
+		30% {
+		   transform: translate3d($translate * .8, 0, 0) rotate3d(0, 0, 1, $degree * .6);
+		}
+
+		45% {
+		   transform: translate3d(-($translate * .6), 0, 0) rotate3d(0, 0, 1, -($degree * .6));
+		}
+
+		60% {
+		   transform: translate3d($translate * .4, 0, 0) rotate3d(0, 0, 1, $degree * .4);
+		}
+
+		75% {
+		   transform: translate3d(-($translate * .2), 0, 0) rotate3d(0, 0, 1, -($degree * .2));
+		}
+
+		to {
+		  transform: none;
+		}
+	}
+}
+
+// Export
+// ------
+@include exports('wobble') {
+	@if $vitalize-include-wobble-class {
+		.wobble {
+			@include wobble();
+		}
+	}
+}

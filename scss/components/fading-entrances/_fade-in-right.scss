@@ -1,0 +1,59 @@
+// Haleks — Vitalize
+// https://haleks.ca
+// Licensed under MIT Open Source
+
+
+// Fade In Right
+// =============
+@import '../../core/global';
+@import 'fading-entrances';
+
+// Class
+// -----
+$vitalize-include-fade-in-right-class: $vitalize-include-fading-entrances-class !default;
+
+// Properties
+// ----------
+$vitalize-fade-in-right-properties: $vitalize-default-properties !default;
+$vitalize-fade-in-right-properties: map-extend($vitalize-default-properties, $vitalize-fade-in-right-properties, true);
+
+// Extensions
+// ----------
+$vitalize-fade-in-right-extensions: $vitalize-default-extensions !default;
+$vitalize-fade-in-right-extensions: map-extend($vitalize-default-extensions, $vitalize-fade-in-right-extensions, true);
+
+// Options
+// -------
+$vitalize-fade-in-right-start: 100% !default;
+
+// Fade In Right
+// -------------
+// - The fade in right animation mixins
+// - @param map $options
+@mixin fade-in-right($options: ()) {
+	$options: map-extend(('start': $vitalize-fade-in-right-start, 'properties': $vitalize-fade-in-right-properties, 'extensions': $vitalize-fade-in-right-extensions), $options);
+	$start: map-get($options, 'start');
+	$name: 'fade-in-right-#{$start}';
+
+	@include animation-set($name, $options) {
+		from {
+			opacity: 0;
+			transform: translate3d($start, 0, 0);
+		}
+
+		to {
+			opacity: 1;
+			transform: none;
+  		}
+	}
+}
+
+// Export
+// ------
+@include exports('fade-in-right') {
+	@if $vitalize-include-fade-in-right-class {
+		.fade-in-right {
+			@include fade-in-right();
+		}
+	}
+}

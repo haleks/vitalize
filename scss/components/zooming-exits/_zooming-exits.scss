@@ -1,0 +1,21 @@
+// Haleks — Vitalize
+// https://haleks.ca
+// Licensed under MIT Open Source
+
+
+// Zooming Exits
+// =============
+
+// Class
+// -----
+$vitalize-include-zooming-exits-class: $vitalize-include-class;
+
+// Properties
+// ----------
+$vitalize-zooming-exits-properties: $vitalize-default-properties !default;
+$vitalize-zooming-exits-properties: map-extend($vitalize-default-properties, $vitalize-zooming-exits-properties, true);
+
+// Extensions
+// ----------
+$vitalize-zooming-exits-extensions: $vitalize-default-extensions !default;
+$vitalize-zooming-exits-extensions: map-extend($vitalize-default-extensions, $vitalize-zooming-exits-extensions, true);

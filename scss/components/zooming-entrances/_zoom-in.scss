@@ -1,0 +1,58 @@
+// Haleks — Vitalize
+// https://haleks.ca
+// Licensed under MIT Open Source
+
+
+// Zoom In
+// =======
+@import '../../core/global';
+@import 'zooming-entrances';
+
+// Class
+// -----
+$vitalize-include-zoom-in-class: $vitalize-include-zooming-entrances-class !default;
+
+// Properties
+// ----------
+$vitalize-zoom-in-properties: $vitalize-default-properties !default;
+$vitalize-zoom-in-properties: map-extend($vitalize-default-properties, $vitalize-zoom-in-properties, true);
+
+// Extensions
+// ----------
+$vitalize-zoom-in-extensions: $vitalize-default-extensions !default;
+$vitalize-zoom-in-extensions: map-extend($vitalize-default-extensions, $vitalize-zoom-in-extensions, true);
+
+// Options
+// -------
+$vitalize-zoom-in-scale: .3 !default;
+
+// Zoom In
+// -------
+// - The zoom in animation mixins
+// - @param map $options
+@mixin zoom-in($options: ()) {
+	$options: map-extend(('scale': $vitalize-zoom-in-scale, 'properties': $vitalize-zoom-in-properties, 'extensions': $vitalize-zoom-in-extensions), $options);
+	$scale: map-get($options, 'scale');
+	$name: 'zoom-in-#{$scale}';
+
+	@include animation-set($name, $options) {
+		from {
+			opacity: 0;
+			transform: scale3d($scale, $scale, $scale);
+		}
+
+		50% {
+			opacity: 1;
+		}
+	}
+}
+
+// Export
+// ------
+@include exports('zoom-in') {
+	@if $vitalize-include-zoom-in-class {
+		.zoom-in {
+			@include zoom-in();
+		}
+	}
+}

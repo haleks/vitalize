@@ -1,0 +1,237 @@
+// Haleks — Vitalize
+// https://haleks.ca
+// Licensed under MIT Open Source
+
+
+// Functions
+// =========
+
+// Import
+// ------
+$vitalize-components: () !default;
+
+@mixin exports($name) {
+    // Import from global scope
+    $vitalize-components: $vitalize-components !global;
+
+    // Check if a module is already on the list
+    $module_index: index($vitalize-components, $name);
+    @if (($module_index == null) or ($module_index == false)) {
+        $vitalize-components: append($vitalize-components, $name) !global;
+        @content;
+    }
+}
+
+// Map
+// ===
+
+// Map Deep Get
+// ------------
+// - Return the value from a deep nested map.
+// - @param map $map
+// - @param arglist $keys
+// - @return map
+@function map-deep-get($map, $keys...) {
+    $return: $map;
+
+    @each $key in $keys {
+        @if type-of($return) == map {
+            $return: map-get($return, $key);
+        }
+    }
+
+    @return $return;
+}
+
+// Map Deep Set
+// ------------
+// - Set a value to deep nested map.
+// - @param map $map
+// - @param arglist $keys
+// - @param string $value
+// - @return map
+@function map-deep-set($map, $keys.../*, $value */) {
+    $list: ($map,);
+    $result: null;
+
+    @if length($keys) == 2 {
+        @return map-merge($map, (nth($keys, 1): nth($keys, -1)));
+    }
+
+    @for $i from 1 through length($keys) - 2 {
+        $list: append($list, map-get(nth($list, -1), nth($keys, $i)));
+    }
+
+    @for $i from length($list) through 1 {
+        $result: map-merge(nth($list, $i), (nth($keys, $i): if($i == length($list), nth($keys, -1), $result)));
+    }
+
+    @return $result;
+}
+
+// Map Has Key
+// -----------
+// - Return true if a deep key exists.
+// - @param map $map
+// - @param arglist $keys
+// - @return bool
+@function map-has-keys($map, $keys...) {
+    @each $key in $keys {
+        @if not map-has-key($map, $key) {
+            @return false;
+        }
+    }
+
+    @return true;
+}
+
+// Map Has Nested Keys
+// -------------------
+// - Return true if map got all '$keys' nested with each others.
+// - @param map $map
+// - @param arglist $keys
+// - @return bool
+@function map-has-nested-keys($map, $keys...) {
+    @each $key in $keys {
+        @if not map-has-key($map, $key) {
+            @return false;
+        }
+
+        $map: map-get($map, $key);
+    }
+
+    @return true;
+}
+
+// Map Depth
+// ---------
+// - Return the level of depth the map has.
+// - @param map $map
+// - @return int
+@function map-depth($map) {
+    $level: 1;
+
+    @each $key, $value in $map {
+        @if type-of($value) == map {
+            $level: max(map-depth($value) + 1, $level);
+        }
+    }
+
+    @return $level;
+}
+
+// Map Extend
+// ----------
+// - Return a merged map of 2 or more maps
+// - @param map $map
+// - @param arglist $maps
+// - @param bool $deep
+// - @return map
+@function map-extend($map, $maps.../*, $deep */) {
+    $last: nth($maps, -1);
+    $deep: $last == true;
+    $max: if($deep, length($maps) - 1, length($maps));
+
+    @for $i from 1 through $max {
+        $current: nth($maps, $i);
+
+        @if not $deep {
+            $map: map-merge($map, $current);
+        } @else {
+            @each $key, $value in $current {
+                @if type-of($value) == map and type-of(map-get($map, $key)) == map {
+                    $value: map-extend(map-get($map, $key), $value, true);
+                }
+
+                $map: map-merge($map, ($key: $value));
+            }
+        }
+    }
+
+    @return $map;
+}
+
+// Map Zip
+// -------
+// - Return a map with merged lists of keys and values.
+// - @param list $keys
+// - @param list $values
+// - @return map
+@function map-zip($keys, $values) {
+    $length-keys: length($keys);
+    $length-values: length($values);
+    $min: min($length-keys, $length-values);
+    $map: ();
+
+    @if $length-keys != $length-values {
+        @warn 'There are #{$length-keys} key(s) for #{$length-values} value(s) in the map for \'map-zip\'. '
+              + 'Resulting map will only have #{$min} pairs.';
+    }
+
+    @if $min == 0 {
+        @return $map;
+    }
+
+    @for $i from 1 through $min {
+        $map: map-merge($map, (nth($keys, $i): nth($values, $i)));
+    }
+
+    @return $map;
+}
+
+// Map Combine
+// -----------
+// - Return a map with combined lists of keys and values.
+// - @param list $keys
+// - @param list $values
+// - @return map
+@function map-combine($keys, $value) {
+    $length-keys: length($keys);
+    $map: ();
+
+    @if $length-keys == 0 {
+        @return $map;
+    }
+
+    @for $i from 1 through $length-keys {
+        $map: map-merge($map, (nth($keys, $i): $value));
+    }
+
+    @return $map;
+}
+
+
+// String
+// ======
+
+// String Replace
+// --------------
+// - Return a string with replaced character.
+// - @param string $string
+// - @param string $search
+// - @param string $replace
+// - @return string
+@function str-replace($string, $search, $replace: '') {
+    $index: str-index($string, $search);
+
+    @if $index {
+        @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+
+    @return $string;
+}
+
+// String Escape
+// -------------
+// - Return a string with escaped characters.
+// - @param string $string
+// - @return string
+@function str-escape($string) {
+    $escapees: ('\\', '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '`', '{', '|', '}', '~');
+
+    @each $char in $escapees {
+        $string: str-replace($string, $char, '\\' + $char);
+    }
+
+    @return $string;
+}

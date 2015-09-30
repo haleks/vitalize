@@ -1,0 +1,131 @@
+@charset "UTF-8";
+
+// Haleks — Vitalize
+// https://haleks.ca
+// Licensed under MIT Open Source
+
+
+// Vitalize
+// ========
+
+
+// Components
+// ==========
+
+// Attention Seekers
+// -----------------
+@import 'components/attention-seekers/bounce';
+@import 'components/attention-seekers/flash';
+@import 'components/attention-seekers/pulse';
+@import 'components/attention-seekers/rubber-band';
+@import 'components/attention-seekers/shake';
+@import 'components/attention-seekers/swing';
+@import 'components/attention-seekers/tada';
+@import 'components/attention-seekers/wobble';
+
+// Bouncing Entrances
+// ------------------
+@import 'components/bouncing-entrances/bounce-in-down';
+@import 'components/bouncing-entrances/bounce-in-left';
+@import 'components/bouncing-entrances/bounce-in-right';
+@import 'components/bouncing-entrances/bounce-in-up';
+@import 'components/bouncing-entrances/bounce-in';
+
+// Bouncing Exits
+// --------------
+@import 'components/bouncing-exits/bounce-out-down';
+@import 'components/bouncing-exits/bounce-out-left';
+@import 'components/bouncing-exits/bounce-out-right';
+@import 'components/bouncing-exits/bounce-out-up';
+@import 'components/bouncing-exits/bounce-out';
+
+// Fading Entrances
+// ------------------
+@import 'components/fading-entrances/fade-in-down';
+@import 'components/fading-entrances/fade-in-left';
+@import 'components/fading-entrances/fade-in-right';
+@import 'components/fading-entrances/fade-in-up';
+@import 'components/fading-entrances/fade-in';
+
+// Fading Exits
+// --------------
+@import 'components/fading-exits/fade-out-down';
+@import 'components/fading-exits/fade-out-left';
+@import 'components/fading-exits/fade-out-right';
+@import 'components/fading-exits/fade-out-up';
+@import 'components/fading-exits/fade-out';
+
+// Flippers
+// --------
+@import 'components/flippers/flip';
+
+// Flipping Entrances
+// ------------------
+@import 'components/flipping-entrances/flip-in-x';
+@import 'components/flipping-entrances/flip-in-y';
+
+// Flipping Exits
+// --------------
+@import 'components/flipping-exits/flip-out-x';
+@import 'components/flipping-exits/flip-out-y';
+
+// Lightspeed
+// ----------
+@import 'components/lightspeed/lightspeed-in';
+@import 'components/lightspeed/lightspeed-out';
+
+// Rolling Entrances
+// -----------------
+@import 'components/rolling-entrances/roll-in-left';
+@import 'components/rolling-entrances/roll-in-right';
+
+// Rolling Exits
+// -------------
+@import 'components/rolling-exits/roll-out-left';
+@import 'components/rolling-exits/roll-out-right';
+
+// Rotating Entrances
+// ------------------
+@import 'components/rotating-entrances/rotate-in-down';
+@import 'components/rotating-entrances/rotate-in-up';
+@import 'components/rotating-entrances/rotate-in';
+
+// Rotating Exits
+// --------------
+@import 'components/rotating-exits/rotate-out-down';
+@import 'components/rotating-exits/rotate-out-up';
+@import 'components/rotating-exits/rotate-out';
+
+// Sliding Entrances
+// -----------------
+@import 'components/sliding-entrances/slide-in-down';
+@import 'components/sliding-entrances/slide-in-left';
+@import 'components/sliding-entrances/slide-in-right';
+@import 'components/sliding-entrances/slide-in-up';
+
+// Sliding Exits
+// -------------
+@import 'components/sliding-exits/slide-out-down';
+@import 'components/sliding-exits/slide-out-left';
+@import 'components/sliding-exits/slide-out-right';
+@import 'components/sliding-exits/slide-out-up';
+
+// Specials
+// --------
+@import 'components/specials/hinge';
+
+// Zooming Entrances
+// -----------------
+@import 'components/zooming-entrances/zoom-in-down';
+@import 'components/zooming-entrances/zoom-in-left';
+@import 'components/zooming-entrances/zoom-in-right';
+@import 'components/zooming-entrances/zoom-in-up';
+@import 'components/zooming-entrances/zoom-in';
+
+// Zooming Exits
+// -------------
+@import 'components/zooming-exits/zoom-out-down';
+@import 'components/zooming-exits/zoom-out-left';
+@import 'components/zooming-exits/zoom-out-right';
+@import 'components/zooming-exits/zoom-out-up';
+@import 'components/zooming-exits/zoom-out';

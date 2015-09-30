@@ -1,0 +1,58 @@
+// Haleks — Vitalize
+// https://haleks.ca
+// Licensed under MIT Open Source
+
+
+// Slide Out Right
+// ===============
+@import '../../core/global';
+@import 'sliding-exits';
+
+// Class
+// -----
+$vitalize-include-slide-out-right-class: $vitalize-include-sliding-exits-class !default;
+
+// Properties
+// ----------
+$vitalize-slide-out-right-properties: $vitalize-default-properties !default;
+$vitalize-slide-out-right-properties: map-extend($vitalize-default-properties, $vitalize-slide-out-right-properties, true);
+
+// Extensions
+// ----------
+$vitalize-slide-out-right-extensions: $vitalize-default-extensions !default;
+$vitalize-slide-out-right-extensions: map-extend($vitalize-default-extensions, $vitalize-slide-out-right-extensions, true);
+
+// Options
+// -------
+$vitalize-slide-out-right-start: 100% !default;
+
+// Slide Out Right
+// ---------------
+// - The slide out right animation mixins
+// - @param map $options
+@mixin slide-out-right($options: ()) {
+	$options: map-extend(('start': $vitalize-slide-out-right-start, 'properties': $vitalize-slide-out-right-properties, 'extensions': $vitalize-slide-out-right-extensions), $options);
+	$start: map-get($options, 'start');
+	$name: 'slide-out-right-#{$start}';
+
+	@include animation-set($name, $options) {
+		from {
+			transform: translate3d(0, 0, 0);
+		}
+
+		to {
+			transform: translate3d($start, 0, 0);
+			visibility: hidden;
+		}
+	}
+}
+
+// Export
+// ------
+@include exports('slide-out-right') {
+	@if $vitalize-include-slide-out-right-class {
+		.slide-out-right {
+			@include slide-out-right();
+		}
+	}
+}

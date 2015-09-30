@@ -1,0 +1,21 @@
+// Haleks — Vitalize
+// https://haleks.ca
+// Licensed under MIT Open Source
+
+
+// Sliding Exits
+// =============
+
+// Class
+// -----
+$vitalize-include-sliding-exits-class: $vitalize-include-class;
+
+// Properties
+// ----------
+$vitalize-sliding-exits-properties: $vitalize-default-properties !default;
+$vitalize-sliding-exits-properties: map-extend($vitalize-default-properties, $vitalize-sliding-exits-properties, true);
+
+// Extensions
+// ----------
+$vitalize-sliding-exits-extensions: $vitalize-default-extensions !default;
+$vitalize-sliding-exits-extensions: map-extend($vitalize-default-extensions, $vitalize-sliding-exits-extensions, true);

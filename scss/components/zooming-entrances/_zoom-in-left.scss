@@ -1,0 +1,61 @@
+// Haleks — Vitalize
+// https://haleks.ca
+// Licensed under MIT Open Source
+
+
+// Zoom In Left
+// ============
+@import '../../core/global';
+@import 'zooming-entrances';
+
+// Class
+// -----
+$vitalize-include-zoom-in-left-class: $vitalize-include-zooming-entrances-class !default;
+
+// Properties
+// ----------
+$vitalize-zoom-in-left-properties: $vitalize-default-properties !default;
+$vitalize-zoom-in-left-properties: map-extend($vitalize-default-properties, $vitalize-zoom-in-left-properties, true);
+
+// Extensions
+// ----------
+$vitalize-zoom-in-left-extensions: $vitalize-default-extensions !default;
+$vitalize-zoom-in-left-extensions: map-extend($vitalize-default-extensions, $vitalize-zoom-in-left-extensions, true);
+
+// Options
+// -------
+$vitalize-zoom-in-left-start: 1000px !default;
+
+// Zoom In Left
+// ------------
+// - The zoom in left animation mixins
+// - @param map $options
+@mixin zoom-in-left($options: ()) {
+	$options: map-extend(('start': $vitalize-zoom-in-left-start, 'properties': $vitalize-zoom-in-left-properties, 'extensions': $vitalize-zoom-in-left-extensions), $options);
+	$start: map-get($options, 'start');
+	$name: 'zoom-in-left-#{$start}';
+
+	@include animation-set($name, $options) {
+		from {
+			opacity: 0;
+			transform: scale3d(.1, .1, .1) translate3d(-($start), 0, 0);
+			animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+		}
+
+		60% {
+		    opacity: 1;
+		    transform: scale3d(.475, .475, .475) translate3d(($start * .01), 0, 0);
+		    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+		}
+	}
+}
+
+// Export
+// ------
+@include exports('zoom-in-left') {
+	@if $vitalize-include-zoom-in-left-class {
+		.zoom-in-left {
+			@include zoom-in-left();
+		}
+	}
+}

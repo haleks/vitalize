@@ -1,0 +1,21 @@
+// Haleks — Vitalize
+// https://haleks.ca
+// Licensed under MIT Open Source
+
+
+// Bouncing Exits
+// ==============
+
+// Class
+// -----
+$vitalize-include-bouncing-exits-class: $vitalize-include-class;
+
+// Properties
+// ----------
+$vitalize-bouncing-exits-properties: $vitalize-default-properties !default;
+$vitalize-bouncing-exits-properties: map-extend($vitalize-default-properties, $vitalize-bouncing-exits-properties, true);
+
+// Extensions
+// ----------
+$vitalize-bouncing-exits-extensions: $vitalize-default-extensions !default;
+$vitalize-bouncing-exits-extensions: map-extend($vitalize-default-extensions, $vitalize-bouncing-exits-extensions, true);

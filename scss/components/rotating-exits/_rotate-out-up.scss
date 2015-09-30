@@ -1,0 +1,67 @@
+// Haleks — Vitalize
+// https://haleks.ca
+// Licensed under MIT Open Source
+
+
+// Rotate In Up
+// ============
+@import '../../core/global';
+@import 'rotating-exits';
+
+// Class
+// -----
+$vitalize-include-rotate-out-up-class: $vitalize-include-rotating-exits-class !default;
+
+// Properties
+// ----------
+$vitalize-rotate-out-up-properties: $vitalize-default-properties !default;
+$vitalize-rotate-out-up-properties: map-extend($vitalize-default-properties, $vitalize-rotate-out-up-properties);
+
+// Extensions
+// ----------
+$vitalize-rotate-out-up-extensions: $vitalize-default-extensions !default;
+$vitalize-rotate-out-up-extensions: map-extend($vitalize-default-extensions, $vitalize-rotate-out-up-extensions);
+
+// Options
+// -------
+$vitalize-rotate-out-up-degree: 45deg !default;
+$vitalize-rotate-out-up-reverse: false !default;
+
+// Rotate In Up
+// ------------
+// - The rotate in up animation mixins
+// - @param map $options
+@mixin rotate-out-up($options: ()) {
+	$options: map-extend(('degree': $vitalize-rotate-out-up-degree, 'reverse': $vitalize-rotate-out-up-reverse, 'properties': $vitalize-rotate-out-up-properties, 'extensions': $vitalize-rotate-out-up-extensions), $options);
+	$reverse: map-get($options, 'reverse');
+	$degree: if($reverse, -(map-get($options, 'degree')), map-get($options, 'degree'));
+	$transform: if($reverse, left bottom, right bottom);
+	$name: 'rotate-out-up-#{$degree}-#{$reverse}';
+
+	@include animation-set($name, $options) {
+		from {
+			transform-origin: $transform;
+			opacity: 1;
+		}
+
+		to {
+			transform-origin: $transform;
+			transform: rotate3d(0, 0, 1, $degree);
+			opacity: 0;
+		}
+	}
+}
+
+// Export
+// ------
+@include exports('rotate-out-up') {
+	@if $vitalize-include-rotate-out-up-class {
+		.rotate-out-up {
+			@include rotate-out-up();
+		}
+
+		.rotate-out-up-reverse {
+			@include rotate-out-up(('reverse': true));
+		}
+	}
+}

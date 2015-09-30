@@ -1,0 +1,211 @@
+// Haleks — Vitalize
+// https://haleks.ca
+// Licensed under MIT Open Source
+
+
+// Functions
+// =========
+
+// Map
+// ---
+
+$map: (
+    'first': (
+        'second': 100,
+        'third': 'testing',
+        'fourth': 500px,
+    ),
+    'fifth': 'test'
+);
+
+@include test-module('map-deep-get') {
+    @include test('should return the value of the requested key from a deep nested map') {
+        $actual: map-deep-get($map, 'first', 'second');
+        $expected: 100;
+
+        @include assert-equal($actual, $expected,
+            'Return the value from a deep nested map.'
+        );
+    }
+}
+
+@include test-module('map-deep-set') {
+    @include test('should set the value of the requested key from a deep nested map') {
+        $actual: map-deep-set($map, 'first', 'second', 500);
+        $expected: (
+            'first': (
+                'second': 500,
+                'third': 'testing',
+                'fourth': 500px,
+            ),
+            'fifth': 'test'
+        );
+
+        @include assert-equal($actual, $expected,
+            'Set a value to deep nested map.'
+        );
+    }
+}
+
+@include test-module('map-has-keys') {
+    @include test('should return true if the requested keys from a map exists') {
+        $actual: map-has-keys($map, 'first', 'fifth');
+        $expected: true;
+
+        @include assert-equal($actual, $expected,
+            'Return true if a deep key exists.'
+        );
+    }
+
+    @include test('should return false if the requested keys from a map doesn\'t exists') {
+        $actual: map-has-keys($map, 'first', 'second');
+        $expected: false;
+
+        @include assert-equal($actual, $expected,
+            'Return true if a deep key exists.'
+        );
+    }
+}
+
+@include test-module('map-has-nested-keys') {
+    @include test('should return true if the requested keys from a deeply nested map exists') {
+        $actual: map-has-nested-keys($map, 'first', 'second');
+        $expected: true;
+
+        @include assert-equal($actual, $expected,
+            'Return true if map got all \'$keys\' nested with each others.'
+        );
+    }
+
+    @include test('should return false if the requested keys from a deeply nested map doesn\'t exists') {
+        $actual: map-has-nested-keys($map, 'first', 'fifth');
+        $expected: false;
+
+        @include assert-equal($actual, $expected,
+            'Return true if map got all \'$keys\' nested with each others.'
+        );
+    }
+}
+
+@include test-module('map-depth') {
+    @include test('should return the depth level of athe deeply nested map') {
+        $actual: map-depth($map);
+        $expected: 2;
+
+        @include assert-equal($actual, $expected,
+            'Return the level of depth the map has.'
+        );
+    }
+}
+
+@include test-module('map-extend') {
+    @include test('should return a merged map of 2 or more maps') {
+        $actual: map-extend($map, ('sixth': 200), ('seveth': 150));
+        $expected: (
+            'first': (
+                'second': 100,
+                'third': 'testing',
+                'fourth': 500px,
+            ),
+            'fifth': 'test',
+            'sixth': 200,
+            'seveth': 150
+        );
+
+        @include assert-equal($actual, $expected,
+            'Return a merged map of 2 or more maps'
+        );
+    }
+
+    @include test('should return a merged map of 2 or more deeply nested maps') {
+        $actual: map-extend($map, ('first': ('second': 500)), ('sixth': 200), ('seveth': 150), true);
+        $expected: (
+            'first': (
+                'second': 500,
+                'third': 'testing',
+                'fourth': 500px,
+            ),
+            'fifth': 'test',
+            'sixth': 200,
+            'seveth': 150
+        );
+
+        @include assert-equal($actual, $expected,
+            'Return a merged map of 2 or more maps'
+        );
+    }
+}
+
+@include test-module('map-zip') {
+    @include test('should return a merged map from a list of keys and a list of values') {
+        $actual: map-zip(('first', 'fifth'), (('second': 100, 'third': 'testing', 'fourth': 500px), 'test'));
+        $expected: (
+            'first': (
+                'second': 100,
+                'third': 'testing',
+                'fourth': 500px,
+            ),
+            'fifth': 'test',
+        );
+
+        @include assert-equal($actual, $expected,
+            'Return a map with merged lists of keys and values.'
+        );
+    }
+}
+
+@include test-module('map-combine') {
+    @include test('should return a merged map from a list of keys and a list of values') {
+        $actual: map-combine(('first', 'fifth'), 'test');
+        $expected: (
+            'first': 'test',
+            'fifth': 'test',
+        );
+
+        @include assert-equal($actual, $expected,
+            'Return a map with combined lists of keys and values.'
+        );
+    }
+}
+
+// String
+// ------
+
+@include test-module('str-replace') {
+    @include test('should return a string with replaced substring') {
+        $string: 'hello you';
+
+        $actual: str-replace($string, 'you', 'world');
+        $expected: 'hello world';
+
+        @include assert-equal($actual, $expected,
+            'Return a string with replaced characters.'
+        );
+    }
+}
+
+@include test-module('str-escape') {
+    @include test('should return a escaped string') {
+        $str: 'hello world.';
+
+        $actual: str-escape($str);
+        $expected: 'hello world\\.';
+
+        @include assert-equal($actual, $expected,
+            'Return a string with escaped characters.'
+        );
+    }
+}
+
+@include test-module('str-escape') {
+    @include test('should return a escaped string') {
+        $str: 'hello world.';
+
+        $actual: str-escape($str);
+        $expected: 'hello world\\.';
+
+        @include assert-equal($actual, $expected,
+            'Return a string with escaped characters.'
+        );
+    }
+}

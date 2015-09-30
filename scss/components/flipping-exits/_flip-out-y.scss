@@ -1,0 +1,70 @@
+// Haleks — Vitalize
+// https://haleks.ca
+// Licensed under MIT Open Source
+
+
+// Flip Out Y
+// ==========
+@import '../../core/global';
+@import 'flipping-exits';
+
+// Class
+// -----
+$vitalize-include-flip-out-y-class: $vitalize-include-flipping-exits-class !default;
+
+// Properties
+// ----------
+$vitalize-flip-out-y-properties: $vitalize-default-properties !default;
+$vitalize-flip-out-y-properties: map-extend($vitalize-default-properties, $vitalize-flip-out-y-properties);
+
+// Extensions
+// ----------
+$vitalize-flip-out-y-extensions: $vitalize-default-extensions !default;
+$vitalize-flip-out-y-extensions: map-extend($vitalize-default-extensions, $vitalize-flip-out-y-extensions);
+
+// Options
+// -------
+$vitalize-flip-out-y-perspective: 400px !default;
+$vitalize-flip-out-y-reverse: false !default;
+
+// Flip Out Y
+// ----------
+// - The flip out y animation mixins
+// - @param map $options
+@mixin flip-out-y($options: ()) {
+	$options: map-extend(('perspective': $vitalize-flip-out-y-perspective, 'reverse': $vitalize-flip-out-y-reverse, 'properties': $vitalize-flip-out-y-properties, 'extensions': $vitalize-flip-out-y-extensions), $options);
+	$perspective: map-get($options, 'perspective');
+	$reverse: map-get($options, 'reverse');
+	$degrees: if($reverse, (20deg, -90deg), (-20deg, 90deg));
+	$name: 'flip-out-y-#{$perspective}-#{$reverse}';
+
+	@include animation-set($name, $options) {
+		from {
+			transform: perspective($perspective);
+		}
+
+		30% {
+			transform: perspective($perspective) rotate3d(0, 1, 0, nth($degrees, 1));
+			opacity: 1;
+		}
+
+		to {
+			transform: perspective($perspective) rotate3d(0, 1, 0,  nth($degrees, 2));
+			opacity: 0;
+		}
+	}
+}
+
+// Export
+// ------
+@include exports('flip-out-y') {
+	@if $vitalize-include-flip-out-y-class {
+		.flip-out-y {
+			@include flip-out-y();
+		}
+
+		.flip-out-y-reverse {
+			@include flip-out-y(('reverse': true));
+		}
+	}
+}

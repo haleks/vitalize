@@ -1,0 +1,59 @@
+// Haleks — Vitalize
+// https://haleks.ca
+// Licensed under MIT Open Source
+
+
+// Fade In
+// =======
+@import '../../core/global';
+@import 'fading-entrances';
+
+// Class
+// -----
+$vitalize-include-fade-in-class: $vitalize-include-fading-entrances-class !default;
+
+// Properties
+// ----------
+$vitalize-fade-in-properties: $vitalize-default-properties !default;
+$vitalize-fade-in-properties: map-extend($vitalize-default-properties, $vitalize-fade-in-properties, true);
+
+// Extensions
+// ----------
+$vitalize-fade-in-extensions: $vitalize-default-extensions !default;
+$vitalize-fade-in-extensions: map-extend($vitalize-default-extensions, $vitalize-fade-in-extensions, true);
+
+// Options
+// -------
+$vitalize-fade-in-opacity-start: 0 !default;
+$vitalize-fade-in-opacity-end: 1 !default;
+
+// Fade In
+// -------
+// - The fade in animation mixins
+// - @param map $options
+@mixin fade-in($options: ()) {
+	$options: map-extend(('start': $vitalize-fade-in-opacity-start, 'end': $vitalize-fade-in-opacity-end, 'properties': $vitalize-fade-in-properties, 'extensions': $vitalize-fade-in-extensions), $options);
+	$start: map-get($options, 'start');
+	$end: map-get($options, 'end');
+	$name: 'fade-in-#{$start}-#{$end}';
+
+	@include animation-set($name, $options) {
+		from {
+			opacity: $start;
+		}
+
+		to {
+			opacity: $end;
+		}
+	}
+}
+
+// Export
+// ------
+@include exports('fade-in') {
+	@if $vitalize-include-fade-in-class {
+		.fade-in {
+			@include fade-in();
+		}
+	}
+}

@@ -1,0 +1,21 @@
+// Haleks — Vitalize
+// https://haleks.ca
+// Licensed under MIT Open Source
+
+
+// Flippers
+// ========
+
+// Class
+// -----
+$vitalize-include-flippers-class: $vitalize-include-class;
+
+// Properties
+// ----------
+$vitalize-flippers-properties: $vitalize-default-properties !default;
+$vitalize-flippers-properties: map-extend($vitalize-default-properties, $vitalize-flippers-properties, true);
+
+// Extensions
+// ----------
+$vitalize-flippers-extensions: $vitalize-default-extensions !default;
+$vitalize-flippers-extensions: map-extend($vitalize-default-extensions, $vitalize-flippers-extensions, true);

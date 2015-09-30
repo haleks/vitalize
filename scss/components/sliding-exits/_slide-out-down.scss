@@ -1,0 +1,58 @@
+// Haleks — Vitalize
+// https://haleks.ca
+// Licensed under MIT Open Source
+
+
+// Slide Out Down
+// ==============
+@import '../../core/global';
+@import 'sliding-exits';
+
+// Class
+// -----
+$vitalize-include-slide-out-down-class: $vitalize-include-sliding-exits-class !default;
+
+// Properties
+// ----------
+$vitalize-slide-out-down-properties: $vitalize-default-properties !default;
+$vitalize-slide-out-down-properties: map-extend($vitalize-default-properties, $vitalize-slide-out-down-properties, true);
+
+// Extensions
+// ----------
+$vitalize-slide-out-down-extensions: $vitalize-default-extensions !default;
+$vitalize-slide-out-down-extensions: map-extend($vitalize-default-extensions, $vitalize-slide-out-down-extensions, true);
+
+// Options
+// -------
+$vitalize-slide-out-down-start: 100% !default;
+
+// Slide Out Down
+// --------------
+// - The slide out down animation mixins
+// - @param map $options
+@mixin slide-out-down($options: ()) {
+	$options: map-extend(('start': $vitalize-slide-out-down-start, 'properties': $vitalize-slide-out-down-properties, 'extensions': $vitalize-slide-out-down-extensions), $options);
+	$start: map-get($options, 'start');
+	$name: 'slide-out-down-#{$start}';
+
+	@include animation-set($name, $options) {
+		from {
+			transform: translate3d(0, 0, 0);
+		}
+
+		to {
+			transform: translate3d(0, $start, 0);
+			visibility: hidden;
+		}
+	}
+}
+
+// Export
+// ------
+@include exports('slide-out-down') {
+	@if $vitalize-include-slide-out-down-class {
+		.slide-out-down {
+			@include slide-out-down();
+		}
+	}
+}

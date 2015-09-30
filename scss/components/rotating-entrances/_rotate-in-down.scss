@@ -1,0 +1,68 @@
+// Haleks — Vitalize
+// https://haleks.ca
+// Licensed under MIT Open Source
+
+
+// Rotate In Down
+// ==============
+@import '../../core/global';
+@import 'rotating-entrances';
+
+// Class
+// -----
+$vitalize-include-rotate-in-down-class: $vitalize-include-rotating-entrances-class !default;
+
+// Properties
+// ----------
+$vitalize-rotate-in-down-properties: $vitalize-default-properties !default;
+$vitalize-rotate-in-down-properties: map-extend($vitalize-default-properties, $vitalize-rotate-in-down-properties);
+
+// Extensions
+// ----------
+$vitalize-rotate-in-down-extensions: $vitalize-default-extensions !default;
+$vitalize-rotate-in-down-extensions: map-extend($vitalize-default-extensions, $vitalize-rotate-in-down-extensions);
+
+// Options
+// -------
+$vitalize-rotate-in-down-degree: 45deg !default;
+$vitalize-rotate-in-down-reverse: false !default;
+
+// Rotate In Down
+// --------------
+// - The rotate in down animation mixins
+// - @param map $options
+@mixin rotate-in-down($options: ()) {
+	$options: map-extend(('degree': $vitalize-rotate-in-down-degree, 'reverse': $vitalize-rotate-in-down-reverse, 'properties': $vitalize-rotate-in-down-properties, 'extensions': $vitalize-rotate-in-down-extensions), $options);
+	$reverse: map-get($options, 'reverse');
+	$degree: if($reverse, map-get($options, 'degree'), -(map-get($options, 'degree')));
+	$transform: if($reverse, right bottom, left bottom);
+	$name: 'rotate-in-down-#{$degree}-#{$reverse}';
+
+	@include animation-set($name, $options) {
+		from {
+			transform-origin: $transform;
+			transform: rotate3d(0, 0, 1, $degree);
+			opacity: 0;
+		}
+
+		to {
+			transform-origin: $transform;
+			transform: none;
+			opacity: 1;
+		}
+	}
+}
+
+// Export
+// ------
+@include exports('rotate-in-down') {
+	@if $vitalize-include-rotate-in-down-class {
+		.rotate-in-down {
+			@include rotate-in-down();
+		}
+
+		.rotate-in-down-reverse {
+			@include rotate-in-down(('reverse': true));
+		}
+	}
+}

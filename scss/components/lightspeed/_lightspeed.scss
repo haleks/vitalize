@@ -1,0 +1,21 @@
+// Haleks — Vitalize
+// https://haleks.ca
+// Licensed under MIT Open Source
+
+
+// Lightspped
+// ==========
+
+// Class
+// -----
+$vitalize-include-lightspeed-class: $vitalize-include-class;
+
+// Properties
+// ----------
+$vitalize-lightspeed-properties: $vitalize-default-properties !default;
+$vitalize-lightspeed-properties: map-extend($vitalize-default-properties, $vitalize-lightspeed-properties, true);
+
+// Extensions
+// ----------
+$vitalize-lightspeed-extensions: $vitalize-default-extensions !default;
+$vitalize-lightspeed-extensions: map-extend($vitalize-default-extensions, $vitalize-lightspeed-extensions, true);

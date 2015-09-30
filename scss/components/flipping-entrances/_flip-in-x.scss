@@ -1,0 +1,80 @@
+// Haleks — Vitalize
+// https://haleks.ca
+// Licensed under MIT Open Source
+
+
+// Flip In X
+// =========
+@import '../../core/global';
+@import 'flipping-entrances';
+
+// Class
+// -----
+$vitalize-include-flip-in-x-class: $vitalize-include-flipping-entrances-class !default;
+
+// Properties
+// ----------
+$vitalize-flip-in-x-properties: $vitalize-default-properties !default;
+$vitalize-flip-in-x-properties: map-extend($vitalize-default-properties, $vitalize-flip-in-x-properties);
+
+// Extensions
+// ----------
+$vitalize-flip-in-x-extensions: $vitalize-default-extensions !default;
+$vitalize-flip-in-x-extensions: map-extend($vitalize-default-extensions, $vitalize-flip-in-x-extensions);
+
+// Options
+// -------
+$vitalize-flip-in-x-perspective: 400px !default;
+$vitalize-flip-in-x-reverse: false !default;
+
+// Flip In X
+// ---------
+// - The flip in x animation mixins
+// - @param map $options
+@mixin flip-in-x($options: ()) {
+	$options: map-extend(('perspective': $vitalize-flip-in-x-perspective, 'reverse': $vitalize-flip-in-x-reverse, 'properties': $vitalize-flip-in-x-properties, 'extensions': $vitalize-flip-in-x-extensions), $options);
+	$perspective: map-get($options, 'perspective');
+	$reverse: map-get($options, 'reverse');
+	$degrees: if($reverse, (90deg, -20deg, 10deg, -5deg), (-90deg, 20deg, -10deg, 5deg));
+	$name: 'flip-in-x-#{$perspective}-#{$reverse}';
+
+	@include animation-set($name, $options) {
+		from {
+			transform: perspective($perspective) rotate3d(1, 0, 0, nth($degrees, 1));
+			animation-timing-function: ease-in;
+			opacity: 0;
+		}
+
+		40% {
+			transform: perspective($perspective) rotate3d(1, 0, 0, nth($degrees, 2));
+			animation-timing-function: ease-in;
+		}
+
+		60% {
+			transform: perspective($perspective) rotate3d(1, 0, 0, nth($degrees, 3));
+			opacity: 1;
+		}
+
+		80% {
+			transform: perspective($perspective) rotate3d(1, 0, 0, nth($degrees, 4));
+		}
+
+		to {
+			transform: perspective($perspective);
+		}
+	}
+}
+
+// Export
+// ------
+@include exports('flip-in-x') {
+	@if $vitalize-include-flip-in-x-class {
+		.flip-in-x {
+			@include flip-in-x();
+		}
+
+		.flip-in-x-reverse {
+			@include flip-in-x(('reverse': true));
+		}
+	}
+}

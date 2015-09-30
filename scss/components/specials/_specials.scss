@@ -1,0 +1,21 @@
+// Haleks — Vitalize
+// https://haleks.ca
+// Licensed under MIT Open Source
+
+
+// Specials
+// ========
+
+// Class
+// -----
+$vitalize-include-specials-class: $vitalize-include-class;
+
+// Properties
+// ----------
+$vitalize-specials-properties: $vitalize-default-properties !default;
+$vitalize-specials-properties: map-extend($vitalize-default-properties, $vitalize-specials-properties, true);
+
+// Extensions
+// ----------
+$vitalize-specials-extensions: $vitalize-default-extensions !default;
+$vitalize-specials-extensions: map-extend($vitalize-default-extensions, $vitalize-specials-extensions, true);

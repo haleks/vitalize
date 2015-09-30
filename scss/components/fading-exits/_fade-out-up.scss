@@ -1,0 +1,58 @@
+// Haleks — Vitalize
+// https://haleks.ca
+// Licensed under MIT Open Source
+
+
+// Fade Out Up
+// =============
+@import '../../core/global';
+@import 'fading-exits';
+
+// Class
+// -----
+$vitalize-include-fade-out-up-class: $vitalize-include-fading-exits-class !default;
+
+// Properties
+// ----------
+$vitalize-fade-out-up-properties: $vitalize-default-properties !default;
+$vitalize-fade-out-up-properties: map-extend($vitalize-default-properties, $vitalize-fade-out-up-properties, true);
+
+// Extensions
+// ----------
+$vitalize-fade-out-up-extensions: $vitalize-default-extensions !default;
+$vitalize-fade-out-up-extensions: map-extend($vitalize-default-extensions, $vitalize-fade-out-up-extensions, true);
+
+// Options
+// -------
+$vitalize-fade-out-up-end: 100% !default;
+
+// Fade Out Up
+// -------------
+// - The fade outup animation mixins
+// - @param map $options
+@mixin fade-out-up($options: ()) {
+	$options: map-extend(('end': $vitalize-fade-out-up-end, 'properties': $vitalize-fade-out-up-properties, 'extensions': $vitalize-fade-out-up-extensions), $options);
+	$end: map-get($options, 'end');
+	$name: 'fade-out-up-#{$end}';
+
+	@include animation-set($name, $options) {
+		from {
+			opacity: 1;
+		}
+
+		to {
+			opacity: 0;
+			transform: translate3d(0, -($end), 0);
+		}
+	}
+}
+
+// Export
+// ------
+@include exports('fade-out-up') {
+	@if $vitalize-include-fade-out-up-class {
+		.fade-out-up {
+			@include fade-out-up();
+		}
+	}
+}

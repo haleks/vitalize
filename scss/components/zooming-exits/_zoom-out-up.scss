@@ -1,0 +1,65 @@
+// Haleks — Vitalize
+// https://haleks.ca
+// Licensed under MIT Open Source
+
+
+// Zoom Out Down
+// =============
+
+// Dependencies
+// ------------
+@import '../../core/global';
+@import 'zooming-exits';
+
+// Class
+// -----
+$vitalize-include-zoom-out-up-class: $vitalize-include-zooming-exits-class !default;
+
+// Properties
+// ----------
+$vitalize-zoom-out-up-properties: $vitalize-default-properties !default;
+$vitalize-zoom-out-up-properties: map-extend($vitalize-default-properties, $vitalize-zoom-out-up-properties, true);
+
+// Extensions
+// ----------
+$vitalize-zoom-out-up-extensions: $vitalize-default-extensions !default;
+$vitalize-zoom-out-up-extensions: map-extend($vitalize-default-extensions, $vitalize-zoom-out-up-extensions, true);
+
+// Options
+// -------
+$vitalize-zoom-out-up-start: 1000px !default;
+
+// Zoom Out Down
+// -------------
+// - The zoom out up animation mixins
+// - @param map $options
+@mixin zoom-out-up($options: ()) {
+	$options: map-extend(('start': $vitalize-zoom-out-up-start, 'properties': $vitalize-zoom-out-up-properties, 'extensions': $vitalize-zoom-out-up-extensions), $options);
+	$start: map-get($options, 'start');
+	$name: 'zoom-out-up-#{$start}';
+
+	@include animation-set($name, $options) {
+		40% {
+		    opacity: 1;
+		    transform: scale3d(.475, .475, .475) translate3d(0, ($start * .06), 0);
+		    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+		}
+
+		to {
+			opacity: 0;
+			transform: scale3d(.1, .1, .1) translate3d(0, -($start), 0);
+			transform-origin: center bottom;
+			animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+		}
+	}
+}
+
+// Export
+// ------
+@include exports('zoom-out-up') {
+	@if $vitalize-include-zoom-out-up-class {
+		.zoom-out-up {
+			@include zoom-out-up();
+		}
+	}
+}
