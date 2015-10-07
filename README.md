@@ -141,11 +141,11 @@ The available properties for extensions are the same as the default properties v
 
 #### Custom
 
-It is possible to create your own animations by using the `@animation-set` mixin.
+It is possible to create your own animations by using the `@include animation-set` mixin.
 
 ```sass
 .custom-animation {
-    @animation-set('animation-name') {
+    @include animation-set('animation-name') {
         //Your custom keyframes here
         0% {
             color: blue;
@@ -172,7 +172,7 @@ $options: (
 );
 
 .custom-animation {
-    @animation-set('animation-name', $options) {
+    @include animation-set('animation-name', $options) {
         //Your custom keyframes here
         0% {
             color: blue;
@@ -334,3 +334,7 @@ Demo of animations components can be found on Dan Eden's website at  [http://vit
 | Zoom Out Left         | `.zoom-out-left`         |
 | Zoom Out Right        | `.zoom-out-right`        |
 | Zoom Out Up           | `.zoom-out-up`           |
+
+
+## License
+Vitalize is licensed under [The MIT License (MIT)](LICENSE).
