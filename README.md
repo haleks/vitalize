@@ -186,7 +186,7 @@ $options: (
 
 #### Components
 
-Demo of animations components can be found on Dan Eden's website at  [http://vitalize.github.io/vitalize.css](http://daneden.github.io/animate.css).
+Demo of animations components can be found on Dan Eden's website at [http://daneden.github.io/animate.css](http://daneden.github.io/animate.css).
 
 #### Attentions Seekers
 
