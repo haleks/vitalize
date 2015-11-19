@@ -126,6 +126,10 @@ $vitalize-default-extensions: () !default;
         $name: 'iteration-count';
     }
 
-    -webkit-animation-#{$name}: unquote($value);
-    animation-#{$name}: unquote($value);
+    @if type-of($value) == string {
+        $value: unquote($value);
+    }
+
+    -webkit-animation-#{$name}: $value;
+    animation-#{$name}: $value;
 }
