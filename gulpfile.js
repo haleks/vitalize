@@ -4,7 +4,7 @@ var elixir = require('laravel-elixir');
 // Extensions
 require('laravel-elixir-mocha');
 
-// Plugins & Config
+// Plugins & configuration
 var $ = elixir.Plugins;
 var config = elixir.config;
 
@@ -20,14 +20,15 @@ var config = elixir.config;
  */
 
 elixir(function(mix) {
-    mix.sass('./scss/vitalize.scss', $.if(config.production, './dist/css/vitalize.min.css', './dist/css/vitalize.css'))
+    // Add trailing .min when minimizing for production
+    mix.sass('./scss/vitalize.scss', $.if(config.production, './dist/css/vitalize.min.css', './dist/css/vitalize.css'));
 });
 
 
-// Test only when not production
-if(config.production == false) {
+// Run test only when not in production
+if(! config.production) {
     elixir(function(mix) {
         mix.sass('./tests/tests.scss', './tests/results.css', { includePaths: ['scss', 'tests', 'bower_components/true/sass'] })
-           .mocha('./tests/tests.js')
+           .mocha('./tests/tests.js');
     });
 }
