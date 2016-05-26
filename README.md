@@ -17,10 +17,12 @@ A flexible cross-browser library of CSS keyframe animations built with Sass. Com
 
 ### Installation
 
-Installing via Bower:
+Installing via [bower](http://bower.io/)
+
 ```
 bower install vitalize
 ```
+
 
 ### Settings
 
@@ -90,6 +92,7 @@ This will be merged with the global defaults and change defaults of all the anim
 
 Just like the include variable you may set the properties of specific animations group or animations by modifying their respective properties variable.
 
+
 ##### Extensions
 
 The extension variable generate and append a secondary class to the current animation class to overwrite the animation defaults.
@@ -136,6 +139,7 @@ You will then be able to use the extension class with your animation as follows:
 ```
 
 The available properties for extensions are the same as the default properties variable.
+
 
 ### Animations
 
@@ -184,9 +188,11 @@ $options: (
 }
 ```
 
+
 #### Components
 
 Demo of animations components can be found on Dan Eden's website at [http://daneden.github.io/animate.css](http://daneden.github.io/animate.css).
+
 
 #### Attentions Seekers
 
@@ -202,6 +208,7 @@ Demo of animations components can be found on Dan Eden's website at [http://dane
 | Tada                  | `.tada`                  |
 | Wobble                | `.wobble`                |
 
+
 #### Bouncing Entrances
 
 | Animation             | Class                    |
@@ -211,6 +218,7 @@ Demo of animations components can be found on Dan Eden's website at [http://dane
 | Bounce In Left        | `.bounce-in-left`        |
 | Bounce In Right       | `.bounce-in-right`       |
 | Bounce In Up          | `.bounce-in-up`          |
+
 
 #### Bouncing Exits
 
@@ -222,6 +230,7 @@ Demo of animations components can be found on Dan Eden's website at [http://dane
 | Bounce Out Right      | `.bounce-out-right`      |
 | Bounce Out Up         | `.bounce-out-up`         |
 
+
 #### Fading Entrances
 
 | Animation             | Class                    |
@@ -231,6 +240,7 @@ Demo of animations components can be found on Dan Eden's website at [http://dane
 | Fade In Left          | `.fade-in-left`          |
 | Fade In Right         | `.fade-in-right`         |
 | Fade In Up            | `.fade-in-up`            |
+
 
 #### Fading Exits
 
@@ -242,11 +252,13 @@ Demo of animations components can be found on Dan Eden's website at [http://dane
 | Fade Out Right        | `.fade-out-right`        |
 | Fade Out Up           | `.fade-out-up`           |
 
+
 #### Flippers
 
 | Animation             | Class                    |
 |-----------------------|--------------------------|
 | Flip                  | `.flip`                  |
+
 
 #### Flipping Entrances
 
@@ -255,6 +267,7 @@ Demo of animations components can be found on Dan Eden's website at [http://dane
 | Flip In X             | `.flip-in-x`             |
 | Flip In Y             | `.flip-in-y`             |
 
+
 #### Flipping Exits
 
 | Animation             | Class                    |
@@ -262,12 +275,14 @@ Demo of animations components can be found on Dan Eden's website at [http://dane
 | Flip Out X            | `.flip-out-x`            |
 | Flip Out Y            | `.flip-out-y`            |
 
+
 #### Lightspeed
 
 | Animation             | Class                    |
 |-----------------------|--------------------------|
 | Lightspeed In         | `.lightspeed-in`         |
 | Lightspeed Out        | `.lightSpeed-out`        |
+
 
 #### Rotating Entrances
 
@@ -279,6 +294,7 @@ Demo of animations components can be found on Dan Eden's website at [http://dane
 | Rotate In Up Left     | `.rotate-in-up-left`     |
 | Rotate In Up Right    | `.rotate-in-up-right`    |
 
+
 #### Rotating Exits
 
 | Animation             | Class                    |
@@ -289,6 +305,7 @@ Demo of animations components can be found on Dan Eden's website at [http://dane
 | Rotate Out Up Left    | `.rotate-out-up-left`    |
 | Rotate Out Up Right   | `.rotate-out-up-right`   |
 
+
 #### Sliding Entrances
 
 | Animation             | Class                    |
@@ -297,6 +314,7 @@ Demo of animations components can be found on Dan Eden's website at [http://dane
 | Slide In Left         | `.slide-in-left`         |
 | Slide In Right        | `.slide-in-right`        |
 | Slide In Up           | `.slide-in-up`           |
+
 
 #### Sliding Exits
 
@@ -307,6 +325,7 @@ Demo of animations components can be found on Dan Eden's website at [http://dane
 | Slide Out Right       | `.slide-out-right`       |
 | Slide Out Up          | `.slide-out-up`          |
 
+
 #### Specials
 
 | Animation             | Class                    |
@@ -314,6 +333,7 @@ Demo of animations components can be found on Dan Eden's website at [http://dane
 | Hinge                 | `.hinge`                 |
 | Roll In               | `.roll-in`               |
 | Roll Out              | `.roll-out`              |
+
 
 #### Zooming Entrances
 
@@ -324,6 +344,7 @@ Demo of animations components can be found on Dan Eden's website at [http://dane
 | Zoom In Left          | `.zoom-in-left`          |
 | Zoom In Right         | `.zoom-in-right`         |
 | Zoom In Up            | `.zoom-in-up`            |
+
 
 #### Zooming Exits
 
@@ -337,4 +358,5 @@ Demo of animations components can be found on Dan Eden's website at [http://dane
 
 
 ## License
+
 Vitalize is licensed under [The MIT License (MIT)](LICENSE).
