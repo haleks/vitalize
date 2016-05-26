@@ -1,7 +1,7 @@
 {
   "name": "vitalize",
   "description": "A flexible cross-browser library of CSS keyframe animations built with Sass. Components based on Dan Eden's Animate.css.",
-  "version": "0.1.6",
+  "version": "0.1.8",
   "keywords": ["sass", "scss", "vitalize", "vitalize sass", "vitalize scss", "animation", "animations", "animate", "animate scss", "animate sass", "animate css", "haleks", "Alex Villeneuve", "AlexVilleneuve", "Alexandre Villeneuve", "AlexandreVilleneuve", "haleksandre"],
   "license": "MIT",
   "homepage": "https://haleks.ca",
@@ -19,10 +19,10 @@
   "style": "dist/css/vitalize.css",
   "sass": "scss/vitalize.scss",
   "devDependencies": {
-    "gulp": "^3.9.0",
-    "laravel-elixir": "^3.0.0",
+    "gulp": "^3.9.1",
+    "laravel-elixir": "^5.0.0",
     "laravel-elixir-mocha": "^0.1.0",
-    "sass-true": "^2.0.2"
+    "sass-true": "^2.0.3"
   },
   "bugs": {
     "url": "https://github.com/haleks/vitalize/issues"
