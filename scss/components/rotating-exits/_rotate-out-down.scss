@@ -32,36 +32,36 @@ $vitalize-rotate-out-down-reverse: false !default;
 // - The rotate in down animation mixins
 // - @param map $options
 @mixin rotate-out-down($options: ()) {
-	$options: map-extend(('degree': $vitalize-rotate-out-down-degree, 'reverse': $vitalize-rotate-out-down-reverse, 'properties': $vitalize-rotate-out-down-properties, 'extensions': $vitalize-rotate-out-down-extensions), $options);
-	$reverse: map-get($options, 'reverse');
-	$degree: if($reverse, -(map-get($options, 'degree')), map-get($options, 'degree'));
-	$transform: if($reverse, right bottom, left bottom);
-	$name: 'rotate-out-down-#{$degree}-#{$reverse}';
+  $options: map-extend(('degree': $vitalize-rotate-out-down-degree, 'reverse': $vitalize-rotate-out-down-reverse, 'properties': $vitalize-rotate-out-down-properties, 'extensions': $vitalize-rotate-out-down-extensions), $options);
+  $reverse: map-get($options, 'reverse');
+  $degree: if($reverse, -(map-get($options, 'degree')), map-get($options, 'degree'));
+  $transform: if($reverse, right bottom, left bottom);
+  $name: 'rotate-out-down-#{$degree}-#{$reverse}';
 
-	@include animation-set($name, $options) {
-		from {
-			transform-origin: $transform;
-			opacity: 1;
-		}
+  @include animation-set($name, $options) {
+    from {
+      transform-origin: $transform;
+      opacity: 1;
+    }
 
-		to {
-			transform-origin: $transform;
-			transform: rotate3d(0, 0, 1, $degree);
-			opacity: 0;
-		}
-	}
+    to {
+      transform-origin: $transform;
+      transform: rotate3d(0, 0, 1, $degree);
+      opacity: 0;
+    }
+  }
 }
 
 // Export
 // ------
 @include exports('rotate-out-down') {
-	@if $vitalize-include-rotate-out-down-class {
-		.rotate-out-down {
-			@include rotate-out-down();
-		}
+  @if $vitalize-include-rotate-out-down-class {
+    .rotate-out-down {
+      @include rotate-out-down();
+    }
 
-		.rotate-out-down-reverse {
-			@include rotate-out-down(('reverse': true));
-		}
-	}
+    .rotate-out-down-reverse {
+      @include rotate-out-down(('reverse': true));
+    }
+  }
 }

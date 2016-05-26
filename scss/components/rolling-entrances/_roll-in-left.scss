@@ -33,35 +33,35 @@ $vitalize-roll-in-left-reverse: false !default;
 // - The roll in left animation mixins
 // - @param map $options
 @mixin roll-in-left($options: ()) {
-	$options: map-extend(('start': $vitalize-roll-in-left-start, 'degree': $vitalize-roll-in-left-degree, 'reverse': $vitalize-roll-in-left-reverse, 'properties': $vitalize-roll-in-left-properties, 'extensions': $vitalize-roll-in-left-extensions), $options, true);
-	$reverse: map-get($options, 'reverse');
-	$start: map-get($options, 'start');
-	$degree: if($reverse, map-get($options, 'degree'), -(map-get($options, 'degree')));
-	$name: 'roll-in-left-#{$start}-#{$degree}';
+  $options: map-extend(('start': $vitalize-roll-in-left-start, 'degree': $vitalize-roll-in-left-degree, 'reverse': $vitalize-roll-in-left-reverse, 'properties': $vitalize-roll-in-left-properties, 'extensions': $vitalize-roll-in-left-extensions), $options, true);
+  $reverse: map-get($options, 'reverse');
+  $start: map-get($options, 'start');
+  $degree: if($reverse, map-get($options, 'degree'), -(map-get($options, 'degree')));
+  $name: 'roll-in-left-#{$start}-#{$degree}';
 
-	@include animation-set($name, $options) {
-		from {
-			opacity: 0;
-			transform: translate3d(-($start), 0, 0) rotate3d(0, 0, 1, $degree);
-		}
+  @include animation-set($name, $options) {
+    from {
+      opacity: 0;
+      transform: translate3d(-($start), 0, 0) rotate3d(0, 0, 1, $degree);
+    }
 
-		to {
-			opacity: 1;
-			transform: none;
-		}
-	}
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
 }
 
 // Export
 // ------
 @include exports('roll-in-left') {
-	@if $vitalize-include-roll-in-left-class {
-		.roll-in-left {
-			@include roll-in-left();
-		}
+  @if $vitalize-include-roll-in-left-class {
+    .roll-in-left {
+      @include roll-in-left();
+    }
 
-		.roll-in-left-reverse {
-			@include roll-in-left(('reverse': true));
-		}
-	}
+    .roll-in-left-reverse {
+      @include roll-in-left(('reverse': true));
+    }
+  }
 }

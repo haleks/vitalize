@@ -32,45 +32,45 @@ $vitalize-lightspeed-in-reverse: false !default;
 // - The lightspeed in animation mixins
 // - @param map $options
 @mixin lightspeed-in($options: ()) {
-	$options: map-extend(('start': $vitalize-lightspeed-in-start, 'reverse': $vitalize-lightspeed-in-reverse, 'properties': $vitalize-lightspeed-in-properties, 'extensions': $vitalize-lightspeed-in-extensions), $options);
-	$reverse: map-get($options, 'reverse');
-	$start: if($reverse, -(map-get($options, 'start')), map-get($options, 'start'));
-	$degrees: if($reverse, (-30deg, 20deg, -5deg), (30deg, -20deg, 5deg));
-	$name: 'lightspeed-in-#{$start}-#{$reverse}';
+  $options: map-extend(('start': $vitalize-lightspeed-in-start, 'reverse': $vitalize-lightspeed-in-reverse, 'properties': $vitalize-lightspeed-in-properties, 'extensions': $vitalize-lightspeed-in-extensions), $options);
+  $reverse: map-get($options, 'reverse');
+  $start: if($reverse, -(map-get($options, 'start')), map-get($options, 'start'));
+  $degrees: if($reverse, (-30deg, 20deg, -5deg), (30deg, -20deg, 5deg));
+  $name: 'lightspeed-in-#{$start}-#{$reverse}';
 
-	@include animation-set($name, $options) {
-		from {
-			transform: translate3d($start, 0, 0) skewX(nth($degrees, 1));
-			opacity: 0;
-		}
+  @include animation-set($name, $options) {
+    from {
+      transform: translate3d($start, 0, 0) skewX(nth($degrees, 1));
+      opacity: 0;
+    }
 
-		60% {
-			transform: skewX(nth($degrees, 2));
-			opacity: 1;
-		}
+    60% {
+      transform: skewX(nth($degrees, 2));
+      opacity: 1;
+    }
 
-		80% {
-			transform: skewX(nth($degrees, 3));
-			opacity: 1;
-		}
+    80% {
+      transform: skewX(nth($degrees, 3));
+      opacity: 1;
+    }
 
-		to {
-			transform: none;
-			opacity: 1;
-		}
-	}
+    to {
+      transform: none;
+      opacity: 1;
+    }
+  }
 }
 
 // Export
 // ------
 @include exports('lightspeed-in') {
-	@if $vitalize-include-lightspeed-in-class {
-		.lightspeed-in {
-			@include lightspeed-in();
-		}
+  @if $vitalize-include-lightspeed-in-class {
+    .lightspeed-in {
+      @include lightspeed-in();
+    }
 
-		.lightspeed-in-reverse {
-			@include lightspeed-in(('reverse': true));
-		}
-	}
+    .lightspeed-in-reverse {
+      @include lightspeed-in(('reverse': true));
+    }
+  }
 }

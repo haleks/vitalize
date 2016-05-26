@@ -31,29 +31,29 @@ $vitalize-fade-in-left-start: 100% !default;
 // - The fade in left animation mixins
 // - @param map $options
 @mixin fade-in-left($options: ()) {
-	$options: map-extend(('start': $vitalize-fade-in-left-start, 'properties': $vitalize-fade-in-left-properties, 'extensions': $vitalize-fade-in-left-extensions), $options);
-	$start: map-get($options, 'start');
-	$name: 'fade-in-left-#{$start}';
+  $options: map-extend(('start': $vitalize-fade-in-left-start, 'properties': $vitalize-fade-in-left-properties, 'extensions': $vitalize-fade-in-left-extensions), $options);
+  $start: map-get($options, 'start');
+  $name: 'fade-in-left-#{$start}';
 
-	@include animation-set($name, $options) {
-		from {
-			opacity: 0;
-			transform: translate3d(-($start), 0, 0);
-		}
+  @include animation-set($name, $options) {
+    from {
+      opacity: 0;
+      transform: translate3d(-($start), 0, 0);
+    }
 
-		to {
-			opacity: 1;
-			transform: none;
-  		}
-	}
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
 }
 
 // Export
 // ------
 @include exports('fade-in-left') {
-	@if $vitalize-include-fade-in-left-class {
-		.fade-in-left {
-			@include fade-in-left();
-		}
-	}
+  @if $vitalize-include-fade-in-left-class {
+    .fade-in-left {
+      @include fade-in-left();
+    }
+  }
 }

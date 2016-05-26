@@ -32,37 +32,37 @@ $vitalize-rotate-in-up-reverse: false !default;
 // - The rotate in up animation mixins
 // - @param map $options
 @mixin rotate-in-up($options: ()) {
-	$options: map-extend(('degree': $vitalize-rotate-in-up-degree, 'reverse': $vitalize-rotate-in-up-reverse, 'properties': $vitalize-rotate-in-up-properties, 'extensions': $vitalize-rotate-in-up-extensions), $options);
-	$reverse: map-get($options, 'reverse');
-	$degree: if($reverse, map-get($options, 'degree'), -(map-get($options, 'degree')));
-	$transform: if($reverse, left bottom, right bottom);
-	$name: 'rotate-in-up-#{$degree}-#{$reverse}';
+  $options: map-extend(('degree': $vitalize-rotate-in-up-degree, 'reverse': $vitalize-rotate-in-up-reverse, 'properties': $vitalize-rotate-in-up-properties, 'extensions': $vitalize-rotate-in-up-extensions), $options);
+  $reverse: map-get($options, 'reverse');
+  $degree: if($reverse, map-get($options, 'degree'), -(map-get($options, 'degree')));
+  $transform: if($reverse, left bottom, right bottom);
+  $name: 'rotate-in-up-#{$degree}-#{$reverse}';
 
-	@include animation-set($name, $options) {
-		from {
-			transform-origin: $transform;
-			transform: rotate3d(0, 0, 1, $degree);
-			opacity: 0;
-		}
+  @include animation-set($name, $options) {
+    from {
+      transform-origin: $transform;
+      transform: rotate3d(0, 0, 1, $degree);
+      opacity: 0;
+    }
 
-		to {
-			transform-origin: $transform;
-			transform: none;
-			opacity: 1;
-		}
-	}
+    to {
+      transform-origin: $transform;
+      transform: none;
+      opacity: 1;
+    }
+  }
 }
 
 // Export
 // ------
 @include exports('rotate-in-up') {
-	@if $vitalize-include-rotate-in-up-class {
-		.rotate-in-up {
-			@include rotate-in-up();
-		}
+  @if $vitalize-include-rotate-in-up-class {
+    .rotate-in-up {
+      @include rotate-in-up();
+    }
 
-		.rotate-in-up-reverse {
-			@include rotate-in-up(('reverse': true));
-		}
-	}
+    .rotate-in-up-reverse {
+      @include rotate-in-up(('reverse': true));
+    }
+  }
 }

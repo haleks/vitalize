@@ -8,19 +8,21 @@
 
 // Import
 // ------
+
 $vitalize-components: () !default;
 
 @mixin exports($name) {
-    // Import from global scope
-    $vitalize-components: $vitalize-components !global;
+  // Import from global scope
+  $vitalize-components: $vitalize-components !global;
+  // Check if a module is already on the list
+  $module_index: index($vitalize-components, $name);
 
-    // Check if a module is already on the list
-    $module_index: index($vitalize-components, $name);
-    @if $module_index == null or $module_index == false {
-        $vitalize-components: append($vitalize-components, $name) !global;
-        @content;
-    }
+  @if $module_index == null or $module_index == false {
+    $vitalize-components: append($vitalize-components, $name) !global;
+    @content;
+  }
 }
+
 
 // Map
 // ===
@@ -32,15 +34,15 @@ $vitalize-components: () !default;
 // - @param arglist $keys
 // - @return map
 @function map-deep-get($map, $keys...) {
-    $return: $map;
+  $return: $map;
 
-    @each $key in $keys {
-        @if type-of($return) == map {
-            $return: map-get($return, $key);
-        }
+  @each $key in $keys {
+     @if type-of($return) == map{
+      $return: map-get($return, $key);
     }
+  }
 
-    @return $return;
+  @return $return;
 }
 
 // Map Deep Set
@@ -51,22 +53,22 @@ $vitalize-components: () !default;
 // - @param string $value
 // - @return map
 @function map-deep-set($map, $keys.../*, $value */) {
-    $list: ($map,);
-    $result: null;
+  $list: ($map,);
+  $result: null;
 
-    @if length($keys) == 2 {
-        @return map-merge($map, (nth($keys, 1): nth($keys, -1)));
-    }
+  @if length($keys) == 2 {
+     @return map-merge($map, (nth($keys, 1): nth($keys, -1)));
+  }
 
-    @for $i from 1 through length($keys) - 2 {
-        $list: append($list, map-get(nth($list, -1), nth($keys, $i)));
-    }
+  @for $i from 1 through length($keys) - 2 {
+    $list: append($list, map-get(nth($list, -1), nth($keys, $i)));
+  }
 
-    @for $i from length($list) through 1 {
-        $result: map-merge(nth($list, $i), (nth($keys, $i): if($i == length($list), nth($keys, -1), $result)));
-    }
+  @for $i from length($list) through 1 {
+    $result: map-merge(nth($list, $i), (nth($keys, $i): if($i == length($list), nth($keys, -1), $result)));
+  }
 
-    @return $result;
+@return $result;
 }
 
 // Map Has Key
@@ -76,13 +78,13 @@ $vitalize-components: () !default;
 // - @param arglist $keys
 // - @return bool
 @function map-has-keys($map, $keys...) {
-    @each $key in $keys {
-        @if not map-has-key($map, $key) {
-            @return false;
-        }
+   @each $key in $keys{
+    @if not map-has-key($map, $key) {
+       @return false;
     }
+  }
 
-    @return true;
+  @return true;
 }
 
 // Map Has Nested Keys
@@ -92,15 +94,14 @@ $vitalize-components: () !default;
 // - @param arglist $keys
 // - @return bool
 @function map-has-nested-keys($map, $keys...) {
-    @each $key in $keys {
-        @if not map-has-key($map, $key) {
-            @return false;
-        }
-
-        $map: map-get($map, $key);
+   @each $key in $keys{
+    @if not map-has-key($map, $key) {
+       @return false;
     }
+    $map: map-get($map, $key);
+  }
 
-    @return true;
+  @return true;
 }
 
 // Map Depth
@@ -109,15 +110,15 @@ $vitalize-components: () !default;
 // - @param map $map
 // - @return int
 @function map-depth($map) {
-    $level: 1;
+  $level: 1;
 
-    @each $key, $value in $map {
-        @if type-of($value) == map {
-            $level: max(map-depth($value) + 1, $level);
-        }
+  @each $key, $value in $map {
+     @if type-of($value) == map{
+      $level: max(map-depth($value) + 1, $level);
     }
+  }
 
-    @return $level;
+  @return $level;
 }
 
 // Map Extend
@@ -128,27 +129,27 @@ $vitalize-components: () !default;
 // - @param bool $deep
 // - @return map
 @function map-extend($map, $maps.../*, $deep */) {
-    $last: nth($maps, -1);
-    $deep: $last == true;
-    $max: if($deep, length($maps) - 1, length($maps));
+  $last: nth($maps, -1);
+  $deep: $last == true;
+  $max: if($deep, length($maps) - 1, length($maps));
 
-    @for $i from 1 through $max {
-        $current: nth($maps, $i);
+  @for $i from 1 through $max {
+    $current: nth($maps, $i);
 
-        @if not $deep {
-            $map: map-merge($map, $current);
-        } @else {
-            @each $key, $value in $current {
-                @if type-of($value) == map and type-of(map-get($map, $key)) == map {
-                    $value: map-extend(map-get($map, $key), $value, true);
-                }
-
-                $map: map-merge($map, ($key: $value));
-            }
-        }
+    @if not $deep {
+      $map: map-merge($map, $current);
     }
+    @else {
+       @each $key, $value in $current{
+        @if type-of($value) == map and type-of(map-get($map, $key)) == map {
+          $value: map-extend(map-get($map, $key), $value, true);
+        }
+        $map: map-merge($map, ($key: $value));
+      }
+    }
+  }
 
-    @return $map;
+  @return $map;
 }
 
 // Map Zip
@@ -158,25 +159,24 @@ $vitalize-components: () !default;
 // - @param list $values
 // - @return map
 @function map-zip($keys, $values) {
-    $length-keys: length($keys);
-    $length-values: length($values);
-    $min: min($length-keys, $length-values);
-    $map: ();
+  $length-keys: length($keys);
+  $length-values: length($values);
+  $min: min($length-keys, $length-values);
+  $map: ();
 
-    @if $length-keys != $length-values {
-        @warn 'There are #{$length-keys} key(s) for #{$length-values} value(s) in the map for \'map-zip\'. '
-              + 'Resulting map will only have #{$min} pairs.';
-    }
+  @if $length-keys != $length-values {
+     @warn'There are #{$length-keys} key(s) for #{$length-values} value(s) in the map for \'map-zip\'. ' + 'Resulting map will only have #{$min} pairs.';
+  }
 
-    @if $min == 0 {
-        @return $map;
-    }
+  @if $min == 0 {
+     @return $map;
+  }
 
-    @for $i from 1 through $min {
-        $map: map-merge($map, (nth($keys, $i): nth($values, $i)));
-    }
+  @for $i from 1 through $min {
+    $map: map-merge($map, (nth($keys, $i): nth($values, $i)));
+  }
 
-    @return $map;
+  @return $map;
 }
 
 // Map Combine
@@ -186,18 +186,18 @@ $vitalize-components: () !default;
 // - @param list $values
 // - @return map
 @function map-combine($keys, $value) {
-    $length-keys: length($keys);
-    $map: ();
+  $length-keys: length($keys);
+  $map: ();
 
-    @if $length-keys == 0 {
-        @return $map;
-    }
+  @if $length-keys == 0 {
+     @return $map;
+  }
 
-    @for $i from 1 through $length-keys {
-        $map: map-merge($map, (nth($keys, $i): $value));
-    }
+  @for $i from 1 through $length-keys {
+    $map: map-merge($map, (nth($keys, $i): $value));
+  }
 
-    @return $map;
+  @return $map;
 }
 
 
@@ -212,13 +212,13 @@ $vitalize-components: () !default;
 // - @param string $replace
 // - @return string
 @function str-replace($string, $search, $replace: '') {
-    $index: str-index($string, $search);
+  $index: str-index($string, $search);
 
-    @if $index {
-        @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
-    }
+  @if $index {
+     @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
 
-    @return $string;
+  @return $string;
 }
 
 // String Escape
@@ -227,11 +227,11 @@ $vitalize-components: () !default;
 // - @param string $string
 // - @return string
 @function str-escape($string) {
-    $escapees: ('\\', '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '`', '{', '|', '}', '~');
+  $escapees: ('\\', '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '`', '{', '|', '}', '~');
 
-    @each $char in $escapees {
-        $string: str-replace($string, $char, '\\' + $char);
-    }
+  @each $char in $escapees {
+    $string: str-replace($string, $char, '\\' + $char);
+  }
 
-    @return $string;
+  @return $string;
 }

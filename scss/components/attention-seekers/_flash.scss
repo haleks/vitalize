@@ -32,28 +32,28 @@ $vitalize-flash-opacity-min: 0 !default;
 // - The flash animation mixins
 // - @param map $options
 @mixin flash($options: ()) {
-	$options: map-extend(('max': $vitalize-flash-opacity-max, 'min': $vitalize-flash-opacity-min, 'properties': $vitalize-flash-properties, 'extensions': $vitalize-flash-extensions), $options);
-	$max: map-get($options, 'max');
-	$min: map-get($options, 'min');
-	$name: 'flash-#{$max}-#{$min}';
+  $options: map-extend(('max': $vitalize-flash-opacity-max, 'min': $vitalize-flash-opacity-min, 'properties': $vitalize-flash-properties, 'extensions': $vitalize-flash-extensions), $options);
+  $max: map-get($options, 'max');
+  $min: map-get($options, 'min');
+  $name: 'flash-#{$max}-#{$min}';
 
-	@include animation-set($name, $options) {
-		from, 50%, to {
-			opacity: $max;
-		}
+  @include animation-set($name, $options) {
+    from, 50%, to {
+      opacity: $max;
+    }
 
-		25%, 75% {
-			opacity: $min;
-		}
-	}
+    25%, 75% {
+      opacity: $min;
+    }
+  }
 }
 
 // Export
 // ------
 @include exports('flash') {
-	@if $vitalize-include-flash-class {
-		.flash {
-			@include flash();
-		}
-	}
+  @if $vitalize-include-flash-class {
+    .flash {
+      @include flash();
+    }
+  }
 }

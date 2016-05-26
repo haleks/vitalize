@@ -31,32 +31,32 @@ $vitalize-fade-out-down-end: 100% !default;
 // - The fade outdown animation mixins
 // - @param map $options
 @mixin fade-out-down($options: ()) {
-	$options: map-extend(('end': $vitalize-fade-out-down-end, 'properties': $vitalize-fade-out-down-properties, 'extensions': $vitalize-fade-out-down-extensions), $options);
-	$end: map-get($options, 'end');
-	$name: 'fade-out-down-#{$end}';
+  $options: map-extend(('end': $vitalize-fade-out-down-end, 'properties': $vitalize-fade-out-down-properties, 'extensions': $vitalize-fade-out-down-extensions), $options);
+  $end: map-get($options, 'end');
+  $name: 'fade-out-down-#{$end}';
 
-	@include animation-set($name, $options) {
-		from {
-			opacity: 1;
-		}
+  @include animation-set($name, $options) {
+    from {
+      opacity: 1;
+    }
 
-		to {
-			opacity: 0;
-			transform: translate3d(0, $end, 0);
-		}
-	}
+    to {
+      opacity: 0;
+      transform: translate3d(0, $end, 0);
+    }
+  }
 }
 
 // Export
 // ------
 @include exports('fade-out-down') {
-	@if $vitalize-include-fade-out-down-class {
-		.fade-out-down {
-			@include fade-out-down();
-		}
+  @if $vitalize-include-fade-out-down-class {
+    .fade-out-down {
+      @include fade-out-down();
+    }
 
-		.fade-out-down-big {
-			@include fade-out-down(('big': true));
-		}
-	}
+    .fade-out-down-big {
+      @include fade-out-down(('big': true));
+    }
+  }
 }

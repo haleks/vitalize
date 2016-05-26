@@ -32,28 +32,28 @@ $vitalize-fade-out-opacity-end: 0 !default;
 // - The fade outanimaton mixins
 // - @param map $options
 @mixin fade-out($options: ()) {
-	$options: map-extend(('start': $vitalize-fade-out-opacity-start, 'end': $vitalize-fade-out-opacity-end, 'properties': $vitalize-fade-out-properties, 'extensions': $vitalize-fade-out-extensions), $options);
-	$start: map-get($options, 'start');
-	$end: map-get($options, 'end');
-	$name: 'fade-out-#{$start}-#{$end}';
+  $options: map-extend(('start': $vitalize-fade-out-opacity-start, 'end': $vitalize-fade-out-opacity-end, 'properties': $vitalize-fade-out-properties, 'extensions': $vitalize-fade-out-extensions), $options);
+  $start: map-get($options, 'start');
+  $end: map-get($options, 'end');
+  $name: 'fade-out-#{$start}-#{$end}';
 
-	@include animation-set($name, $options) {
-		from {
-			opacity: $start;
-		}
+  @include animation-set($name, $options) {
+    from {
+      opacity: $start;
+    }
 
-		to {
-			opacity: $end;
-		}
-	}
+    to {
+      opacity: $end;
+    }
+  }
 }
 
 // Export
 // ------
 @include exports('fade-out') {
-	@if $vitalize-include-fade-out-class {
-		.fade-out {
-			@include fade-out();
-		}
-	}
+  @if $vitalize-include-fade-out-class {
+    .fade-out {
+      @include fade-out();
+    }
+  }
 }

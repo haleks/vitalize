@@ -32,40 +32,40 @@ $vitalize-tada-rotation: 3deg !default;
 // - The tada animation mixins
 // - @param map $options
 @mixin tada($options: ()) {
-	$options: map-extend(('scale': $vitalize-tada-scale,'rotation': $vitalize-tada-rotation, 'properties': $vitalize-tada-properties, 'extensions': $vitalize-tada-extensions), $options);
-	$scale: map-get($options, 'scale');
-	$rotation: map-get($options, 'rotation');
-	$name: 'tada-#{$scale}-#{$rotation}';
+  $options: map-extend(('scale': $vitalize-tada-scale,'rotation': $vitalize-tada-rotation, 'properties': $vitalize-tada-properties, 'extensions': $vitalize-tada-extensions), $options);
+  $scale: map-get($options, 'scale');
+  $rotation: map-get($options, 'rotation');
+  $name: 'tada-#{$scale}-#{$rotation}';
 
-	@include animation-set($name, $options) {
-		from {
-			transform: scale3d(1, 1, 1);
-		}
+  @include animation-set($name, $options) {
+    from {
+      transform: scale3d(1, 1, 1);
+    }
 
-		to, 20% {
-			transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -($rotation));
-		}
+    to, 20% {
+      transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -($rotation));
+    }
 
-		30%, 50%, 70%, 90% {
-			transform: scale3d($scale, $scale, $scale) rotate3d(0, 0, 1, $rotation);
-		}
+    30%, 50%, 70%, 90% {
+      transform: scale3d($scale, $scale, $scale) rotate3d(0, 0, 1, $rotation);
+    }
 
-		40%, 60%, 80% {
-			transform: scale3d($scale, $scale, $scale) rotate3d(0, 0, 1, -($rotation));
-		}
+    40%, 60%, 80% {
+      transform: scale3d($scale, $scale, $scale) rotate3d(0, 0, 1, -($rotation));
+    }
 
-		to {
-			transform: scale3d(1, 1, 1);
-		}
-	}
+    to {
+      transform: scale3d(1, 1, 1);
+    }
+  }
 }
 
 // Export
 // ------
 @include exports('tada') {
-	@if $vitalize-include-tada-class {
-		.tada {
-			@include tada();
-		}
-	}
+  @if $vitalize-include-tada-class {
+    .tada {
+      @include tada();
+    }
+  }
 }

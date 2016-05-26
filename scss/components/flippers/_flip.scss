@@ -32,54 +32,54 @@ $vitalize-flip-reverse: false !default;
 // - The flip animation mixins
 // - @param map $options
 @mixin flip($options: ()) {
-	$options: map-extend(('perspective': $vitalize-flip-perspective, 'reverse': $vitalize-flip-reverse, 'properties': $vitalize-flip-properties, 'extensions': $vitalize-flip-extensions), $options);
-	$perspective: map-get($options, 'perspective');
-	$reverse: map-get($options, 'reverse');
-	$name: 'flip-#{$perspective}-#{$reverse}';
-	$degrees: (-360deg, -190deg, -170deg);
+  $options: map-extend(('perspective': $vitalize-flip-perspective, 'reverse': $vitalize-flip-reverse, 'properties': $vitalize-flip-properties, 'extensions': $vitalize-flip-extensions), $options);
+  $perspective: map-get($options, 'perspective');
+  $reverse: map-get($options, 'reverse');
+  $name: 'flip-#{$perspective}-#{$reverse}';
+  $degrees: (-360deg, -190deg, -170deg);
 
-	@if $reverse {
-		$degrees: (360deg, 190deg, 170deg);
-	}
+  @if $reverse {
+    $degrees: (360deg, 190deg, 170deg);
+  }
 
-	@include animation-set($name, $options) {
-		from {
-			transform: perspective($perspective) rotate3d(0, 1, 0, nth($degrees, 1));
-			animation-timing-function: ease-out;
-		}
+  @include animation-set($name, $options) {
+    from {
+      transform: perspective($perspective) rotate3d(0, 1, 0, nth($degrees, 1));
+      animation-timing-function: ease-out;
+    }
 
-		40% {
-			transform: perspective($perspective) translate3d(0, 0, 150px) rotate3d(0, 1, 0, nth($degrees, 2));
-			animation-timing-function: ease-out;
-		}
+    40% {
+      transform: perspective($perspective) translate3d(0, 0, 150px) rotate3d(0, 1, 0, nth($degrees, 2));
+      animation-timing-function: ease-out;
+    }
 
-		50% {
-			transform: perspective($perspective) translate3d(0, 0, 150px) rotate3d(0, 1, 0, nth($degrees, 3));
-			animation-timing-function: ease-in;
-		}
+    50% {
+      transform: perspective($perspective) translate3d(0, 0, 150px) rotate3d(0, 1, 0, nth($degrees, 3));
+      animation-timing-function: ease-in;
+    }
 
-		80% {
-			transform: perspective($perspective) scale3d(.95, .95, .95);
-			animation-timing-function: ease-in;
-		}
+    80% {
+      transform: perspective($perspective) scale3d(.95, .95, .95);
+      animation-timing-function: ease-in;
+    }
 
-		to {
-			transform: perspective($perspective);
-			animation-timing-function: ease-in;
-		}
-	}
+    to {
+      transform: perspective($perspective);
+      animation-timing-function: ease-in;
+    }
+  }
 }
 
 // Export
 // ------
 @include exports('flip') {
-	@if $vitalize-include-flip-class {
-		.flip {
-			@include flip();
-		}
+  @if $vitalize-include-flip-class {
+    .flip {
+      @include flip();
+    }
 
-		.flip-reverse {
-			@include flip(('reverse': true));
-		}
-	}
+    .flip-reverse {
+      @include flip(('reverse': true));
+    }
+  }
 }

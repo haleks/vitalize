@@ -31,28 +31,28 @@ $vitalize-fade-out-left-end: 100% !default;
 // - The fade outleft animation mixins
 // - @param map $options
 @mixin fade-out-left($options: ()) {
-	$options: map-extend(('end': $vitalize-fade-out-left-end, 'properties': $vitalize-fade-out-left-properties, 'extensions': $vitalize-fade-out-left-extensions), $options);
-	$end: map-get($options, 'end');
-	$name: 'fade-out-left-#{$end}';
+  $options: map-extend(('end': $vitalize-fade-out-left-end, 'properties': $vitalize-fade-out-left-properties, 'extensions': $vitalize-fade-out-left-extensions), $options);
+  $end: map-get($options, 'end');
+  $name: 'fade-out-left-#{$end}';
 
-	@include animation-set($name, $options) {
-		from {
-			opacity: 1;
-		}
+  @include animation-set($name, $options) {
+    from {
+      opacity: 1;
+    }
 
-		to {
-			opacity: 0;
-			transform: translate3d(-($end), 0, 0);
-		}
-	}
+    to {
+      opacity: 0;
+      transform: translate3d(-($end), 0, 0);
+    }
+  }
 }
 
 // Export
 // ------
 @include exports('fade-out-left') {
-	@if $vitalize-include-fade-out-left-class {
-		.fade-out-left {
-			@include fade-out-left();
-		}
-	}
+  @if $vitalize-include-fade-out-left-class {
+    .fade-out-left {
+      @include fade-out-left();
+    }
+  }
 }

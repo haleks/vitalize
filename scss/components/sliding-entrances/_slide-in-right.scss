@@ -31,28 +31,28 @@ $vitalize-slide-in-right-start: 100% !default;
 // - The slide in right animation mixins
 // - @param map $options
 @mixin slide-in-right($options: ()) {
-	$options: map-extend(('start': $vitalize-slide-in-right-start, 'properties': $vitalize-slide-in-right-properties, 'extensions': $vitalize-slide-in-right-extensions), $options);
-	$start: map-get($options, 'start');
-	$name: 'slide-in-right-#{$start}';
+  $options: map-extend(('start': $vitalize-slide-in-right-start, 'properties': $vitalize-slide-in-right-properties, 'extensions': $vitalize-slide-in-right-extensions), $options);
+  $start: map-get($options, 'start');
+  $name: 'slide-in-right-#{$start}';
 
-	@include animation-set($name, $options) {
-		from {
-			transform: translate3d($start, 0, 0);
-			visibility: visible;
-		}
+  @include animation-set($name, $options) {
+    from {
+      transform: translate3d($start, 0, 0);
+      visibility: visible;
+    }
 
-		to {
-			transform: translate3d(0, 0, 0);
-  		}
-	}
+    to {
+      transform: translate3d(0, 0, 0);
+      }
+  }
 }
 
 // Export
 // ------
 @include exports('slide-in-right') {
-	@if $vitalize-include-slide-in-right-class {
-		.slide-in-right {
-			@include slide-in-right();
-		}
-	}
+  @if $vitalize-include-slide-in-right-class {
+    .slide-in-right {
+      @include slide-in-right();
+    }
+  }
 }

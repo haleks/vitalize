@@ -27,39 +27,39 @@ $vitalize-zoom-out-extensions: map-extend($vitalize-default-extensions, $vitaliz
 
 // Options
 // -------
-$vitalize-zoom-out-scale: .3 !default;
+$vitalize-zoom-out-scale: 0.3 !default;
 
 // Zoom Out
 // --------
 // - The zoom out animation mixins
 // - @param map $options
 @mixin zoom-out($options: ()) {
-	$options: map-extend(('scale': $vitalize-zoom-out-scale, 'properties': $vitalize-zoom-out-properties, 'extensions': $vitalize-zoom-out-extensions), $options);
-	$scale: map-get($options, 'scale');
-	$name: 'zoom-out-#{$scale}';
+  $options: map-extend(('scale': $vitalize-zoom-out-scale, 'properties': $vitalize-zoom-out-properties, 'extensions': $vitalize-zoom-out-extensions), $options);
+  $scale: map-get($options, 'scale');
+  $name: 'zoom-out-#{$scale}';
 
-	@include animation-set($name, $options) {
-		from {
-			opacity: 1;
-		}
+  @include animation-set($name, $options) {
+    from {
+      opacity: 1;
+    }
 
-		50% {
-			opacity: 0;
-			transform: scale3d($scale, $scale, $scale);
-		}
+    50% {
+      opacity: 0;
+      transform: scale3d($scale, $scale, $scale);
+    }
 
-		to {
-			opacity: 0;
-		}
-	}
+    to {
+      opacity: 0;
+    }
+  }
 }
 
 // Export
 // ------
 @include exports('zoom-out') {
-	@if $vitalize-include-zoom-out-class {
-		.zoom-out {
-			@include zoom-out();
-		}
-	}
+  @if $vitalize-include-zoom-out-class {
+    .zoom-out {
+      @include zoom-out();
+    }
+  }
 }

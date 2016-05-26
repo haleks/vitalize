@@ -34,32 +34,32 @@ $vitalize-zoom-out-right-start: 1000px !default;
 // - The zoom out right animation mixins
 // - @param map $options
 @mixin zoom-out-right($options: ()) {
-	$options: map-extend(('start': $vitalize-zoom-out-right-start, 'properties': $vitalize-zoom-out-right-properties, 'extensions': $vitalize-zoom-out-right-extensions), $options);
-	$start: map-get($options, 'start');
-	$name: 'zoom-out-right-#{$start}';
+  $options: map-extend(('start': $vitalize-zoom-out-right-start, 'properties': $vitalize-zoom-out-right-properties, 'extensions': $vitalize-zoom-out-right-extensions), $options);
+  $start: map-get($options, 'start');
+  $name: 'zoom-out-right-#{$start}';
 
-	@include animation-set($name, $options) {
-		40% {
-		    opacity: 1;
-		    transform: scale3d(.475, .475, .475) translate3d(-($start * .01), 0, 0);
-		    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
-		}
+  @include animation-set($name, $options) {
+    40% {
+      opacity: 1;
+      transform: scale3d(.475, .475, .475) translate3d(-($start * .01), 0, 0);
+      animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+    }
 
-		to {
-			opacity: 0;
-			transform: scale3d(.1, .1, .1) translate3d($start, 0, 0);
-			transform-origin: right center;
-			animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
-		}
-	}
+    to {
+      opacity: 0;
+      transform: scale3d(.1, .1, .1) translate3d($start, 0, 0);
+      transform-origin: right center;
+      animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+    }
+  }
 }
 
 // Export
 // ------
 @include exports('zoom-out-right') {
-	@if $vitalize-include-zoom-out-right-class {
-		.zoom-out-right {
-			@include zoom-out-right();
-		}
-	}
+  @if $vitalize-include-zoom-out-right-class {
+    .zoom-out-right {
+      @include zoom-out-right();
+    }
+  }
 }

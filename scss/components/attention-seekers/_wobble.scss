@@ -32,48 +32,48 @@ $vitalize-wobble-degree: 5deg !default;
 // - The wobble animation mixins
 // - @param map $options
 @mixin wobble($options: ()) {
-	$options: map-extend(('translate': $vitalize-wobble-translate, 'degree': $vitalize-wobble-degree, 'properties': $vitalize-wobble-properties, 'extensions': $vitalize-wobble-extensions), $options);
-	$translate: map-get($options, 'translate');
-	$degree: map-get($options, 'degree');
-	$name: 'wobble-#{$translate}-#{$degree}';
+  $options: map-extend(('translate': $vitalize-wobble-translate, 'degree': $vitalize-wobble-degree, 'properties': $vitalize-wobble-properties, 'extensions': $vitalize-wobble-extensions), $options);
+  $translate: map-get($options, 'translate');
+  $degree: map-get($options, 'degree');
+  $name: 'wobble-#{$translate}-#{$degree}';
 
-	@include animation-set($name) {
-		from {
-			transform: none;
-		}
+  @include animation-set($name) {
+    from {
+      transform: none;
+    }
 
-		15% {
-		   transform: translate3d(-($translate), 0, 0) rotate3d(0, 0, 1, -($degree));
-		}
+    15% {
+      transform: translate3d(-($translate), 0, 0) rotate3d(0, 0, 1, -($degree));
+    }
 
-		30% {
-		   transform: translate3d($translate * .8, 0, 0) rotate3d(0, 0, 1, $degree * .6);
-		}
+    30% {
+      transform: translate3d($translate * .8, 0, 0) rotate3d(0, 0, 1, $degree * .6);
+    }
 
-		45% {
-		   transform: translate3d(-($translate * .6), 0, 0) rotate3d(0, 0, 1, -($degree * .6));
-		}
+    45% {
+      transform: translate3d(-($translate * .6), 0, 0) rotate3d(0, 0, 1, -($degree * .6));
+    }
 
-		60% {
-		   transform: translate3d($translate * .4, 0, 0) rotate3d(0, 0, 1, $degree * .4);
-		}
+    60% {
+      transform: translate3d($translate * .4, 0, 0) rotate3d(0, 0, 1, $degree * .4);
+    }
 
-		75% {
-		   transform: translate3d(-($translate * .2), 0, 0) rotate3d(0, 0, 1, -($degree * .2));
-		}
+    75% {
+      transform: translate3d(-($translate * .2), 0, 0) rotate3d(0, 0, 1, -($degree * .2));
+    }
 
-		to {
-		  transform: none;
-		}
-	}
+    to {
+      transform: none;
+    }
+  }
 }
 
 // Export
 // ------
 @include exports('wobble') {
-	@if $vitalize-include-wobble-class {
-		.wobble {
-			@include wobble();
-		}
-	}
+  @if $vitalize-include-wobble-class {
+    .wobble {
+      @include wobble();
+    }
+  }
 }

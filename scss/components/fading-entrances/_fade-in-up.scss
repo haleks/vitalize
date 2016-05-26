@@ -31,29 +31,29 @@ $vitalize-fade-in-up-start: 100% !default;
 // - The fade in up animation mixins
 // - @param map $options
 @mixin fade-in-up($options: ()) {
-	$options: map-extend(('start': $vitalize-fade-in-up-start, 'properties': $vitalize-fade-in-up-properties, 'extensions': $vitalize-fade-in-up-extensions), $options);
-	$start: map-get($options, 'start');
-	$name: 'fade-in-up-#{$start}';
+  $options: map-extend(('start': $vitalize-fade-in-up-start, 'properties': $vitalize-fade-in-up-properties, 'extensions': $vitalize-fade-in-up-extensions), $options);
+  $start: map-get($options, 'start');
+  $name: 'fade-in-up-#{$start}';
 
-	@include animation-set($name, $options) {
-		from {
-			opacity: 0;
-			transform: translate3d(0, $start, 0);
-		}
+  @include animation-set($name, $options) {
+    from {
+      opacity: 0;
+      transform: translate3d(0, $start, 0);
+    }
 
-		to {
-			opacity: 1;
-			transform: none;
-		}
-	}
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
 }
 
 // Export
 // ------
 @include exports('fade-in-up') {
-	@if $vitalize-include-fade-in-up-class {
-		.fade-in-up {
-			@include fade-in-up();
-		}
-	}
+  @if $vitalize-include-fade-in-up-class {
+    .fade-in-up {
+      @include fade-in-up();
+    }
+  }
 }

@@ -31,28 +31,28 @@ $vitalize-zoom-in-scale: .3 !default;
 // - The zoom in animation mixins
 // - @param map $options
 @mixin zoom-in($options: ()) {
-	$options: map-extend(('scale': $vitalize-zoom-in-scale, 'properties': $vitalize-zoom-in-properties, 'extensions': $vitalize-zoom-in-extensions), $options);
-	$scale: map-get($options, 'scale');
-	$name: 'zoom-in-#{$scale}';
+  $options: map-extend(('scale': $vitalize-zoom-in-scale, 'properties': $vitalize-zoom-in-properties, 'extensions': $vitalize-zoom-in-extensions), $options);
+  $scale: map-get($options, 'scale');
+  $name: 'zoom-in-#{$scale}';
 
-	@include animation-set($name, $options) {
-		from {
-			opacity: 0;
-			transform: scale3d($scale, $scale, $scale);
-		}
+  @include animation-set($name, $options) {
+    from {
+      opacity: 0;
+      transform: scale3d($scale, $scale, $scale);
+    }
 
-		50% {
-			opacity: 1;
-		}
-	}
+    50% {
+      opacity: 1;
+    }
+  }
 }
 
 // Export
 // ------
 @include exports('zoom-in') {
-	@if $vitalize-include-zoom-in-class {
-		.zoom-in {
-			@include zoom-in();
-		}
-	}
+  @if $vitalize-include-zoom-in-class {
+    .zoom-in {
+      @include zoom-in();
+    }
+  }
 }

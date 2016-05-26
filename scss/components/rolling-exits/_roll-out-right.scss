@@ -33,35 +33,35 @@ $vitalize-roll-out-right-reverse: false !default;
 // - The roll out right animation mixins
 // - @param map $options
 @mixin roll-out-right($options: ()) {
-	$options: map-extend(('end': $vitalize-roll-out-right-end, 'degree': $vitalize-roll-out-right-degree, 'reverse': $vitalize-roll-out-right-reverse, 'properties': $vitalize-roll-out-right-properties, 'extensions': $vitalize-roll-out-right-extensions), $options, true);
-	$reverse: map-get($options, 'reverse');
-	$end: map-get($options, 'end');
-	$degree: if($reverse, map-get($options, 'degree'), -(map-get($options, 'degree')));
-	$name: 'roll-out-right-#{$end}-#{$degree}';
+  $options: map-extend(('end': $vitalize-roll-out-right-end, 'degree': $vitalize-roll-out-right-degree, 'reverse': $vitalize-roll-out-right-reverse, 'properties': $vitalize-roll-out-right-properties, 'extensions': $vitalize-roll-out-right-extensions), $options, true);
+  $reverse: map-get($options, 'reverse');
+  $end: map-get($options, 'end');
+  $degree: if($reverse, map-get($options, 'degree'), -(map-get($options, 'degree')));
+  $name: 'roll-out-right-#{$end}-#{$degree}';
 
-	@include animation-set($name, $options) {
-		from {
-			opacity: 1;
-			transform: none;
-		}
+  @include animation-set($name, $options) {
+    from {
+      opacity: 1;
+      transform: none;
+    }
 
-		to {
-			opacity: 0;
-			transform: translate3d($end, 0, 0) rotate3d(0, 0, 1, $degree);
-		}
-	}
+    to {
+      opacity: 0;
+      transform: translate3d($end, 0, 0) rotate3d(0, 0, 1, $degree);
+    }
+  }
 }
 
 // Export
 // ------
 @include exports('roll-out-right') {
-	@if $vitalize-include-roll-out-right-class {
-		.roll-out-right {
-			@include roll-out-right();
-		}
+  @if $vitalize-include-roll-out-right-class {
+    .roll-out-right {
+      @include roll-out-right();
+    }
 
-		.roll-out-right-reverse {
-			@include roll-out-right(('reverse': true));
-		}
-	}
+    .roll-out-right-reverse {
+      @include roll-out-right(('reverse': true));
+    }
+  }
 }

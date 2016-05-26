@@ -31,45 +31,45 @@ $vitalize-bounce-out-left-end: 3000px !default;
 // - The bounce out left animation mixins
 // - @param map $options
 @mixin bounce-out-left($options: ()) {
-	$options: map-extend(('end': $vitalize-bounce-out-left-end, 'properties': $vitalize-bounce-out-left-properties, 'extensions': $vitalize-bounce-out-left-extensions), $options);
-	$end: map-get($options, 'end');
-	$name: 'bounce-out-left-#{$end}';
+  $options: map-extend(('end': $vitalize-bounce-out-left-end, 'properties': $vitalize-bounce-out-left-properties, 'extensions': $vitalize-bounce-out-left-extensions), $options);
+  $end: map-get($options, 'end');
+  $name: 'bounce-out-left-#{$end}';
 
-	@include animation-set($name, $options) {
-		from, 60%, 75%, 90%, to {
-			animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-		}
+  @include animation-set($name, $options) {
+    from, 60%, 75%, 90%, to {
+      animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
 
-		0% {
-			transform: none;
-		}
+    0% {
+      transform: none;
+    }
 
-		10% {
-			transform: translate3d(5px, 0, 0);
-		}
+    10% {
+      transform: translate3d(5px, 0, 0);
+    }
 
-		25% {
-			transform: translate3d(-10px, 0, 0);
-		}
+    25% {
+      transform: translate3d(-10px, 0, 0);
+    }
 
-		40% {
-			opacity: 1;
-			transform: translate3d(25px, 0, 0);
-		}
+    40% {
+      opacity: 1;
+      transform: translate3d(25px, 0, 0);
+    }
 
-		100% {
-			opacity: 0;
-			transform: translate3d(-($end), 0, 0);
-		}
-	}
+    100% {
+      opacity: 0;
+      transform: translate3d(-($end), 0, 0);
+    }
+  }
 }
 
 // Export
 // ------
 @include exports('bounce-out-left') {
-	@if $vitalize-include-bounce-out-left-class {
-		.bounce-out-left {
-			@include bounce-out-left();
-		}
-	}
+  @if $vitalize-include-bounce-out-left-class {
+    .bounce-out-left {
+      @include bounce-out-left();
+    }
+  }
 }

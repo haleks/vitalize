@@ -17,12 +17,12 @@ $vitalize-include-class: true !default;
 // This map is used to merge missing map keys and values of each the
 // of the properties variables set in the settings.
 $vitalize-global-properties: (
-    'count': 1,
-    'duration': 1s,
-    'delay': 0s,
-    'function': 'ease',
-    'fill-mode': 'both',
-    'visibility': 'hidden'
+  'count': 1,
+  'duration': 1s,
+  'delay': 0s,
+  'function': 'ease',
+  'fill-mode': 'both',
+  'visibility': 'hidden'
 ) !global;
 
 // Set default for all animations and make sure all properties are merged.
@@ -41,15 +41,15 @@ $vitalize-default-extensions: () !default;
 // - Outputs prefixed keyframes.
 // - @param string $name
 @mixin keyframes($name) {
-    $name: str-escape($name);
+  $name: str-escape($name);
 
-    @-webkit-keyframes #{$name} {
-        @content;
-    }
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
 
-    @keyframes #{$name} {
-        @content;
-    }
+  @keyframes #{$name} {
+    @content;
+  }
 }
 
 
@@ -62,15 +62,15 @@ $vitalize-default-extensions: () !default;
 // - @param string $name
 // - @param map $options
 @mixin animation-set($name, $options: ()) {
-    $options: map-extend(('properties': $vitalize-default-properties, 'extensions': $vitalize-default-extensions), $options, true);
+  $options: map-extend(('properties': $vitalize-default-properties, 'extensions': $vitalize-default-extensions), $options, true);
 
-    @include keyframes($name) {
-        @content
-    };
+  @include keyframes($name) {
+    @content;
+  }
 
-	@include animation-name-set($name);
-	@include animation-properties-set(map-get($options, 'properties'));
-    @include animation-extensions-set(map-get($options, 'extensions'));
+  @include animation-name-set($name);
+  @include animation-properties-set(map-get($options, 'properties'));
+  @include animation-extensions-set(map-get($options, 'extensions'));
 }
 
 // Set animation name
@@ -78,8 +78,8 @@ $vitalize-default-extensions: () !default;
 // - Outputs prefixed animation name property.
 // - @param string $name
 @mixin animation-name-set($name) {
-    -webkit-animation-name: $name;
-    animation-name: $name;
+  -webkit-animation-name: $name;
+  animation-name: $name;
 }
 
 // Set animation properties
@@ -87,18 +87,18 @@ $vitalize-default-extensions: () !default;
 // - Outputs all prefixed animation properties.
 // - @param map $properties
 @mixin animation-properties-set($properties) {
-    @each $name, $value in $properties {
-        @include animation-property-set($name, $value)
-    }
+  @each $name, $value in $properties {
+    @include animation-property-set($name, $value)
+  }
 }
 // Set animation extensions
 // ------------------------
 // - Outputs all extensions.
 // - @param map $extensions
 @mixin animation-extensions-set($extensions) {
-    @each $name, $values in $extensions {
-        @include animation-extension-set($name, $values);
-    }
+  @each $name, $values in $extensions {
+    @include animation-extension-set($name, $values);
+  }
 }
 
 // Set animation extension
@@ -107,13 +107,13 @@ $vitalize-default-extensions: () !default;
 // - @param string $name
 // - @param string|number $value
 @mixin animation-extension-set($name, $values) {
-    @each $classname, $value in $values {
-        $classname: str-escape($classname);
+  @each $classname, $value in $values {
+    $classname: str-escape($classname);
 
-        &.#{$name}-#{$classname} {
-            @include animation-property-set($name, $value);
-        }
+    &.#{$name}-#{$classname} {
+      @include animation-property-set($name, $value);
     }
+  }
 }
 
 // Set animation property
@@ -122,14 +122,14 @@ $vitalize-default-extensions: () !default;
 // - @param string $name
 // - @param string|number $value
 @mixin animation-property-set($name, $value) {
-    @if ($name == 'count') {
-        $name: 'iteration-count';
-    }
+  @if ($name == 'count') {
+    $name: 'iteration-count';
+  }
 
-    @if type-of($value) == string {
-        $value: unquote($value);
-    }
+  @if type-of($value) == string {
+    $value: unquote($value);
+  }
 
-    -webkit-animation-#{$name}: $value;
-    animation-#{$name}: $value;
+  -webkit-animation-#{$name}: $value;
+  animation-#{$name}: $value;
 }

@@ -31,31 +31,31 @@ $vitalize-zoom-in-down-start: 1000px !default;
 // - The zoom in down animation mixins
 // - @param map $options
 @mixin zoom-in-down($options: ()) {
-	$options: map-extend(('start': $vitalize-zoom-in-down-start, 'properties': $vitalize-zoom-in-down-properties, 'extensions': $vitalize-zoom-in-down-extensions), $options);
-	$start: map-get($options, 'start');
-	$name: 'zoom-in-down-#{$start}';
+  $options: map-extend(('start': $vitalize-zoom-in-down-start, 'properties': $vitalize-zoom-in-down-properties, 'extensions': $vitalize-zoom-in-down-extensions), $options);
+  $start: map-get($options, 'start');
+  $name: 'zoom-in-down-#{$start}';
 
-	@include animation-set($name, $options) {
-		from {
-			opacity: 0;
-			transform: scale3d(.1, .1, .1) translate3d(0, -($start), 0);
-			animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
-		}
+  @include animation-set($name, $options) {
+    from {
+      opacity: 0;
+      transform: scale3d(.1, .1, .1) translate3d(0, -($start), 0);
+      animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+    }
 
-		60% {
-		    opacity: 1;
-		    transform: scale3d(.475, .475, .475) translate3d(0, ($start * .06), 0);
-		    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
-		}
-	}
+    60% {
+      opacity: 1;
+      transform: scale3d(.475, .475, .475) translate3d(0, ($start * .06), 0);
+      animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+    }
+  }
 }
 
 // Export
 // ------
 @include exports('zoom-in-down') {
-	@if $vitalize-include-zoom-in-down-class {
-		.zoom-in-down {
-			@include zoom-in-down();
-		}
-	}
+  @if $vitalize-include-zoom-in-down-class {
+    .zoom-in-down {
+      @include zoom-in-down();
+    }
+  }
 }

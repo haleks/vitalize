@@ -35,50 +35,50 @@ $vitalize-flip-in-y-reverse: false !default;
 // - The flip in y animation mixins
 // - @param map $options
 @mixin flip-in-y($options: ()) {
-	$options: map-extend(('perspective': $vitalize-flip-in-y-perspective, 'reverse': $vitalize-flip-in-y-reverse, 'properties': $vitalize-flip-in-y-properties, 'extensions': $vitalize-flip-in-y-extensions), $options);
-	$perspective: map-get($options, 'perspective');
-	$reverse: map-get($options, 'reverse');
-	$degrees: if($reverse, (-90deg, 20deg, -10deg, 5deg), (90deg, -20deg, 10deg, -5deg));
-	$name: 'flip-in-y-#{$perspective}-#{$reverse}';
+  $options: map-extend(('perspective': $vitalize-flip-in-y-perspective, 'reverse': $vitalize-flip-in-y-reverse, 'properties': $vitalize-flip-in-y-properties, 'extensions': $vitalize-flip-in-y-extensions), $options);
+  $perspective: map-get($options, 'perspective');
+  $reverse: map-get($options, 'reverse');
+  $degrees: if($reverse, (-90deg, 20deg, -10deg, 5deg), (90deg, -20deg, 10deg, -5deg));
+  $name: 'flip-in-y-#{$perspective}-#{$reverse}';
 
-	@include animation-set($name, $options) {
-		from {
-			transform: perspective($perspective) rotate3d(0, 1, 0, nth($degrees, 1));
-			animation-timing-function: ease-in;
-			opacity: 0;
-		}
+  @include animation-set($name, $options) {
+    from {
+      transform: perspective($perspective) rotate3d(0, 1, 0, nth($degrees, 1));
+      animation-timing-function: ease-in;
+      opacity: 0;
+    }
 
-		40% {
-			transform: perspective($perspective) rotate3d(0, 1, 0, nth($degrees, 2));
-			animation-timing-function: ease-in;
-		}
+    40% {
+      transform: perspective($perspective) rotate3d(0, 1, 0, nth($degrees, 2));
+      animation-timing-function: ease-in;
+    }
 
-		60% {
-			transform: perspective($perspective) rotate3d(0, 1, 0, nth($degrees, 3));
-			opacity: 1;
-		}
+    60% {
+      transform: perspective($perspective) rotate3d(0, 1, 0, nth($degrees, 3));
+      opacity: 1;
+    }
 
-		80% {
-			transform: perspective($perspective) rotate3d(0, 1, 0, nth($degrees, 4));
-		}
+    80% {
+      transform: perspective($perspective) rotate3d(0, 1, 0, nth($degrees, 4));
+    }
 
-		to {
-			transform: perspective($perspective);
-		}
-	}
+    to {
+      transform: perspective($perspective);
+    }
+  }
 }
 
 
 // Export
 // ------
 @include exports('flip-in-y') {
-	@if $vitalize-include-flip-in-y-class {
-		.flip-in-y {
-			@include flip-in-y();
-		}
+  @if $vitalize-include-flip-in-y-class {
+    .flip-in-y {
+      @include flip-in-y();
+    }
 
-		.flip-in-y-reverse {
-			@include flip-in-y(('reverse': true));
-		}
-	}
+    .flip-in-y-reverse {
+      @include flip-in-y(('reverse': true));
+    }
+  }
 }

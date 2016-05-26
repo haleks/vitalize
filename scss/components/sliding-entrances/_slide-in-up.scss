@@ -31,28 +31,28 @@ $vitalize-slide-in-up-start: 100% !default;
 // - The slide in up animation mixins
 // - @param map $options
 @mixin slide-in-up($options: ()) {
-	$options: map-extend(('start': $vitalize-slide-in-up-start, 'properties': $vitalize-slide-in-up-properties, 'extensions': $vitalize-slide-in-up-extensions), $options);
-	$start: map-get($options, 'start');
-	$name: 'slide-in-up-#{$start}';
+  $options: map-extend(('start': $vitalize-slide-in-up-start, 'properties': $vitalize-slide-in-up-properties, 'extensions': $vitalize-slide-in-up-extensions), $options);
+  $start: map-get($options, 'start');
+  $name: 'slide-in-up-#{$start}';
 
-	@include animation-set($name, $options) {
-		from {
-			transform: translate3d(0, $start, 0);
-			visibility: visible;
-		}
+  @include animation-set($name, $options) {
+    from {
+      transform: translate3d(0, $start, 0);
+      visibility: visible;
+    }
 
-		to {
-			transform: translate3d(0, 0, 0);
-		}
-	}
+    to {
+      transform: translate3d(0, 0, 0);
+    }
+  }
 }
 
 // Export
 // ------
 @include exports('slide-in-up') {
-	@if $vitalize-include-slide-in-up-class {
-		.slide-in-up {
-			@include slide-in-up();
-		}
-	}
+  @if $vitalize-include-slide-in-up-class {
+    .slide-in-up {
+      @include slide-in-up();
+    }
+  }
 }

@@ -31,52 +31,52 @@ $vitalize-rubber-band-stretch: 1.25 !default;
 // - The rubber band animation mixins
 // - @param map $options
 @mixin rubber-band($options: ()) {
-	$options: map-extend(('stretch': 1.25, 'properties': $vitalize-rubber-band-properties, 'extensions': $vitalize-rubber-band-extensions), $options);
-	$stretch: map-get($options, 'stretch');
+  $options: map-extend(('stretch': 1.25, 'properties': $vitalize-rubber-band-properties, 'extensions': $vitalize-rubber-band-extensions), $options);
+  $stretch: map-get($options, 'stretch');
 
-	@include animation-set('rubber-band', $options) {
-		$rebound: 1 - ($stretch * .25);
+  @include animation-set('rubber-band', $options) {
+    $rebound: 1 - ($stretch * .25);
 
-		@if ($rebound < .25) {
-			$rebound: .25
-		}
+    @if ($rebound < .25) {
+      $rebound: .25
+    }
 
-		from {
-			transform: scale3d(1, 1, 1);
-		}
+    from {
+      transform: scale3d(1, 1, 1);
+    }
 
-		30% {
-			transform: scale3d($stretch, $rebound, 1);
-		}
+    30% {
+      transform: scale3d($stretch, $rebound, 1);
+    }
 
-		40% {
-			transform: scale3d($rebound, $stretch, 1);
-		}
+    40% {
+      transform: scale3d($rebound, $stretch, 1);
+    }
 
-		50% {
-			transform: scale3d(1.15, 0.85, 1);
-		}
+    50% {
+      transform: scale3d(1.15, 0.85, 1);
+    }
 
-		65% {
-			transform: scale3d(.95, 1.05, 1);
-		}
+    65% {
+      transform: scale3d(.95, 1.05, 1);
+    }
 
-		75% {
-			transform: scale3d(1.05, .95, 1);
-		}
+    75% {
+      transform: scale3d(1.05, .95, 1);
+    }
 
-		to {
-			transform: scale3d(1, 1, 1);
-		}
-	}
+    to {
+      transform: scale3d(1, 1, 1);
+    }
+  }
 }
 
 // Export
 // ------
 @include exports('rubber-band') {
-	@if $vitalize-include-rubber-band-class {
-		.rubber-band {
-			@include rubber-band();
-		}
-	}
+  @if $vitalize-include-rubber-band-class {
+    .rubber-band {
+      @include rubber-band();
+    }
+  }
 }

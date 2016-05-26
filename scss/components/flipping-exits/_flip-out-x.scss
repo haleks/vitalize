@@ -32,39 +32,39 @@ $vitalize-flip-out-x-reverse: false !default;
 // - The flip out x animation mixins
 // - @param map $options
 @mixin flip-out-x($options: ()) {
-	$options: map-extend(('perspective': $vitalize-flip-out-x-perspective, 'reverse': $vitalize-flip-out-x-reverse, 'properties': $vitalize-flip-out-x-properties, 'extensions': $vitalize-flip-out-x-extensions), $options);
-	$perspective: map-get($options, 'perspective');
-	$reverse: map-get($options, 'reverse');
-	$degrees: if($reverse, (20deg, -90deg), (-20deg, 90deg));
-	$name: 'flip-out-x-#{$perspective}-#{$reverse}';
+  $options: map-extend(('perspective': $vitalize-flip-out-x-perspective, 'reverse': $vitalize-flip-out-x-reverse, 'properties': $vitalize-flip-out-x-properties, 'extensions': $vitalize-flip-out-x-extensions), $options);
+  $perspective: map-get($options, 'perspective');
+  $reverse: map-get($options, 'reverse');
+  $degrees: if($reverse, (20deg, -90deg), (-20deg, 90deg));
+  $name: 'flip-out-x-#{$perspective}-#{$reverse}';
 
-	@include animation-set($name, $options) {
-		from {
-			transform: perspective($perspective);
-		}
+  @include animation-set($name, $options) {
+    from {
+      transform: perspective($perspective);
+    }
 
-		30% {
-			transform: perspective($perspective) rotate3d(1, 0, 0, nth($degrees, 1));
-			opacity: 1;
-		}
+    30% {
+      transform: perspective($perspective) rotate3d(1, 0, 0, nth($degrees, 1));
+      opacity: 1;
+    }
 
-		to {
-			transform: perspective($perspective) rotate3d(1, 0, 0,  nth($degrees, 2));
-			opacity: 0;
-		}
-	}
+    to {
+      transform: perspective($perspective) rotate3d(1, 0, 0,  nth($degrees, 2));
+      opacity: 0;
+    }
+  }
 }
 
 // Export
 // ------
 @include exports('flip-out-x') {
-	@if $vitalize-include-flip-out-x-class {
-		.flip-out-x {
-			@include flip-out-x();
-		}
+  @if $vitalize-include-flip-out-x-class {
+    .flip-out-x {
+      @include flip-out-x();
+    }
 
-		.flip-out-x-reverse {
-			@include flip-out-x(('reverse': true));
-		}
-	}
+    .flip-out-x-reverse {
+      @include flip-out-x(('reverse': true));
+    }
+  }
 }

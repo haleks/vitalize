@@ -32,34 +32,34 @@ $vitalize-lightspeed-out-reverse: false !default;
 // - The lightspeed out animation mixins
 // - @param map $options
 @mixin lightspeed-out($options: ()) {
-	$options: map-extend(('end': $vitalize-lightspeed-out-end, 'reverse': $vitalize-lightspeed-out-reverse, 'properties': $vitalize-lightspeed-out-properties, 'extensions': $vitalize-lightspeed-out-extensions), $options);
-	$reverse: map-get($options, 'reverse');
-	$end: if($reverse, -(map-get($options, 'end')), map-get($options, 'end'));
-	$degree: if($reverse, -30deg, 30deg);
-	$name: 'lightspeed-out-#{$end}-#{$reverse}';
+  $options: map-extend(('end': $vitalize-lightspeed-out-end, 'reverse': $vitalize-lightspeed-out-reverse, 'properties': $vitalize-lightspeed-out-properties, 'extensions': $vitalize-lightspeed-out-extensions), $options);
+  $reverse: map-get($options, 'reverse');
+  $end: if($reverse, -(map-get($options, 'end')), map-get($options, 'end'));
+  $degree: if($reverse, -30deg, 30deg);
+  $name: 'lightspeed-out-#{$end}-#{$reverse}';
 
-	@include animation-set($name, $options) {
-		from {
-			opacity: 1;
-		}
+  @include animation-set($name, $options) {
+    from {
+      opacity: 1;
+    }
 
-		to {
-			transform: translate3d($end, 0, 0) skewX($degree);
-			opacity: 0;
-		}
-	}
+    to {
+      transform: translate3d($end, 0, 0) skewX($degree);
+      opacity: 0;
+    }
+  }
 }
 
 // Export
 // ------
 @include exports('lightspeed-out') {
-	@if $vitalize-include-lightspeed-out-class {
-		.lightspeed-out {
-			@include lightspeed-out();
-		}
+  @if $vitalize-include-lightspeed-out-class {
+    .lightspeed-out {
+      @include lightspeed-out();
+    }
 
-		.lightspeed-out-reverse {
-			@include lightspeed-out(('reverse': true));
-		}
-	}
+    .lightspeed-out-reverse {
+      @include lightspeed-out(('reverse': true));
+    }
+  }
 }

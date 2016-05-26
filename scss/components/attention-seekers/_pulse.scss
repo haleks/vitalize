@@ -34,31 +34,31 @@ $vitalize-pulse-scale: 1.1 !default;
 // - The pulse animation mixins
 // - @param map $options
 @mixin pulse($options: ()) {
-	$options: map-extend(('scale': $vitalize-pulse-scale, 'properties': $vitalize-pulse-properties, 'extensions': $vitalize-pulse-extensions), $options);
-	$scale: map-get($options, 'scale');
-	$name: 'pulse-#{$scale}';
+  $options: map-extend(('scale': $vitalize-pulse-scale, 'properties': $vitalize-pulse-properties, 'extensions': $vitalize-pulse-extensions), $options);
+  $scale: map-get($options, 'scale');
+  $name: 'pulse-#{$scale}';
 
-	@include animation-set($name, $options) {
-		from {
-		  transform: scale3d(1, 1, 1);;
-		}
+  @include animation-set($name, $options) {
+    from {
+      transform: scale3d(1, 1, 1);;
+    }
 
-		50% {
-			transform: scale3d($scale, $scale, $scale);
-		}
+    50% {
+      transform: scale3d($scale, $scale, $scale);
+    }
 
-		to {
-			transform: scale3d(1, 1, 1);;
-		}
-	}
+    to {
+      transform: scale3d(1, 1, 1);;
+    }
+  }
 }
 
 // Export
 // ------
 @include exports('pulse') {
-	@if $vitalize-include-pulse-class {
-		.pulse {
-			@include pulse();
-		}
-	}
+  @if $vitalize-include-pulse-class {
+    .pulse {
+      @include pulse();
+    }
+  }
 }

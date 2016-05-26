@@ -31,28 +31,28 @@ $vitalize-slide-out-left-start: 100% !default;
 // - The slide out left animation mixins
 // - @param map $options
 @mixin slide-out-left($options: ()) {
-	$options: map-extend(('start': $vitalize-slide-out-left-start, 'properties': $vitalize-slide-out-left-properties, 'extensions': $vitalize-slide-out-left-extensions), $options);
-	$start: map-get($options, 'start');
-	$name: 'slide-out-left-#{$start}';
+  $options: map-extend(('start': $vitalize-slide-out-left-start, 'properties': $vitalize-slide-out-left-properties, 'extensions': $vitalize-slide-out-left-extensions), $options);
+  $start: map-get($options, 'start');
+  $name: 'slide-out-left-#{$start}';
 
-	@include animation-set($name, $options) {
-		from {
-			transform: translate3d(0, 0, 0);
-		}
+  @include animation-set($name, $options) {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
 
-		to {
-			transform: translate3d(-($start), 0, 0);
-			visibility: hidden;
-		}
-	}
+    to {
+      transform: translate3d(-($start), 0, 0);
+      visibility: hidden;
+    }
+  }
 }
 
 // Export
 // ------
 @include exports('slide-out-left') {
-	@if $vitalize-include-slide-out-left-class {
-		.slide-out-left {
-			@include slide-out-left();
-		}
-	}
+  @if $vitalize-include-slide-out-left-class {
+    .slide-out-left {
+      @include slide-out-left();
+    }
+  }
 }

@@ -32,50 +32,50 @@ $vitalize-bounce-out-scale: 1.125 !default;
 // - The bounce out animation mixins
 // - @param map $options
 @mixin bounce-out($options: ()) {
-	$options: map-extend(('scale': $vitalize-bounce-out-scale, 'properties': $vitalize-bounce-out-properties, 'extensions': $vitalize-bounce-out-extensions), $options);
-	$scale: map-get($options, 'scale');
-	$name: 'bounce-out-#{$scale}';
+  $options: map-extend(('scale': $vitalize-bounce-out-scale, 'properties': $vitalize-bounce-out-properties, 'extensions': $vitalize-bounce-out-extensions), $options);
+  $scale: map-get($options, 'scale');
+  $name: 'bounce-out-#{$scale}';
 
-	@include animation-set($name, $options) {
-		from, 20%, 40%, 60%, 80%, to {
-			animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-		}
+  @include animation-set($name, $options) {
+    from, 20%, 40%, 60%, 80%, to {
+      animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
 
-		0% {
-			opacity: 1;
-			transform: scale3d(1, 1, 1);
-		}
+    0% {
+      opacity: 1;
+      transform: scale3d(1, 1, 1);
+    }
 
-		20% {
-			transform: scale3d(.97, .97, .97);
-		}
+    20% {
+      transform: scale3d(.97, .97, .97);
+    }
 
-		40% {
-			opacity: 1;
-			transform: scale3d(1.03, 1.03, 1.03);
-		}
+    40% {
+      opacity: 1;
+      transform: scale3d(1.03, 1.03, 1.03);
+    }
 
-		60% {
-			transform: scale3d(.9, .9, .9);
-		}
+    60% {
+      transform: scale3d(.9, .9, .9);
+    }
 
-		80% {
-			transform: scale3d($scale, $scale, $scale);
-		}
+    80% {
+      transform: scale3d($scale, $scale, $scale);
+    }
 
-		100% {
-			opacity: 0;
-			transform: scale3d(.3, .3, .3);
-		}
-	}
+    100% {
+      opacity: 0;
+      transform: scale3d(.3, .3, .3);
+    }
+  }
 }
 
 // Export
 // ------
 @include exports('bounce-out') {
-	@if $vitalize-include-bounce-out-class {
-		.bounce-out {
-			@include bounce-out();
-		}
-	}
+  @if $vitalize-include-bounce-out-class {
+    .bounce-out {
+      @include bounce-out();
+    }
+  }
 }
