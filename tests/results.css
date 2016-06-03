@@ -81,19 +81,8 @@
 
 /* # keyframe ---------- */
 /* should output prefixed keyframes with requested name */
-@-webkit-keyframes name {
-  from {
-    color: red; }
-  to {
-    color: blue; } }
 
 @keyframes name {
-  from {
-    color: red; }
-  to {
-    color: blue; } }
-
-@-webkit-keyframes name {
   from {
     color: red; }
   to {
@@ -108,26 +97,20 @@
 /* # animation-set ---------- */
 /* should output animation keyframes with default properties and extensions */
 [data-module="animation-set"] [data-test="should output animation keyframes with default properties and extensions"] [data-assert="Outputs animation with keyframes, properties and extensions."] .input {
-  -webkit-animation-name: "vitalize";
   animation-name: "vitalize";
-  -webkit-animation-iteration-count: 1;
+  -webkit-animation-name: "vitalize";
   animation-iteration-count: 1;
-  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
   animation-duration: 1s;
-  -webkit-animation-delay: 0s;
+  -webkit-animation-duration: 1s;
   animation-delay: 0s;
-  -webkit-animation-function: ease;
+  -webkit-animation-delay: 0s;
   animation-function: ease;
-  -webkit-animation-fill-mode: both;
+  -webkit-animation-function: ease;
   animation-fill-mode: both;
-  -webkit-animation-visibility: hidden;
-  animation-visibility: hidden; }
-
-@-webkit-keyframes vitalize {
-  from {
-    color: red; }
-  to {
-    color: blue; } }
+  -webkit-animation-fill-mode: both;
+  animation-visibility: hidden;
+  -webkit-animation-visibility: hidden; }
 
 @keyframes vitalize {
   from {
@@ -136,26 +119,15 @@
     color: blue; } }
 
 [data-module="animation-set"] [data-test="should output animation keyframes with default properties and extensions"] [data-assert="Outputs animation with keyframes, properties and extensions."] .expect .vitalize {
-  -webkit-animation-name: "vitalize";
   animation-name: "vitalize";
-  -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
-  -webkit-animation-duration: 1s;
   animation-duration: 1s;
-  -webkit-animation-delay: 0s;
   animation-delay: 0s;
   -webkit-animation-function: ease;
   animation-function: ease;
-  -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
   -webkit-animation-visibility: hidden;
   animation-visibility: hidden; }
-
-@-webkit-keyframes vitalize {
-  from {
-    color: red; }
-  to {
-    color: blue; } }
 
 @keyframes vitalize {
   from {
@@ -165,26 +137,20 @@
 
 /* should output animation keyframes with custom properties and extensions */
 [data-module="animation-set"] [data-test="should output animation keyframes with custom properties and extensions"] [data-assert="Outputs animation with keyframes, properties and extensions."] .input {
-  -webkit-animation-name: "vitalize";
   animation-name: "vitalize";
-  -webkit-animation-iteration-count: 1;
+  -webkit-animation-name: "vitalize";
   animation-iteration-count: 1;
-  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
   animation-duration: 1s;
-  -webkit-animation-delay: 1s;
+  -webkit-animation-duration: 1s;
   animation-delay: 1s;
-  -webkit-animation-function: ease;
+  -webkit-animation-delay: 1s;
   animation-function: ease;
-  -webkit-animation-fill-mode: both;
+  -webkit-animation-function: ease;
   animation-fill-mode: both;
-  -webkit-animation-visibility: hidden;
-  animation-visibility: hidden; }
-
-@-webkit-keyframes vitalize {
-  from {
-    color: red; }
-  to {
-    color: blue; } }
+  -webkit-animation-fill-mode: both;
+  animation-visibility: hidden;
+  -webkit-animation-visibility: hidden; }
 
 @keyframes vitalize {
   from {
@@ -193,26 +159,15 @@
     color: blue; } }
 
 [data-module="animation-set"] [data-test="should output animation keyframes with custom properties and extensions"] [data-assert="Outputs animation with keyframes, properties and extensions."] .expect .vitalize {
-  -webkit-animation-name: "vitalize";
   animation-name: "vitalize";
-  -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
-  -webkit-animation-duration: 1s;
   animation-duration: 1s;
-  -webkit-animation-delay: 1s;
   animation-delay: 1s;
   -webkit-animation-function: ease;
   animation-function: ease;
-  -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
   -webkit-animation-visibility: hidden;
   animation-visibility: hidden; }
-
-@-webkit-keyframes vitalize {
-  from {
-    color: red; }
-  to {
-    color: blue; } }
 
 @keyframes vitalize {
   from {
@@ -223,42 +178,38 @@
 /* # animation-name-set ---------- */
 /* should output prefixed animation name property */
 [data-module="animation-name-set"] [data-test="should output prefixed animation name property"] [data-assert="Outputs prefixed animation name property."] .input {
-  -webkit-animation-name: "vitalize";
-  animation-name: "vitalize"; }
+  animation-name: "vitalize";
+  -webkit-animation-name: "vitalize"; }
 
 [data-module="animation-name-set"] [data-test="should output prefixed animation name property"] [data-assert="Outputs prefixed animation name property."] .expect {
-  -webkit-animation-name: "vitalize";
   animation-name: "vitalize"; }
 
 /* # animation-properties-set ---------- */
 /* should output prefixed animation properties */
 [data-module="animation-properties-set"] [data-test="should output prefixed animation properties"] [data-assert="Outputs prefixed animation property."] .input {
-  -webkit-animation-iteration-count: 2;
   animation-iteration-count: 2;
-  -webkit-animation-delay: 250ms;
-  animation-delay: 250ms; }
+  -webkit-animation-iteration-count: 2;
+  animation-delay: 250ms;
+  -webkit-animation-delay: 250ms; }
 
 [data-module="animation-properties-set"] [data-test="should output prefixed animation properties"] [data-assert="Outputs prefixed animation property."] .expect {
-  -webkit-animation-iteration-count: 2;
   animation-iteration-count: 2;
-  -webkit-animation-delay: 250ms;
   animation-delay: 250ms; }
 
 /* # animation-property-set ---------- */
 /* should output prefixed animation property */
 [data-module="animation-property-set"] [data-test="should output prefixed animation property"] [data-assert="Outputs prefixed animation property."] .input {
-  -webkit-animation-delay: 250ms;
-  animation-delay: 250ms; }
+  animation-delay: 250ms;
+  -webkit-animation-delay: 250ms; }
 
 [data-module="animation-property-set"] [data-test="should output prefixed animation property"] [data-assert="Outputs prefixed animation property."] .expect {
-  -webkit-animation-delay: 250ms;
   animation-delay: 250ms; }
 
 /* # SUMMARY ---------- */
-/* "20 Tests:" */
-/* " - 14 Passed" */
-/* " - 0 Failed" */
-/* " - 6 Output to CSS" */
+/* 20 Tests: */
+/*  - 14 Passed */
+/*  - 0 Failed */
+/*  - 6 Output to CSS */
 /* -------------------- */
 
 /*# sourceMappingURL=results.css.map */

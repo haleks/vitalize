@@ -66,7 +66,7 @@ $vitalize-default-extensions: () !default;
 
   @include keyframes($name) {
     @content;
-  }
+  };
 
   @include animation-name-set($name);
   @include animation-properties-set(map-get($options, 'properties'));
@@ -78,8 +78,8 @@ $vitalize-default-extensions: () !default;
 // - Outputs prefixed animation name property.
 // - @param string $name
 @mixin animation-name-set($name) {
-  -webkit-animation-name: $name;
   animation-name: $name;
+  -webkit-animation-name: $name;
 }
 
 // Set animation properties
@@ -130,6 +130,6 @@ $vitalize-default-extensions: () !default;
     $value: unquote($value);
   }
 
-  -webkit-animation-#{$name}: $value;
   animation-#{$name}: $value;
+  -webkit-animation-#{$name}: $value;
 }

@@ -28,7 +28,7 @@ elixir(function(mix) {
 // Run test only when not in production
 if(! config.production) {
     elixir(function(mix) {
-        mix.sass('./tests/tests.scss', './tests/results.css', { includePaths: ['scss', 'tests', 'bower_components/true/sass'] })
+        mix.sass('./tests/tests.scss', './tests/results.css', { includePaths: ['scss', 'tests', 'node_modules/sass-true/sass'] })
            .mocha('./tests/tests.js');
     });
 }
