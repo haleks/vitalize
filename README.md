@@ -26,15 +26,15 @@ bower install vitalize
 
 ### Settings
 
-You may change the settings of the package by copying the package's `_settings.scss` partial into your sass project.  Afterwards you simply need to uncomment the variables you wish to make changes to.  
+You may change the settings of the package by copying the package's `_settings.scss` partial into your sass project.  Afterwards you simply need to uncomment the variables you wish to change  
 
-The settings are organized in 3 priority levels ranging from global, animation group and finally the animation itself.  The global settings are inherited by every group animations which in turn are inherited by all animations unless otherwise specified more explicitly.
+The settings are organized in 3 priority levels ranging from global, animation group, and finally, the animation itself.  The global settings are inherited by every group animations which in turn are inherited by all animations unless otherwise specified more explicitly.
 
 #### Options
 
 ##### Include
 
-The includes variable defines if you wish the package to automatically generate all of the animations' classes.
+The includes variable defines if you want the package to automatically generate all of the animations' classes.
 
 The default is `true`.
 
@@ -49,7 +49,7 @@ $vitalize-{animations-group}-include-class: $vitalize-include-class;
 $vitalize-{animation}-include-class: $vitalize-{animations-group}-include-class;
 ```
 
-You may set the global include default to `false` if you wish to only use the animations' mixins and create your own classes or simply if you want to generate specific animations group or animations.  But don't forget to set  the include of the desired animations group or animations' to `true`.
+You may set the global include default to `false` if you wish to only use the animations' mixins and create your own classes or simply if you want to generate specific animations group or animations.  But don't forget to set the include of the desired animations group or animations' to `true`.
 
 
 ##### Properties
@@ -90,7 +90,7 @@ This will be merged with the global defaults and change defaults of all the anim
 'visibility': 'hidden'
 ```
 
-Just like the include variable you may set the properties of specific animations group or animations by modifying their respective properties variable.
+Just like the include variable, you may set the properties of specific animations group or animations by modifying their respective properties variable.
 
 
 ##### Extensions
@@ -114,7 +114,7 @@ $vitalize-default-extensions: (
 );
 ```
 
-With that in mind, let's pretend you want to add a 500ms, 1s and 2s delays as a default for all your animations class.  You can accomplish this like so:
+With that in mind, let's say you want to add a 500ms, 1s and 2s delays as a default for all your animations class.  You can accomplish this like so:
 
 ```sass
 // Exemple of delay extensions.
