@@ -37,7 +37,7 @@ $vitalize-components: () !default;
   $return: $map;
 
   @each $key in $keys {
-     @if type-of($return) == map{
+    @if type-of($return) == map{
       $return: map-get($return, $key);
     }
   }
@@ -57,7 +57,7 @@ $vitalize-components: () !default;
   $result: null;
 
   @if length($keys) == 2 {
-     @return map-merge($map, (nth($keys, 1): nth($keys, -1)));
+    @return map-merge($map, (nth($keys, 1): nth($keys, -1)));
   }
 
   @for $i from 1 through length($keys) - 2 {
@@ -68,7 +68,7 @@ $vitalize-components: () !default;
     $result: map-merge(nth($list, $i), (nth($keys, $i): if($i == length($list), nth($keys, -1), $result)));
   }
 
-@return $result;
+  @return $result;
 }
 
 // Map Has Key
@@ -78,9 +78,9 @@ $vitalize-components: () !default;
 // - @param arglist $keys
 // - @return bool
 @function map-has-keys($map, $keys...) {
-   @each $key in $keys{
+  @each $key in $keys{
     @if not map-has-key($map, $key) {
-       @return false;
+      @return false;
     }
   }
 
@@ -94,9 +94,9 @@ $vitalize-components: () !default;
 // - @param arglist $keys
 // - @return bool
 @function map-has-nested-keys($map, $keys...) {
-   @each $key in $keys{
+  @each $key in $keys{
     @if not map-has-key($map, $key) {
-       @return false;
+      @return false;
     }
     $map: map-get($map, $key);
   }
@@ -113,7 +113,7 @@ $vitalize-components: () !default;
   $level: 1;
 
   @each $key, $value in $map {
-     @if type-of($value) == map{
+    @if type-of($value) == map{
       $level: max(map-depth($value) + 1, $level);
     }
   }
@@ -140,7 +140,7 @@ $vitalize-components: () !default;
       $map: map-merge($map, $current);
     }
     @else {
-       @each $key, $value in $current{
+      @each $key, $value in $current{
         @if type-of($value) == map and type-of(map-get($map, $key)) == map {
           $value: map-extend(map-get($map, $key), $value, true);
         }
@@ -165,11 +165,11 @@ $vitalize-components: () !default;
   $map: ();
 
   @if $length-keys != $length-values {
-     @warn'There are #{$length-keys} key(s) for #{$length-values} value(s) in the map for \'map-zip\'. ' + 'Resulting map will only have #{$min} pairs.';
+    @warn'There are #{$length-keys} key(s) for #{$length-values} value(s) in the map for \'map-zip\'. ' + 'Resulting map will only have #{$min} pairs.';
   }
 
   @if $min == 0 {
-     @return $map;
+    @return $map;
   }
 
   @for $i from 1 through $min {
@@ -190,7 +190,7 @@ $vitalize-components: () !default;
   $map: ();
 
   @if $length-keys == 0 {
-     @return $map;
+    @return $map;
   }
 
   @for $i from 1 through $length-keys {
@@ -215,7 +215,7 @@ $vitalize-components: () !default;
   $index: str-index($string, $search);
 
   @if $index {
-     @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
   }
 
   @return $string;
