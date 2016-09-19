@@ -1,12 +1,12 @@
 // Elixir
-var elixir = require('laravel-elixir');
+const elixir = require('laravel-elixir');
 
 // Extensions
 require('laravel-elixir-mocha');
 
 // Plugins & configuration
 var $ = elixir.Plugins;
-var config = elixir.config;
+var isProduction = elixir.config.production || false;
 
 /*
  |--------------------------------------------------------------------------
@@ -14,21 +14,18 @@ var config = elixir.config;
  |--------------------------------------------------------------------------
  |
  | Elixir provides a clean, fluent API for defining some basic Gulp tasks
- | for your Laravel application. By default, we are compiling the Less
+ | for your Laravel application. By default, we are compiling the Sass
  | file for our application, as well as publishing vendor resources.
  |
  */
 
-elixir(function(mix) {
-    // Add trailing .min when minimizing for production
-    mix.sass('./scss/vitalize.scss', $.if(config.production, './dist/css/vitalize.min.css', './dist/css/vitalize.css'));
+elixir(mix => {
+  // Add trailing .min when minimizing for production
+  mix.sass('./scss/vitalize.scss', $.if(isProduction, './dist/css/vitalize.min.css', './dist/css/vitalize.css'));
+
+  // Run test only when not in production
+  if (! isProduction) {
+    mix.sass('./tests/tests.scss', './tests/results/results.css', null, { includePaths: ['scss', 'tests', 'node_modules/sass-true/sass'] })
+       .mocha('./tests/tests.js');
+  }
 });
-
-
-// Run test only when not in production
-if(! config.production) {
-    elixir(function(mix) {
-        mix.sass('./tests/tests.scss', './tests/results.css', { includePaths: ['scss', 'tests', 'node_modules/sass-true/sass'] })
-           .mocha('./tests/tests.js');
-    });
-}
