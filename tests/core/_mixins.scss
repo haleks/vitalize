@@ -10,214 +10,210 @@
 // --------
 
 @include test-module('keyframe') {
-    @include test('should output prefixed keyframes with requested name') {
-        @include assert('Outputs prefixed keyframes.') {
-            @include input {
-                @include keyframes('name') {
-                    from {
-                        color: red;
-                    }
+  @include test('should output prefixed keyframes with requested name') {
+    @include assert('Outputs prefixed keyframes.') {
+      @include output {
+        @include keyframes('name') {
+          from {
+            color: red;
+          }
 
-                    to {
-                        color: blue;
-                    }
-                };
-            }
+          to {
+            color: blue;
+          }
+        };
+      }
 
-            @include expect {
-                @-webkit-keyframes name {
-                    from {
-                        color: red;
-                    }
+      @include expect {
+        @-webkit-keyframes name {
+          from {
+            color: red;
+          }
 
-                    to {
-                        color: blue;
-                    }
-                }
-
-                @keyframes name {
-                    from {
-                        color: red;
-                    }
-
-                    to {
-                        color: blue;
-                    }
-                }
-            }
+          to {
+            color: blue;
+          }
         }
+
+        @keyframes name {
+          from {
+            color: red;
+          }
+
+          to {
+            color: blue;
+          }
+        }
+      }
     }
+  }
 }
 
 // Animation
 // ---------
 
 @include test-module('animation-set') {
-    @include test('should output animation keyframes with default properties and extensions') {
-        @include assert('Outputs animation with keyframes, properties and extensions.') {
-            @include input {
-                @include animation-set('vitalize') {
-                    from {
-                        color: red;
-                    }
+  @include test('should output animation keyframes with default properties and extensions') {
+    @include assert('Outputs animation with keyframes, properties and extensions.') {
+      @include output {
+        @include animation-set('vitalize') {
+          from {
+            color: red;
+          }
 
-                    to {
-                        color: blue;
-                    }
-                }
-            }
-
-            @include expect {
-                .vitalize {
-                    -webkit-animation-name: "vitalize";
-                    animation-name: "vitalize";
-                    -webkit-animation-iteration-count: 1;
-                    animation-iteration-count: 1;
-                    -webkit-animation-duration: 1s;
-                    animation-duration: 1s;
-                    -webkit-animation-delay: 0s;
-                    animation-delay: 0s;
-                    -webkit-animation-function: ease;
-                    animation-function: ease;
-                    -webkit-animation-fill-mode: both;
-                    animation-fill-mode: both;
-                    -webkit-animation-visibility: hidden;
-                    animation-visibility: hidden;
-                }
-
-                @-webkit-keyframes vitalize {
-                    from {
-                        color: red;
-                    }
-
-                    to {
-                        color: blue;
-                    }
-                }
-
-                @keyframes vitalize {
-                    from {
-                        color: red;
-                    }
-
-                    to {
-                        color: blue;
-                    }
-                }
-            }
+          to {
+            color: blue;
+          }
         }
-    }
+      }
 
-    @include test('should output animation keyframes with custom properties and extensions') {
-        @include assert('Outputs animation with keyframes, properties and extensions.') {
-            @include input {
-                $options: (
-                    'properties': (
-                        'delay': 1s
-                    )
-                );
+      @include expect {
+        -webkit-animation-name: "vitalize";
+        animation-name: "vitalize";
+        -webkit-animation-iteration-count: 1;
+        animation-iteration-count: 1;
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-delay: 0s;
+        animation-delay: 0s;
+        -webkit-animation-function: ease;
+        animation-function: ease;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        -webkit-animation-visibility: hidden;
+        animation-visibility: hidden;
 
-                @include animation-set('vitalize', $options) {
-                    from {
-                        color: red;
-                    }
+        @-webkit-keyframes vitalize {
+          from {
+            color: red;
+          }
 
-                    to {
-                        color: blue;
-                    }
-                }
-            }
-
-            @include expect {
-                .vitalize {
-                    -webkit-animation-name: "vitalize";
-                    animation-name: "vitalize";
-                    -webkit-animation-iteration-count: 1;
-                    animation-iteration-count: 1;
-                    -webkit-animation-duration: 1s;
-                    animation-duration: 1s;
-                    -webkit-animation-delay: 1s;
-                    animation-delay: 1s;
-                    -webkit-animation-function: ease;
-                    animation-function: ease;
-                    -webkit-animation-fill-mode: both;
-                    animation-fill-mode: both;
-                    -webkit-animation-visibility: hidden;
-                    animation-visibility: hidden;
-                }
-
-                @-webkit-keyframes vitalize {
-                    from {
-                        color: red;
-                    }
-
-                    to {
-                        color: blue;
-                    }
-                }
-
-                @keyframes vitalize {
-                    from {
-                        color: red;
-                    }
-
-                    to {
-                        color: blue;
-                    }
-                }
-            }
+          to {
+            color: blue;
+          }
         }
+
+        @keyframes vitalize {
+          from {
+            color: red;
+          }
+
+          to {
+            color: blue;
+          }
+        }
+      }
     }
+  }
+
+  @include test('should output animation keyframes with custom properties and extensions') {
+    @include assert('Outputs animation with keyframes, properties and extensions.') {
+      @include output {
+        $options: (
+          'properties': (
+            'delay': 1s,
+          )
+        );
+
+        @include animation-set('vitalize', $options) {
+          from {
+            color: red;
+          }
+
+          to {
+            color: blue;
+          }
+        }
+      }
+
+      @include expect {
+        -webkit-animation-name: "vitalize";
+        animation-name: "vitalize";
+        -webkit-animation-iteration-count: 1;
+        animation-iteration-count: 1;
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-delay: 1s;
+        animation-delay: 1s;
+        -webkit-animation-function: ease;
+        animation-function: ease;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        -webkit-animation-visibility: hidden;
+        animation-visibility: hidden;
+
+        @-webkit-keyframes vitalize {
+          from {
+            color: red;
+          }
+
+          to {
+            color: blue;
+          }
+        }
+
+        @keyframes vitalize {
+          from {
+            color: red;
+          }
+
+          to {
+            color: blue;
+          }
+        }
+      }
+    }
+  }
 }
 
 @include test-module('animation-name-set') {
-    @include test('should output prefixed animation name property') {
-        @include assert('Outputs prefixed animation name property.') {
-            @include input {
-                @include animation-name-set('vitalize');
-            }
+  @include test('should output prefixed animation name property') {
+    @include assert('Outputs prefixed animation name property.') {
+      @include output {
+        @include animation-name-set('vitalize');
+      }
 
-            @include expect {
-                -webkit-animation-name: "vitalize";
-                animation-name: "vitalize";
-            }
-        }
+      @include expect {
+        -webkit-animation-name: "vitalize";
+        animation-name: "vitalize";
+      }
     }
+  }
 }
 
 @include test-module('animation-properties-set') {
-    @include test('should output prefixed animation properties') {
-        @include assert('Outputs prefixed animation property.') {
-            @include input {
-                $properties: (
-                    'count': 2,
-                    'delay': 250ms
-                );
+  @include test('should output prefixed animation properties') {
+    @include assert('Outputs prefixed animation property.') {
+      @include output {
+        $properties: (
+          'count': 2,
+          'delay': 250ms,
+        );
 
-                @include animation-properties-set($properties);
-            }
+        @include animation-properties-set($properties);
+      }
 
-            @include expect {
-                -webkit-animation-iteration-count: 2;
-                animation-iteration-count: 2;
-                -webkit-animation-delay: 250ms;
-                animation-delay: 250ms;
-            }
-        }
+      @include expect {
+        -webkit-animation-iteration-count: 2;
+        animation-iteration-count: 2;
+        -webkit-animation-delay: 250ms;
+        animation-delay: 250ms;
+      }
     }
+  }
 }
 
 @include test-module('animation-property-set') {
-    @include test('should output prefixed animation property') {
-        @include assert('Outputs prefixed animation property.') {
-            @include input {
-                @include animation-property-set('delay', 250ms);
-            }
+  @include test('should output prefixed animation property') {
+    @include assert('Outputs prefixed animation property.') {
+      @include output {
+        @include animation-property-set('delay', 250ms);
+      }
 
-            @include expect {
-                -webkit-animation-delay: 250ms;
-                animation-delay: 250ms;
-            }
-        }
+      @include expect {
+        -webkit-animation-delay: 250ms;
+        animation-delay: 250ms;
+      }
     }
+  }
 }

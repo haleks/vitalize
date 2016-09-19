@@ -9,13 +9,14 @@
 @import 'true';
 
 // Import settings.
-@import 'settings';
+@import 'variables';
 
 // Import Vitalize.
 @import 'vitalize';
 
 // Import the tests.
-@import 'core/tests';
+@import 'core/functions';
+@import 'core/mixins';
 
 // Run the tests
 @include report;

@@ -1,0 +1,311 @@
+@charset "UTF-8";
+/* # Module: map-deep-get */
+/* ---------------------- */
+/* Test: should return the value of the requested key from a deep nested map */
+/*   ✔ Return the value from a deep nested map. */
+/*  */
+/*  */
+/* # Module: map-deep-set */
+/* ---------------------- */
+/* Test: should set the value of the requested key from a deep nested map */
+/*   ✔ Set a value to deep nested map. */
+/*  */
+/*  */
+/* # Module: map-has-keys */
+/* ---------------------- */
+/* Test: should return true if the requested keys from a map exists */
+/*   ✔ Return true if a deep key exists. */
+/*  */
+/* Test: should return false if the requested keys from a map doesn't exists */
+/*   ✔ Return true if a deep key exists. */
+/*  */
+/*  */
+/* # Module: map-has-nested-keys */
+/* ----------------------------- */
+/* Test: should return true if the requested keys from a deeply nested map exists */
+/*   ✔ Return true if map got all '$keys' nested with each others. */
+/*  */
+/* Test: should return false if the requested keys from a deeply nested map doesn't exists */
+/*   ✔ Return true if map got all '$keys' nested with each others. */
+/*  */
+/*  */
+/* # Module: map-depth */
+/* ------------------- */
+/* Test: should return the depth level of athe deeply nested map */
+/*   ✔ Return the level of depth the map has. */
+/*  */
+/*  */
+/* # Module: map-extend */
+/* -------------------- */
+/* Test: should return a merged map of 2 or more maps */
+/*   ✔ Return a merged map of 2 or more maps */
+/*  */
+/* Test: should return a merged map of 2 or more deeply nested maps */
+/*   ✔ Return a merged map of 2 or more maps */
+/*  */
+/*  */
+/* # Module: map-zip */
+/* ----------------- */
+/* Test: should return a merged map from a list of keys and a list of values */
+/*   ✔ Return a map with merged lists of keys and values. */
+/*  */
+/*  */
+/* # Module: map-combine */
+/* --------------------- */
+/* Test: should return a merged map from a list of keys and a list of values */
+/*   ✔ Return a map with combined lists of keys and values. */
+/*  */
+/*  */
+/* # Module: str-replace */
+/* --------------------- */
+/* Test: should return a string with replaced substring */
+/*   ✔ Return a string with replaced characters. */
+/*  */
+/*  */
+/* # Module: str-escape */
+/* -------------------- */
+/* Test: should return a escaped string */
+/*   ✔ Return a string with escaped characters. */
+/*  */
+/*  */
+/* # Module: str-escape */
+/* -------------------- */
+/* Test: should return a escaped string */
+/*   ✔ Return a string with escaped characters. */
+/*  */
+/*  */
+/* # Module: keyframe */
+/* ------------------ */
+/* Test: should output prefixed keyframes with requested name */
+/*   ASSERT: Outputs prefixed keyframes.   */
+/*   OUTPUT   */
+@-webkit-keyframes name {
+  from {
+    color: red; }
+  to {
+    color: blue; } }
+
+@keyframes name {
+  from {
+    color: red; }
+  to {
+    color: blue; } }
+
+/*   END_OUTPUT   */
+/*   EXPECTED   */
+@-webkit-keyframes name {
+  from {
+    color: red; }
+  to {
+    color: blue; } }
+
+@keyframes name {
+  from {
+    color: red; }
+  to {
+    color: blue; } }
+
+/*   END_EXPECTED   */
+/*   END_ASSERT   */
+/*  */
+/*  */
+/* # Module: animation-set */
+/* ----------------------- */
+/* Test: should output animation keyframes with default properties and extensions */
+/*   ASSERT: Outputs animation with keyframes, properties and extensions.   */
+/*   OUTPUT   */
+.test-output {
+  -webkit-animation-name: "vitalize";
+  animation-name: "vitalize";
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+  -webkit-animation-function: ease;
+  animation-function: ease;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-visibility: hidden;
+  animation-visibility: hidden; }
+
+@-webkit-keyframes vitalize {
+  from {
+    color: red; }
+  to {
+    color: blue; } }
+
+@keyframes vitalize {
+  from {
+    color: red; }
+  to {
+    color: blue; } }
+
+/*   END_OUTPUT   */
+/*   EXPECTED   */
+.test-output {
+  -webkit-animation-name: "vitalize";
+  animation-name: "vitalize";
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+  -webkit-animation-function: ease;
+  animation-function: ease;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-visibility: hidden;
+  animation-visibility: hidden; }
+
+@-webkit-keyframes vitalize {
+  from {
+    color: red; }
+  to {
+    color: blue; } }
+
+@keyframes vitalize {
+  from {
+    color: red; }
+  to {
+    color: blue; } }
+
+/*   END_EXPECTED   */
+/*   END_ASSERT   */
+/*  */
+/* Test: should output animation keyframes with custom properties and extensions */
+/*   ASSERT: Outputs animation with keyframes, properties and extensions.   */
+/*   OUTPUT   */
+.test-output {
+  -webkit-animation-name: "vitalize";
+  animation-name: "vitalize";
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+  -webkit-animation-function: ease;
+  animation-function: ease;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-visibility: hidden;
+  animation-visibility: hidden; }
+
+@-webkit-keyframes vitalize {
+  from {
+    color: red; }
+  to {
+    color: blue; } }
+
+@keyframes vitalize {
+  from {
+    color: red; }
+  to {
+    color: blue; } }
+
+/*   END_OUTPUT   */
+/*   EXPECTED   */
+.test-output {
+  -webkit-animation-name: "vitalize";
+  animation-name: "vitalize";
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+  -webkit-animation-function: ease;
+  animation-function: ease;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-visibility: hidden;
+  animation-visibility: hidden; }
+
+@-webkit-keyframes vitalize {
+  from {
+    color: red; }
+  to {
+    color: blue; } }
+
+@keyframes vitalize {
+  from {
+    color: red; }
+  to {
+    color: blue; } }
+
+/*   END_EXPECTED   */
+/*   END_ASSERT   */
+/*  */
+/*  */
+/* # Module: animation-name-set */
+/* ---------------------------- */
+/* Test: should output prefixed animation name property */
+/*   ASSERT: Outputs prefixed animation name property.   */
+/*   OUTPUT   */
+.test-output {
+  -webkit-animation-name: "vitalize";
+  animation-name: "vitalize"; }
+
+/*   END_OUTPUT   */
+/*   EXPECTED   */
+.test-output {
+  -webkit-animation-name: "vitalize";
+  animation-name: "vitalize"; }
+
+/*   END_EXPECTED   */
+/*   END_ASSERT   */
+/*  */
+/*  */
+/* # Module: animation-properties-set */
+/* ---------------------------------- */
+/* Test: should output prefixed animation properties */
+/*   ASSERT: Outputs prefixed animation property.   */
+/*   OUTPUT   */
+.test-output {
+  -webkit-animation-iteration-count: 2;
+  animation-iteration-count: 2;
+  -webkit-animation-delay: 250ms;
+  animation-delay: 250ms; }
+
+/*   END_OUTPUT   */
+/*   EXPECTED   */
+.test-output {
+  -webkit-animation-iteration-count: 2;
+  animation-iteration-count: 2;
+  -webkit-animation-delay: 250ms;
+  animation-delay: 250ms; }
+
+/*   END_EXPECTED   */
+/*   END_ASSERT   */
+/*  */
+/*  */
+/* # Module: animation-property-set */
+/* -------------------------------- */
+/* Test: should output prefixed animation property */
+/*   ASSERT: Outputs prefixed animation property.   */
+/*   OUTPUT   */
+.test-output {
+  -webkit-animation-delay: 250ms;
+  animation-delay: 250ms; }
+
+/*   END_OUTPUT   */
+/*   EXPECTED   */
+.test-output {
+  -webkit-animation-delay: 250ms;
+  animation-delay: 250ms; }
+
+/*   END_EXPECTED   */
+/*   END_ASSERT   */
+/*  */
+/*  */
+/* # SUMMARY ---------- */
+/* 20 Tests: */
+/*  - 14 Passed */
+/*  - 0 Failed */
+/*  - 6 Output to CSS */
+/* -------------------- */
+
+/*# sourceMappingURL=results.css.map */
