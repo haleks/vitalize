@@ -33,7 +33,7 @@
   -description: "Return true if map got all '$keys' nested with each others."; }
 
 /* # map-depth ---------- */
-/* should return the depth level of athe deeply nested map */
+/* should return the depth level of a deeply nested map */
 [data-module="map-depth"] [data-test="should return the depth level of athe deeply nested map"] .assert-equal {
   -result: PASS;
   -description: "Return the level of depth the map has."; }
