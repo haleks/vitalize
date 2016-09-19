@@ -1,8 +1,8 @@
 {
   "name": "vitalize",
   "description": "A flexible cross-browser library of CSS keyframe animations built with Sass. Components based on Dan Eden's Animate.css.",
-  "version": "0.1.9",
-  "keywords": ["sass", "scss", "vitalize", "vitalize sass", "vitalize scss", "animation", "animations", "animate", "animate scss", "animate sass", "animate css", "haleks", "Alex Villeneuve", "AlexVilleneuve", "Alexandre Villeneuve", "AlexandreVilleneuve", "haleksandre"],
+  "version": "0.1.10",
+  "keywords": ["sass", "scss", "vitalize", "vitalize sass", "vitalize scss", "animation", "animations", "animate", "animate scss", "animate sass", "animate css", "haleks"],
   "license": "MIT",
   "homepage": "https://haleks.ca",
   "repository": {
